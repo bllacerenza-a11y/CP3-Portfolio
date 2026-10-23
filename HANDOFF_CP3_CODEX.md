@@ -15,11 +15,12 @@ Pasta canônica: C:\Users\bruno\Documents\Codex\CP3-Portfolio.
 - Enunciado público lido integralmente na conversa coordenadora.
 - Mapeados 12 requisitos, condições do repositório e vídeo.
 - Pesquisa de skills com leitura de fontes primárias concluída; detalhes em docs/SKILLS_RESEARCH.md.
-- Aplicação, serviços externos, repositório remoto, testes e deploy ainda não configurados.
-- Nenhuma skill externa instalada; nenhuma nota Lighthouse ou teste funcional obtido.
+- Fundação local T01 entregue, revisada pela T00 e integrada à main: 38484a4 (implementação), f31726a (handoff). Contratos em docs/CONTRACTS.md e decisões adotadas em docs/ARCHITECTURE.md.
+- T00 executou npm run check: lint, formato, tipos, build e 1 cenário de navegação em 2 configurações Chromium passaram. Formulário/autorização e demais funcionalidades ainda não existem.
+- Serviços externos, remoto, execução do CI remoto e deploy pendentes. Nenhuma skill externa instalada; nenhuma nota Lighthouse obtida.
 - A presença de documentos e de conversas não representa conclusão das funcionalidades.
 - Projeto CP3-Portfolio cadastrado no aplicativo; esta conversa é T00. Nove chats de execução criados e vinculados em docs/THREADS.md.
-- As nove rodadas iniciais foram interrompidas pelo limite de uso da conta. Chats existem, mas a preparação individual não foi concluída; não reiniciá-los em lote.
+- As primeiras rodadas foram interrompidas pelo limite de uso; depois o usuário retomou T01 e sua entrega foi integrada. T02–T09 aguardam início; não reiniciá-las em lote.
 - Em 23/10/2026, o usuário pediu concluir as bases e avisar antes de implementar para trocar de modelo; autorizou modelos mais econômicos quando adequados. Ver docs/MODEL_POLICY.md.
 
 ## Fontes de verdade
@@ -40,14 +41,14 @@ Ler este handoff, AGENTS.md e STATE. Depois ler sua tarefa e apenas os contratos
 
 Adotado para organização: um chat coordenador, chats por resultado, critérios de aceite, verificação incremental, branches por funcionalidade e passagem de contexto por arquivos.
 
-Stack proposta: React, TypeScript, Vite, React Router, TanStack Query, CSS Modules, React Hook Form/Zod, Supabase Auth/Postgres/RLS, Vercel Functions, provedor de e-mail e Playwright Test. Validar adequação e familiaridade antes de fixar versões e contratos. Não são todas obrigações do professor.
+Fundação adotada e verificada: React, TypeScript, Vite, React Router, CSS Modules, Playwright, ESLint/Prettier. Direção para integrações futuras: TanStack Query, React Hook Form/Zod, Supabase Auth/Postgres/RLS e Vercel Functions; provedor de e-mail condicionado a contas/remetente. Conferir ARCHITECTURE e CONTRACTS. Não são todas obrigações do professor; familiaridade do aluno ainda precisa ser confirmada.
 
 ## Pontos pendentes do usuário ou do curso
 
 - Ano e horário do prazo 03/11.
 - Nome, apresentação, conteúdos e identidade visual do portfólio.
 - Usuário GitHub e contas/destino dos serviços, quando necessários.
-- Stack definitiva e habilidades que o aluno consegue explicar.
+- Revisão das decisões técnicas pelo aluno e familiaridade para explicar a implementação.
 - O professor usará Claude, segundo o usuário; desconhecemos produto, modelo, prompt, skills e ambiente de correção. Revisar contra requisitos verificáveis.
 
 ## Modo de trabalho
@@ -58,4 +59,4 @@ Inspeções podem ocorrer em paralelo; escrever simultaneamente no mesmo checkou
 
 ## Próximo marco
 
-Organização inicial finalizada: avisar o usuário para trocar o modelo. Depois da retomada, T01 valida stack e contratos, configura base local e checks e prepara harness mínimo; o primeiro preview é coordenado com T07. T02 e T04 podem desenvolver propostas independentes enquanto os contratos são definidos. As demais etapas dependem do quadro. A preferência atual é executar uma tarefa por vez para reduzir consumo.
+T02: identidade visual e conteúdo real, componentes responsivos e tema persistido, usando contratos da fundação integrada. A confirmação do CI remoto da T01 permanece pendente sem bloquear esse avanço local. Executar uma tarefa por vez para reduzir consumo; testes e documentação acompanham cada entrega. Ver docs/STATE.md e docs/handoffs/T00-revisao-T01.md.

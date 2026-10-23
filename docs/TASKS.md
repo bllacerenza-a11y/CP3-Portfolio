@@ -1,8 +1,8 @@
 # Plano de tarefas — CP3 Portfolio
 
-Este documento define escopo e dependências. T00 já organizou as bases; as tarefas de implementação T01–T09 permanecem **PLANEJADAS**. A criação destas instruções não comprova implementação, teste, publicação ou atendimento de requisito. O estado corrente é mantido exclusivamente por T00 em `docs/STATE.md`; os chats responsáveis são registrados em `docs/THREADS.md`.
+Este documento define escopo e dependências. T00 organizou as bases e revisou/integrou a fundação local de T01; o aceite do CI remoto permanece pendente. T02–T09 permanecem **PLANEJADAS**. O estado corrente é mantido exclusivamente por T00 em `docs/STATE.md`; os chats responsáveis são registrados em `docs/THREADS.md`.
 
-`docs/REQUIREMENTS.md` e o enunciado prevalecem sobre este plano. Cada chat deve identificar os requisitos que atende, preservar as restrições acadêmicas e registrar divergências antes de ampliar o escopo. Sugestões de melhoria não viram requisitos automaticamente. `docs/ARCHITECTURE.md` contém propostas que ainda precisam ser validadas, não uma stack integralmente aprovada.
+`docs/REQUIREMENTS.md` e o enunciado prevalecem sobre este plano. Cada chat deve identificar os requisitos que atende, preservar as restrições acadêmicas e registrar divergências antes de ampliar o escopo. Sugestões de melhoria não viram requisitos automaticamente. `docs/ARCHITECTURE.md` distingue a fundação adotada e validada das integrações ainda pendentes.
 
 ## Entrada nos chats
 
@@ -15,8 +15,8 @@ Somente T00 atualiza o estado em `docs/STATE.md`, dependências neste plano e v�
 | ID | Tarefa | Status | Dependências principais |
 | --- | --- | --- | --- |
 | T00 | Coordenação e memória do projeto | EM ANDAMENTO; bases concluídas | Nenhuma; acompanha todas as tarefas |
-| T01 | Fundação, arquitetura, harness, build e CI | PLANEJADA | Requisitos e decisões iniciais disponíveis |
-| T02 | Design, tema, componentes e conteúdo | PLANEJADA | Pesquisa pode começar; implementação após T01 |
+| T01 | Fundação, arquitetura, harness, build e CI | EM REVISÃO; base local integrada, CI remoto pendente | Remoto GitHub para verificar execução CI |
+| T02 | Design, tema, componentes e conteúdo | PLANEJADA; liberada para início | Base local T01 integrada; conteúdo e direção visual a definir |
 | T03 | GitHub, rotas e cache | PLANEJADA | T01; contrato de dados; alinhamento com T02 |
 | T04 | Banco, autenticação, RLS, API de contato e email | PLANEJADA | Pesquisa pode começar; implementação após T01 e contrato de dados |
 | T05 | Contato, dashboard e destaques integrados no frontend | PLANEJADA | T02, T03 e T04 integráveis |
