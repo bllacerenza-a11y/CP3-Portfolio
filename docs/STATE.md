@@ -1,72 +1,53 @@
 # Estado do projeto
 
-Atualização: 23/10/2026, America/Sao_Paulo. Responsável: chat coordenador T00.
+Atualização: 23/10/2026, America/Sao_Paulo. Responsável: coordenação T00.
 
-## Verificado
+## Estado verificado
 
-- Usuário confirmou início do zero.
-- Enunciado lido e requisitos organizados.
-- Pesquisa de skills realizada em fontes primárias.
-- Projeto CP3-Portfolio cadastrado e pasta canônica criada.
-- Dez conversas vinculadas: coordenação T00 e frentes T01–T09, conferidas no aplicativo.
-- Requisitos, tarefas, arquitetura proposta, pesquisa de skills, plano de testes, rubrica e modelo de handoff consolidados.
-- Instruções compartilhadas em AGENTS.md e referência em CLAUDE.md.
-- Revisão documental do plano de testes/rubrica contra requisitos executada; correções incorporadas pela coordenação.
-- Base documental inicial registrada em 0d31011 e 560e277.
-- T01 revisada pela T00: implementação 38484a4 e handoff f31726a integrados à main por fast-forward em 23/10/2026.
-- Fundação React/TypeScript/Vite, Router, CSS Modules, lint/formatação, Playwright e configuração de CI presentes. Contratos em docs/CONTRACTS.md; decisões em docs/ARCHITECTURE.md; inventário em docs/HARNESS.md.
-- npm run check executado pela T00 sobre f31726a: exit 0, lint/formatação/tipos/build aprovados, 1 cenário E2E aprovado em 2 configurações (Chromium desktop/mobile).
-- Preferência do usuário por economia de modelos/contexto registrada em docs/MODEL_POLICY.md.
-
-## Não realizado
-
-- Funcionalidades finais do portfólio: conteúdo, tema, integração GitHub, formulário, login e dashboard.
-- Repositório remoto, Supabase, provedor de e-mail e Vercel.
-- Instalação/configuração de skills externas ou MCPs.
-- Testes obrigatórios de formulário e bloqueio sem login, integrações reais, Lighthouse, deploy e vídeo. O teste atual cobre somente navegação/404.
-- Execução do CI no GitHub: workflow versionado, mas remoto ainda ausente.
-
-## Cadastro no aplicativo
-
-Confirmado por list_projects e list_threads em 23/10/2026. ID do projeto: af83f24f-ec4d-4a09-a003-802517dbbf8f. Diretório: C:\Users\bruno\Documents\Codex\CP3-Portfolio.
-
-As nove conversas de execução existem. As primeiras rodadas terminaram com erro de limite de uso da conta; esse resultado é histórico. T01 foi retomada pelo usuário, entregou a fundação e ficou idle antes da integração pela T00. T02–T09 ainda aguardam início; não foram reiniciadas em lote.
+- Projeto CP3-Portfolio cadastrado; coordenação e nove chats vinculados. Pasta canônica: C:\Users\bruno\Documents\Codex\CP3-Portfolio.
+- Requisitos, tarefas, decisões, pesquisa de skills, plano de testes e rubrica versionados.
+- T01: fundação React/TypeScript/Vite/Router/CSS Modules, Playwright, lint/formatação e workflow CI entregues em 38484a4/f31726a e integrados pela T00. Revisão em docs/handoffs/T00-revisao-T01.md.
+- T02: identidade editorial, conteúdo, componentes, UI responsiva e tema persistido entregues em 9d7c883/e129e35. T00 revisou código/contratos, conferiu as respostas do usuário no chat e inspecionou capturas desktop claro/mobile escuro. Fechamento da integração no commit que contém docs/handoffs/T00-revisao-T02.md.
+- T00 executou npm run check sobre e129e35: exit 0, lint/formatação/tipos/build e 16 execuções E2E aprovadas (8 cenários em Chromium desktop/mobile); runner 8,0 s.
+- frontend-design aplicada textualmente na T02; SHA, licença e inventário registrados em T02_DESIGN.md. Nenhum pacote de skill instalado. Demais candidatas somente pesquisadas/recomendadas.
+- Nome Bruno Bastos, FIAP/Engenharia de Software/primeiro ano e direção editorial autorizados pelo usuário na T02. GitHub público bllacerenza-a11y; três referências em T02_DESIGN.
 
 ## Situação das tarefas
 
 | Tarefa | Situação real |
 | --- | --- |
-| T00 | Bases de organização concluídas; coordenação continuará durante o projeto |
-| T01 | Base local aprovada e integrada; EM REVISÃO para o aceite de CI remoto, ainda pendente |
-| T02 | PLANEJADA; próxima frente liberada para o usuário iniciar |
-| T03–T09 | PLANEJADAS; respeitar dependências de TASKS.md |
+| T00 | Coordenação ativa; revisão T02 registrada |
+| T01 | Base local aprovada e integrada; EM REVISÃO para execução do CI remoto |
+| T02 | CONCLUÍDA no escopo local UI/tema; integrações T03–T05 separadas |
+| T03 | PLANEJADA; próxima frente liberada para início pelo usuário |
+| T04–T09 | PLANEJADAS, conforme dependências de TASKS.md |
 
-T00 concluiu a revisão e integração local. Próximo escritor previsto: T02, quando iniciado pelo usuário. Conferir branch/status antes de editar; não iniciar outros escritores simultâneos no mesmo checkout.
+Os erros iniciais de limite de uso são históricos. T01/T02 foram retomadas e estavam idle antes das revisões. T03–T09 não foram reiniciadas em lote.
+
+## Pendências e limites
+
+- API GitHub, lista/detalhes dinâmicos e cache ainda não implementados. Cards atuais são curadoria editorial, não comprovam R03.
+- Formulário, autenticação/dashboard, banco/RLS, e-mail, serviços e deploy pendentes.
+- Remoto GitHub não configurado; workflow CI existe, mas nunca foi executado remotamente.
+- Testes obrigatórios de formulário e bloqueio sem login, Lighthouse e vídeo não realizados.
+- Responsividade e tema verificados nos perfis registrados; sem conclusão de acessibilidade integral ou dispositivo físico.
+- SmartCameraStudy de PedroOliDev retornou 404 na consulta pública da T02. Causa não comprovada; confirmar URL/acesso sem inventar dados.
+- Habilidades específicas, contato direto, foto e função individual nos projetos pendentes. Ano/horário do prazo 03/11 não confirmados.
+
+## Preservação do checkout
+
+Há edição local preexistente na última frase de docs/handoffs/T02-design-tema.md (troca textual com erro de digitação). T00 a preservou literalmente e não a incluiu no commit da revisão. Próximo executor deve conferir Git e respeitá-la. Código/configuração/testes correspondem ao candidato revisado.
+
+Um escritor por checkout. Próximo escritor previsto é T03 quando iniciado pelo usuário; abrir branch própria a partir da main integrada e conferir status antes de editar.
 
 ## Próxima ação
 
-Iniciar T02 — Design, conteúdo e tema. Ler o handoff T01, contratos e sua seção de TASKS; levantar conteúdo/identidade visual com o usuário, avaliar adoção da skill frontend-design conforme pesquisa, implementar UI responsiva, componentes necessários e tema persistido, com verificações reais. API, contato e dashboard ficam nas tarefas responsáveis. CI remoto pendente não bloqueia esse trabalho local.
+Iniciar CP3 · 03 — GitHub, rotas e cache. Ler sua tarefa, CONTRACTS, T02_DESIGN e handoff T02. Integrar API real, cards/lista/detalhes por URL, estados de dados e cache; preservar UI/tema. Contemplar referências de donos diferentes e indisponibilidade. Avaliar Vercel React Best Practices filtrada para Vite antes da adoção, registrando revisão e adequação. CI remoto pendente não bloqueia o avanço local.
 
-## Bloqueios de produto
+## Evidências e revisão
 
-Dados pessoais/conteúdo/estilo, usuário GitHub e destinos dos serviços serão definidos nas tarefas apropriadas. Prazo 03/11 sem ano/horário confirmados. Nenhum desses pontos bloqueia a organização inicial.
-
-## Evidências da organização
-
-- list_projects/list_threads: projeto e dez conversas vinculados ao diretório correto.
-- wait_threads por conversa T01–T09: execução inicial interrompida por limite de uso, sem conclusão das tarefas.
-- Inventário: 14 documentos Markdown e .gitignore na base 0d31011.
-- Verificação local de links Markdown: 13 destinos locais conferidos, nenhum ausente.
-- git diff --cached --check: aprovado após retirar linhas vazias excedentes no fim de dois arquivos.
-- Revisão documental independente com Luna: plano e rubrica cobrem os requisitos; coordenação conferiu e corrigiu critérios que poderiam ampliar R02/R08.
-- Na entrega inicial de organização não havia aplicação; os resultados atuais da T01 estão acima. Inspeção manual no navegador foi registrada pelo executor T01, não repetida pela T00. Lighthouse continua não executado.
-
-## Revisão da T01 pela T00
-
-- Fonte: docs/handoffs/T01-fundacao.md e diff 560e277..f31726a, lidos contra o escopo da fundação.
-- Checkout estava limpo e o chat T01 idle antes de trocar branch.
-- Configuração CI, scripts, tipos, contratos, rotas, shell e teste inspecionados. Nenhum impedimento local identificado para T02.
-- npm run check: aprovado no candidato f31726a, incluindo build e E2E desktop/mobile.
-- git diff --check main...HEAD: aprovado antes da integração.
-- git merge --ff-only codex/t01-foundation: aprovado em main; preservados os commits originais.
-- Evidência detalhada e limites: docs/handoffs/T00-revisao-T01.md.
+- T00: npm run check no candidato e129e35 aprovado; implementação 9d7c883.
+- Capturas abertas pela T00: docs/evidence/T02/home-1440-light.png e home-390-dark.png, sem impedimento visual observado.
+- git diff --check main...HEAD e git merge-base --is-ancestor main HEAD aprovados antes da integração.
+- Chat T02 idle e respostas do usuário conferidas via ferramentas do aplicativo.
+- Revisão detalhada: docs/handoffs/T00-revisao-T02.md. A inspeção interativa do navegador foi realizada pelo executor; T00 repetiu a suíte e inspecionou as capturas.

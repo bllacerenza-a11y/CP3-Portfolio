@@ -17,10 +17,12 @@ Pasta canônica: C:\Users\bruno\Documents\Codex\CP3-Portfolio.
 - Pesquisa de skills com leitura de fontes primárias concluída; detalhes em docs/SKILLS_RESEARCH.md.
 - Fundação local T01 entregue, revisada pela T00 e integrada à main: 38484a4 (implementação), f31726a (handoff). Contratos em docs/CONTRACTS.md e decisões adotadas em docs/ARCHITECTURE.md.
 - T00 executou npm run check: lint, formato, tipos, build e 1 cenário de navegação em 2 configurações Chromium passaram. Formulário/autorização e demais funcionalidades ainda não existem.
+- T02 entregue em 9d7c883/e129e35: conteúdo, identidade editorial, UI responsiva e tema persistido. T00 revisou código/contratos, conferiu respostas do usuário e inspecionou capturas; npm run check passou com 16 execuções. Ver STATE e docs/handoffs/T00-revisao-T02.md.
 - Serviços externos, remoto, execução do CI remoto e deploy pendentes. Nenhuma skill externa instalada; nenhuma nota Lighthouse obtida.
+- frontend-design aplicada textualmente na T02, com revisão/licença/inventário registrados em T02_DESIGN.md. Nenhuma instalação. Demais candidatas continuam somente pesquisadas.
 - A presença de documentos e de conversas não representa conclusão das funcionalidades.
 - Projeto CP3-Portfolio cadastrado no aplicativo; esta conversa é T00. Nove chats de execução criados e vinculados em docs/THREADS.md.
-- As primeiras rodadas foram interrompidas pelo limite de uso; depois o usuário retomou T01 e sua entrega foi integrada. T02–T09 aguardam início; não reiniciá-las em lote.
+- As primeiras rodadas foram interrompidas pelo limite de uso; depois o usuário retomou T01 e T02. T03–T09 aguardam início; não reiniciá-las em lote.
 - Em 23/10/2026, o usuário pediu concluir as bases e avisar antes de implementar para trocar de modelo; autorizou modelos mais econômicos quando adequados. Ver docs/MODEL_POLICY.md.
 
 ## Fontes de verdade
@@ -46,8 +48,8 @@ Fundação adotada e verificada: React, TypeScript, Vite, React Router, CSS Modu
 ## Pontos pendentes do usuário ou do curso
 
 - Ano e horário do prazo 03/11.
-- Nome, apresentação, conteúdos e identidade visual do portfólio.
-- Usuário GitHub e contas/destino dos serviços, quando necessários.
+- Nome Bruno Bastos, apresentação FIAP/primeiro ano e identidade editorial definidos na T02. Habilidades, foto, contato direto e função individual nos projetos ainda pendentes.
+- GitHub bllacerenza-a11y confirmado como origem; SmartCameraStudy de PedroOliDev retornou 404 na consulta T02. Contas/destinos dos serviços seguem pendentes.
 - Revisão das decisões técnicas pelo aluno e familiaridade para explicar a implementação.
 - O professor usará Claude, segundo o usuário; desconhecemos produto, modelo, prompt, skills e ambiente de correção. Revisar contra requisitos verificáveis.
 
@@ -59,4 +61,4 @@ Inspeções podem ocorrer em paralelo; escrever simultaneamente no mesmo checkou
 
 ## Próximo marco
 
-T02: identidade visual e conteúdo real, componentes responsivos e tema persistido, usando contratos da fundação integrada. A confirmação do CI remoto da T01 permanece pendente sem bloquear esse avanço local. Executar uma tarefa por vez para reduzir consumo; testes e documentação acompanham cada entrega. Ver docs/STATE.md e docs/handoffs/T00-revisao-T01.md.
+T03: API GitHub real, URLs de detalhes, estados e cache preservando UI/tema da T02. Ver STATE, CONTRACTS, T02_DESIGN e docs/handoffs/T00-revisao-T02.md. CI remoto pendente não bloqueia o trabalho local. Uma edição textual preexistente no handoff T02 foi preservada fora do commit; conferir Git. Executar uma tarefa por vez.

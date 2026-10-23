@@ -21,7 +21,7 @@ Projeto ID: af83f24f-ec4d-4a09-a003-802517dbbf8f. Host: local. Conferido no apli
 | T08 | CP3 · 08 — Auditoria independente | 01a1677e-aa5f-7003-9b53-933c27c74645 |
 | T09 | CP3 · 09 — Documentação e vídeo | 01a1677e-ae73-7713-90e2-f0dadbc67078 |
 
-As primeiras rodadas de T01–T09 foram interrompidas pelo limite de uso da conta. Depois, o usuário retomou T01: a base local foi entregue, revisada pela T00 e integrada à main até f31726a. Handoffs: docs/handoffs/T01-fundacao.md e docs/handoffs/T00-revisao-T01.md. CI remoto continua pendente. T02 é a próxima conversa a iniciar; T03–T09 aguardam suas dependências. Retomar uma frente por vez.
+As primeiras rodadas tiveram erros de limite de uso, históricos. T01 e T02 foram retomadas e revisadas pela T00. Fundação T01: f31726a; UI/tema T02: candidato 9d7c883 e handoff e129e35. Revisões em docs/handoffs/T00-revisao-T01.md e T00-revisao-T02.md. CI remoto pendente. T03 é a próxima conversa a iniciar; T04–T09 aguardam dependências. Retomar uma frente por vez.
 
 Os prompts iniciais limitam a primeira rodada à preparação em leitura. O usuário pode iniciar o trabalho no chat correspondente. Todas apontam para o mesmo checkout; não disparar edições simultâneas sem isolamento e integração combinados.
 
