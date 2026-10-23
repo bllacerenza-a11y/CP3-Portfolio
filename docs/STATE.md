@@ -12,7 +12,7 @@ Atualização: 23/10/2026, America/Sao_Paulo. Responsável: chat coordenador T00
 - Requisitos, tarefas, arquitetura proposta, pesquisa de skills, plano de testes, rubrica e modelo de handoff consolidados.
 - Instruções compartilhadas em AGENTS.md e referência em CLAUDE.md.
 - Revisão documental do plano de testes/rubrica contra requisitos executada; correções incorporadas pela coordenação.
-- Git local inicializado; registro final da organização preparado para commit. Nenhum remoto configurado.
+- Base documental registrada no commit 0d31011, criado na branch docs/project-bootstrap. Nenhum remoto configurado. O fechamento deste estado será registrado no commit seguinte; consultar git log para a revisão corrente.
 - Preferência do usuário por economia de modelos/contexto registrada em docs/MODEL_POLICY.md.
 
 ## Não realizado
@@ -44,3 +44,13 @@ Avisar o usuário de que as bases estão prontas para trocar o modelo, conforme 
 ## Bloqueios de produto
 
 Dados pessoais/conteúdo/estilo, usuário GitHub e destinos dos serviços serão definidos nas tarefas apropriadas. Prazo 03/11 sem ano/horário confirmados. Nenhum desses pontos bloqueia a organização inicial.
+
+## Evidências da organização
+
+- list_projects/list_threads: projeto e dez conversas vinculados ao diretório correto.
+- wait_threads por conversa T01–T09: execução inicial interrompida por limite de uso, sem conclusão das tarefas.
+- Inventário: 14 documentos Markdown e .gitignore na base 0d31011.
+- Verificação local de links Markdown: 13 destinos locais conferidos, nenhum ausente.
+- git diff --cached --check: aprovado após retirar linhas vazias excedentes no fim de dois arquivos.
+- Revisão documental independente com Luna: plano e rubrica cobrem os requisitos; coordenação conferiu e corrigiu critérios que poderiam ampliar R02/R08.
+- Testes de aplicação, navegador e Lighthouse: não executados; aplicação ainda inexistente.
