@@ -34,9 +34,17 @@ Proprietário único: UUID de Auth definido por configuração/migração, nunca
 
 ## UI e responsabilidades de edição
 
-T02 define tokens semânticos `--color-background`, `--color-text`, `--color-muted`, `--color-link`, adicionando surface/border/accent/error quando usados. Cores atuais são provisórias. Tema futuro usa `data-theme="light|dark"` na raiz e localStorage `cp3.theme`; sem preferência explícita, usar sistema. Conteúdo/identidade vêm do usuário.
+T02 implementa tokens semânticos `--color-background`, `--color-text`, `--color-muted`, `--color-link`, `--color-surface`, `--color-border`, `--color-accent`, `--color-on-accent` e `--color-error`. Direção editorial confirmada pelo usuário em docs/T02_DESIGN.md. Tema usa `data-theme="light|dark"` na raiz e localStorage `cp3.theme` (`light` ou `dark`); ausência/valor inválido segue sistema. Retorno ao sistema remove a chave. Storage bloqueado mantém a alternância apenas durante a sessão; não prometer persistência nesse caso. Script inicial em index.html aplica antes do React; themeStore/useTheme mantêm mudanças de sistema e outras abas.
 
-Componentes planejados: Button (props nativas, disabled durante envio), Field (label/id, hint e erro associados via aria-describedby), AsyncState (mensagens acessíveis), ProjectCard (recebe Project), ThemeToggle. T02 fecha as props concretas antes do consumo; nomes não autorizam criar abstrações vazias agora.
+Contratos concretos da T02:
+
+- `Button`: props nativas de botão; `variant?: primary | quiet`, padrão primary; `type` padrão button. Consumidor T05 define type submit e disabled durante envio. Não usar botão para navegação.
+- `ThemeToggle`: sem props, usa `useTheme`; botão alterna claro/escuro e botão `Usar sistema` expõe seleção por aria-pressed.
+- `AsyncState`: `status: loading | error | empty | success`, `title: string`, `children?: ReactNode`, `onRetry?: () => void`. Error usa alert; demais status usam status; loading tem indicador com movimento reduzido. Retry só aparece em error com callback. T03/T05 controlam os estados e devem verificar as transições reais; T02 usa empty no aviso de contato em preparação.
+- `ProjectCard`: `project: Pick<Project, 'owner' | 'name'>`, `title`, `summary`, `context`, `note` (strings), `available` (boolean). Um Project completo é estruturalmente aceito. No estágio T02, recebe referências escolhidas e resumos editoriais dos READMEs; link externo só quando a referência foi acessível. Não afirma integração API. T03 deve acrescentar o link interno de detalhes e metadados da API; não transformar essa curadoria em cadastro manual substituto da API. Contexto editorial e participação são distintos de descrição/linguagem/datas fornecidas pelo GitHub.
+- `Field` fica para T05, quando existir formulário real; contrato preservado: label/id, hint/erro por aria-describedby e aria-invalid quando aplicável. Não foi criada abstração sem uso. T05 reutiliza tokens, Button e AsyncState; painel/destaques seguem os contratos de dados acima.
+
+Conteúdo editável em `src/content/portfolio.ts`; origem e pendências em docs/T02_DESIGN.md. Atenção T03: seleção inclui dois donos diferentes e uma referência com 404 público. A curadoria inicial não determina o acesso a repositórios privados nem expõe credenciais. T04/T05 continuam responsáveis pelo mecanismo persistido de destaques.
 
 T01 estabelece package/lock/configs e roteador inicial; T02 é dono dos estilos/componentes, T03 de projetos/cache/rotas públicas, T04 de contratos de servidor/schemas/migrations, T05 de formulário/dashboard. Modificação de package/lock, rotas, tokens e contratos exige conferir o Git e atualizar este acordo/handoff antes de outro escritor começar. Um escritor por checkout; usuário iniciou T01 neste checkout limpo. Coordenação T00 revisa integração; não editar STATE/THREADS em executor.
 

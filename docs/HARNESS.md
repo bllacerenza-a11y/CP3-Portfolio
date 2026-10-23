@@ -20,3 +20,9 @@ Estado em 23/10/2026. Inventário sanitizado: este documento e os arquivos de pr
 5. Atualizar handoff individual com comandos, revisão, resultados e pendências; T00 atualiza o estado canônico.
 
 Nenhum MCP de banco nem skill adicional é necessário para rodar a fundação. G02 continua pendente de demonstração final das categorias realmente usadas; inventário não equivale ao vídeo entregue.
+
+## Aplicação na T02
+
+Em 23/10/2026, T02 aplicou `frontend-design` como orientação textual, após leitura integral do SKILL.md e licença, conferência do inventário e fixação do SHA. Não houve instalação, cópia de pacote, script externo nem dependência adicional. Avaliação, adaptação às instruções do usuário e plano em T02_DESIGN.md; verificações em handoffs/T02-design-tema.md.
+
+Execução T02: um escritor na branch `codex/t02-design-theme`; nenhum novo subagente ou outro chat acionado na implementação. A tentativa histórica de subagente na contextualização inicial falhou por limite de uso e não produziu entrega. Ferramentas: Git/npm, edição de arquivos, consulta pública GitHub, navegador do aplicativo e suíte Playwright versionada. Nenhuma conta GitHub autenticada foi usada, nenhum serviço publicado e nenhum modelo da conversa alterado por ferramenta.

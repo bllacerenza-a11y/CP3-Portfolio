@@ -5,9 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Base do portfólio individual CP3 em desenvolvimento."
+      content="Portfólio de Bruno Bastos, estudante de Engenharia de Software na FIAP. Conheça os projetos selecionados."
     />
-    <title>CP3 — Portfólio em desenvolvimento</title>
+    <title>Bruno Bastos | Portfólio</title>
+    <script>
+      // Aplicar antes da primeira pintura, inclusive no refresh.
+      (() => {
+        let theme;
+        try {
+          theme = localStorage.getItem('cp3.theme');
+        } catch {
+          /* Storage opcional. */
+        }
+        document.documentElement.dataset.theme =
+          theme === 'light' || theme === 'dark'
+            ? theme
+            : matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,0 +1,42 @@
+.state {
+  padding: 1rem;
+  border-left: 3px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: 0 0.4rem 0.4rem 0;
+}
+.state[data-status='error'] {
+  border-color: var(--color-error);
+}
+.state[data-status='success'] {
+  border-color: var(--color-accent);
+}
+.title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0;
+  font-weight: 600;
+}
+.detail {
+  color: var(--color-muted);
+  margin-block: 0.4rem 0.8rem;
+}
+.spinner {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  border: 2px solid var(--color-border);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+}

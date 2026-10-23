@@ -1,10 +1,240 @@
 .page {
-  max-width: 48rem;
+  width: min(100% - 3rem, 78rem);
   margin-inline: auto;
-  padding: clamp(1.5rem, 6vw, 4rem);
 }
-
-.eyebrow {
+.skipLink {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10;
+  padding: 0.75rem 1rem;
+  background: var(--color-surface);
+  transform: translateY(-200%);
+}
+.skipLink:focus {
+  transform: translateY(0);
+}
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding-block: 1.6rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+}
+.brand small {
+  display: block;
   color: var(--color-muted);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+.mark {
+  display: grid;
+  place-items: center;
+  width: 2.7rem;
+  height: 2.7rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font: 1.9rem var(--font-display);
+}
+.header nav {
+  display: flex;
+  gap: 1.5rem;
+}
+.header nav a {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: var(--color-text);
   font-size: 0.875rem;
+  text-decoration: none;
+}
+.header nav a:hover {
+  text-decoration: underline;
+}
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 2.5fr) minmax(13rem, 1fr);
+  gap: 4rem;
+  align-items: end;
+  padding-block: clamp(3.5rem, 7vw, 7rem);
+}
+.introduction {
+  max-width: 29rem;
+  color: var(--color-muted);
+  margin: 0 0 1.5rem;
+}
+.hero h1 {
+  margin: 0 0 2.5rem;
+  font-size: clamp(2.75rem, 5.5vw, 5.1rem);
+  letter-spacing: -0.045em;
+  line-height: 1.07;
+}
+.heroAside {
+  max-width: 21rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--color-accent);
+  color: var(--color-muted);
+}
+.heroAside p:first-child {
+  color: var(--color-text);
+  font-weight: 600;
+}
+.heroAside a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+}
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.8rem 1.4rem;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  border-radius: 0.4rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+.cta:hover {
+  text-decoration: underline;
+}
+.section {
+  padding-block: 3rem;
+  border-top: 1px solid var(--color-border);
+  scroll-margin-top: 1.5rem;
+}
+.section h2 {
+  margin: 0 0 1.4rem;
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+}
+.sectionHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 2rem;
+  margin-bottom: 1rem;
+}
+.sectionHeading p {
+  color: var(--color-muted);
+}
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.aboutContact {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5rem;
+  margin-top: 1.5rem;
+}
+.aboutText {
+  max-width: 38rem;
+}
+.education {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  margin-top: 2rem;
+}
+.education dt {
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+}
+.education dd {
+  margin: 0.4rem 0 0;
+}
+.profileLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  margin-bottom: 1.5rem;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  border-top: 1px solid var(--color-border);
+  padding-block: 1.5rem;
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+}
+.footer p {
+  margin: 0;
+}
+.footer span {
+  display: block;
+}
+.footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+}
+.notFound {
+  padding-block: 6rem;
+  max-width: 42rem;
+  min-height: 65vh;
+}
+.notFound h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-block: 1rem;
+}
+.notFound .cta {
+  margin-top: 1.5rem;
+}
+@media (max-width: 62rem) {
+  .header nav {
+    margin-left: auto;
+  }
+  .hero {
+    gap: 2rem;
+    grid-template-columns: minmax(0, 2fr) minmax(12rem, 1fr);
+  }
+  .projects {
+    grid-template-columns: 1fr;
+  }
+  .aboutContact {
+    gap: 2rem;
+  }
+}
+@media (max-width: 40rem) {
+  .page {
+    width: calc(100% - 2rem);
+  }
+  .header {
+    gap: 0.75rem;
+    padding-block: 1.1rem;
+  }
+  .header nav {
+    gap: 1rem;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .heroAside {
+    max-width: 100%;
+  }
+  .aboutContact {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 0;
+  }
+  .section {
+    padding-block: 2.25rem;
+  }
 }

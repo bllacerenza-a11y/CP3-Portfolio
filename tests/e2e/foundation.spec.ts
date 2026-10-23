@@ -18,7 +18,7 @@ test('URL inexistente oferece recuperação para a home, inclusive após refresh
   await page.getByRole('link', { name: 'Voltar ao início' }).click();
   await expect(page).toHaveURL('/');
   await expect(
-    page.getByRole('heading', { name: 'Portfólio em construção' }),
+    page.getByRole('heading', { name: 'Software se aprende construindo.' }),
   ).toBeVisible();
   await page.goBack();
   await expect(

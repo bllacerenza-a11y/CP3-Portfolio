@@ -1,6 +1,6 @@
 # CP3 — Portfólio, Stack e Harness Engineering
 
-Projeto individual de portfólio React, iniciado do zero. A T01 entrega a fundação local: home provisória, recuperação de URL inexistente, contratos, build, verificações e configuração de CI. Projetos GitHub, contato, autenticação, painel e tema persistido serão implementados nas tarefas seguintes.
+Projeto individual de portfólio React, iniciado do zero. A fundação T01 está integrada. A T02 acrescenta apresentação de Bruno Bastos, seleção editorial de repositórios, layout responsivo e tema claro/escuro persistido. Integração dinâmica GitHub, contato, autenticação e painel continuam nas tarefas responsáveis. Consulte docs/STATE.md para o estado de integração e docs/handoffs/T02-design-tema.md para a entrega local.
 
 ## Começar por aqui
 
@@ -72,7 +72,13 @@ Responsáveis por arquivos compartilhados e contratos estão em CONTRACTS.md. Um
 
 Convenção inicial: GitHub Flow, branch por funcionalidade, commits com prefixos feat, fix, test, docs, refactor, chore e ci. O histórico deve refletir trabalho real. O repositório remoto público e a integração com Vercel ainda precisam ser configurados.
 
-Branch principal local adotada: `main`. A fundação T01 foi integrada após revisão local da T00; a próxima frente é T02 (design, conteúdo e tema). Consulte STATE para o estado atual; não é necessário repetir toda a pesquisa nem iniciar todos os chats.
+Branch principal local adotada: `main`. A fundação T01 foi integrada após revisão local da T00. A entrega T02 fica em branch própria para revisão e integração pela coordenação. Consulte STATE para o estado canônico e o handoff T02 para o candidato; não iniciar todos os chats.
+
+## Conteúdo e tema
+
+Conteúdo editorial em `src/content/portfolio.ts`, com fontes em [T02_DESIGN.md](docs/T02_DESIGN.md). Os resumos iniciais não substituem a integração API prevista na T03. Não atribuir autoria exclusiva ou tecnologias dominadas a partir de um README de equipe.
+
+Preferência em `cp3.theme`: `light` ou `dark`. Sem preferência válida, acompanhar o sistema; “Usar sistema” remove a escolha. Tokens CSS e componentes compartilhados estão documentados em [CONTRACTS.md](docs/CONTRACTS.md). Sem armazenamento disponível, alternar funciona na sessão, mas não persiste após recarregar. Testes cobrem também esse limite.
 
 ## Entregas finais
 

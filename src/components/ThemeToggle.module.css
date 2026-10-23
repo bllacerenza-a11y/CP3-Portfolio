@@ -1,0 +1,16 @@
+.controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+}
+.system {
+  border-color: transparent;
+  padding-inline: 0.6rem;
+  color: var(--color-muted);
+}
+.system[aria-pressed='true'] {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}

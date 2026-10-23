@@ -4,7 +4,7 @@ Data da consulta: 23 de outubro de 2026.
 
 Este documento registra uma avaliação documental para um projeto acadêmico individual com React, Vite e TypeScript, interface responsiva, API do GitHub, formulário de contato com backend, dashboard autenticado, testes, CI e meta de Lighthouse mobile de pelo menos 80, conforme a rubrica do projeto. A escolha das skills deve ajudar a cumprir requisitos verificáveis com o menor conjunto útil de dependências e instruções.
 
-**Estado de adoção: nenhuma skill externa desta pesquisa foi instalada, ativada ou executada.** Ler um `SKILL.md` para avaliar seu conteúdo não significa adotá-lo como instrução do projeto. Ferramentas ou skills já disponíveis no ambiente não devem ser confundidas com instalações realizadas por esta pesquisa.
+**Atualização T02: frontend-design avaliada e aplicada como orientação textual, sem instalação.** Revisão, licença, inventário, adaptações e aplicação delimitada em [T02_DESIGN.md](T02_DESIGN.md). As demais candidatas continuam somente pesquisadas/recomendadas. Ler um `SKILL.md` para avaliar seu conteúdo não significa adotá-lo. Nenhum pacote externo foi instalado pela T02.
 
 ## O que significa cada estado
 
@@ -14,7 +14,7 @@ Este documento registra uma avaliação documental para um projeto acadêmico in
 | Recomendada | Há um caso de uso concreto no projeto. Ainda depende da avaliação de adoção descrita adiante. |
 | Opcional | Só deve entrar quando aparecer o problema para o qual foi feita. |
 | Instalada | Arquivos ou plugin foram efetivamente incorporados ao ambiente e sua descoberta foi verificada. Nenhuma das candidatas está neste estado. |
-| Validada no projeto | Foi aplicada a uma tarefa pequena, teve seu resultado conferido e demonstrou benefício. Nenhuma candidata foi validada desta forma. |
+| Validada no projeto | Foi aplicada a uma tarefa pequena, teve seu resultado conferido e demonstrou benefício. A T02 aplicou frontend-design e verificou a UI, sem atribuir benefício causal à skill por falta de comparação. |
 
 A pesquisa não representa uma auditoria integral de todos os scripts e referências transitivas de cada repositório. Essa inspeção deve ocorrer antes da adoção do pacote escolhido.
 
@@ -22,7 +22,7 @@ A pesquisa não representa uma auditoria integral de todos os scripts e referên
 
 | Skill | Estado e momento de uso | Contribuição esperada |
 | --- | --- | --- |
-| `frontend-design` — Anthropic | Recomendada para o chat de direção visual, antes da implementação das telas. | Definir escolhas coerentes de cores, tipografia, composição e conteúdo, com revisão visual. |
+| `frontend-design` — Anthropic | Avaliada e aplicada textualmente na T02, sem instalação; revisão fixa em T02_DESIGN.md. | Plano visual, tokens, hierarquia e crítica por screenshots. |
 | `vercel-react-best-practices` — Vercel | Recomendada durante a implementação e revisão de React, filtrando o que se aplica ao Vite. | Reduzir requisições em cascata, bundle desnecessário, renderizações e estado derivado mal implementado. |
 | `web-design-guidelines` — Vercel | Recomendada para revisar telas já funcionais. | Conferir semântica, teclado, foco, formulários, estados de erro, imagens e interação mobile. |
 | `supabase-postgres-best-practices` — Supabase | Recomendada condicionalmente às tarefas que realmente utilizem Postgres/Supabase. | Orientar schema, queries, índices, migrations e políticas de acesso por linha. |
@@ -135,4 +135,4 @@ Na adoção, registrar o repositório de origem, caminho da skill, SHA do commit
 8. **Comparar valor e custo.** Verificar se houve melhoria demonstrável, menos erros ou revisão mais clara. Considerar esforço adicional, conflitos, dependências e tempo. Não atribuir o sucesso exclusivamente à skill sem comparação suficiente.
 9. **Decidir e registrar.** Adotar apenas o trecho ou pacote útil, adaptar quando a licença permitir, manter como referência ou rejeitar. Atualizar o estado neste documento somente depois da ação correspondente e da verificação de descoberta e funcionamento.
 
-Até a execução desse protocolo, as candidatas permanecem pesquisadas ou recomendadas, com instalação e validação no projeto pendentes.
+O estado inicial acima permanece para as candidatas sem adoção. Exceção registrada: frontend-design aplicada textualmente na T02 após conferência de revisão, licença e inventário; resultado visual e checks no handoff T02. Nenhum pacote foi instalado ou redistribuído.
