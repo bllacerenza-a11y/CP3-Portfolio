@@ -1,18 +1,34 @@
 # Arquitetura e decisões
 
-Estado: proposta para discussão e validação em T01. Aplicação ainda inexistente.
+Estado: decisões iniciais adotadas em T01, em 23/10/2026. Validação técnica local registrada em `docs/handoffs/T01-fundacao.md`; familiaridade do aluno e integrações externas ainda precisam de confirmação durante as tarefas correspondentes.
 
 ## Princípios
 
 Resolver todos os requisitos com uma aplicação pequena e explicável. Evitar dependências e abstrações sem necessidade. Componentes apresentam dados; serviços integram APIs; hooks organizam estados; servidor protege segredos; banco persiste mensagens e destaques.
 
-## Stack candidata
+## Stack adotada e limites de validação
 
-React + TypeScript + Vite; React Router; TanStack Query; CSS Modules; React Hook Form e Zod; Supabase Auth/Postgres com RLS; Vercel Functions; Resend ou provedor equivalente; Playwright Test em TypeScript e testes de lógica/componentes quando necessários; ESLint e formatação automatizada.
+Fundação instalada: React + TypeScript + Vite; React Router em modo declarativo; CSS Modules; Playwright Test; ESLint e Prettier. Node 24.20.0 e npm 11.19.0 são a referência local e de CI. Versões exatas em package.json e resolução no package-lock.json.
 
-Comparações a registrar: Vite/Next; CSS Modules/Tailwind; Supabase/Firebase; cache manual/Query; validação manual/schema. Critérios: familiaridade, prazo, comportamento exigido, manutenção, teste e desempenho. Registrar também o custo aceito de cada escolha.
+Escolhas de integração adotadas como direção técnica, ainda sem instalação/configuração: TanStack Query para cache em T03; React Hook Form/Zod para formulário e validação compartilhada em T04/T05; Supabase Auth/Postgres/RLS e Vercel Functions em T04. Resend é candidato para e-mail, condicionado ao remetente e à conta disponíveis. Tarefas responsáveis devem verificar versões/compatibilidade ao instalar e registrar mudanças de decisão.
 
-## Contratos a fechar antes de paralelizar implementação
+| Problema e opções comparadas documentalmente           | Decisão e motivo                                                                                 | Concessão/limitação                                                                           |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
+| Vite SPA versus Next com SSR                           | Vite: React é exigido; SSR não é requisito e não há necessidade inicial de um segundo framework  | SEO por projeto e fallback de URLs exigem atenção; T07 configura rewrites sem capturar `/api` |
+| JavaScript versus TypeScript                           | TypeScript estrito para conferir contratos entre tarefas                                         | Tipos não validam respostas HTTP; acrescentar validação nas fronteiras                        |
+| CSS Modules versus Tailwind                            | CSS Modules, com tokens CSS, evita ferramenta e convenção adicionais                             | T02 mantém consistência dos tokens e componentes                                              |
+| Cache manual versus TanStack Query                     | Query em T03, para compartilhar dados entre lista e detalhes sem duplicar controle de expiração  | Dependência extra só entra quando usada; política definida em CONTRACTS.md                    |
+| Validação manual versus React Hook Form/Zod            | RHF/Zod em T04/T05 para mensagens por campo e regras no cliente/servidor                         | Limites de campos são decisões locais, não exemplos obrigatórios do professor                 |
+| Supabase/Postgres versus Firebase                      | Supabase para mensagens/destaques relacionais e políticas por proprietário                       | RLS e migrações precisam de testes reais; serviço ainda não configurado                       |
+| Vercel Functions versus servidor separado              | Functions no mesmo projeto, alinhadas ao destino de entrega                                      | Preview do Vite não executa Functions; integração requer ambiente próprio em T04/T07          |
+| Playwright versus duas suítes iniciais                 | Uma suíte Playwright sobre o build; adicionar teste de lógica apenas quando necessário           | Chromium desktop/mobile agora; outros engines e integrações reais ficam para T06              |
+| TypeScript mais recente versus compatibilidade do lint | TypeScript 6.0.3: typescript-eslint 8.72.0 declara suporte `<6.1.0`; latest consultado foi 7.0.2 | Atualizar por tarefa explícita; não usar latest indiscriminadamente                           |
+
+Comparações acima são análise de requisitos e documentação, não benchmarks de alternativas nem declaração de familiaridade do aluno. Evidência: consultas npm de versions/engines/peerDependencies e checks da fundação no handoff T01. Referências primárias: [Vite](https://vite.dev/guide/), [Router declarativo](https://reactrouter.com/start/declarative/installation), [servidor de testes Playwright](https://playwright.dev/docs/test-webserver).
+
+## Contratos iniciais fechados
+
+Documento normativo inicial: [CONTRACTS.md](CONTRACTS.md), com tipos em `shared/contracts.ts` e rotas em `src/app/routes.ts`. Implementações são das tarefas consumidoras; alterações incompatíveis precisam ser registradas antes de integração. Os tópicos cobertos são:
 
 1. Rotas públicas, rotas privadas e identificação de projetos.
 2. Tipos Project, ContactSubmission, ContactResult e Message.
@@ -30,9 +46,9 @@ Comparações a registrar: Vite/Next; CSS Modules/Tailwind; Supabase/Firebase; c
 - Recebimento pelo provedor de e-mail não prova entrega na caixa de entrada; demonstração deve verificar mensagem real.
 - A sessão é verificada antes de redirecionar; ocultar UI não protege os dados.
 
-## Organização candidata
+## Organização adotada
 
-src/app (rotas/providers), src/components (UI/layout), src/features (projects/contact/auth/dashboard), src/services, src/hooks, src/styles, shared/schemas, api, supabase/migrations, tests, docs.
+Criados: src/app (shell/rotas), src/styles (tokens globais), shared (contratos), tests/e2e, docs e CI. Reservados para quando houver implementação: src/components (UI/layout), src/features (projects/contact/auth/dashboard), src/services, src/hooks, shared/schemas, api, supabase/migrations. Não criar pastas vazias como evidência de implementação.
 
 ## Critério para adotar decisões
 
