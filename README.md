@@ -1,6 +1,6 @@
 # CP3 — Portfólio, Stack e Harness Engineering
 
-Projeto individual de portfólio React, iniciado do zero. A fundação T01 está integrada. A T02 acrescenta apresentação de Bruno Bastos, seleção editorial de repositórios, layout responsivo e tema claro/escuro persistido. Integração dinâmica GitHub, contato, autenticação e painel continuam nas tarefas responsáveis. Consulte docs/STATE.md para o estado de integração e docs/handoffs/T02-design-tema.md para a entrega local.
+Projeto individual de portfólio React, iniciado do zero. Fundação T01 e identidade/tema T02 integrados. A entrega local T03 acrescenta API GitHub real, listagem pública paginada, detalhes por URL, estados e cache compartilhado; consulte [handoff T03](docs/handoffs/T03-github-rotas-cache.md) para evidências e [STATE](docs/STATE.md) para o estado de integração. Contato, autenticação e painel continuam nas tarefas responsáveis.
 
 ## Começar por aqui
 
@@ -52,13 +52,13 @@ Vite informa a URL local (porta padrão 5173). A fundação não precisa de vari
 | `npm run test:e2e`                        | E2E sobre dist já atualizado                       |
 | `npm run check`                           | Lint, formatação, typecheck/build e E2E            |
 
-Playwright sobe o preview automaticamente e recusa servidor preexistente na porta 4173 para não testar uma aplicação errada. Em Linux/CI use `npx playwright install --with-deps chromium`. O relatório HTML fica em playwright-report (ignorado no Git); traces são mantidos apenas em falhas. A suíte inicial verifica 404, refresh, retorno à home e histórico, sem dados externos. Não cobre ainda os cenários obrigatórios de formulário/autorização de R09.
+Playwright sobe o preview automaticamente e recusa servidor preexistente na porta 4173 para não testar uma aplicação errada. Em Linux/CI use `npx playwright install --with-deps chromium`. O relatório HTML fica em playwright-report (ignorado no Git); traces são mantidos apenas em falhas. A suíte verifica navegação, tema, estados GitHub, paginação, recuperação e cache usando fixtures sintéticas em tests/fixtures, sem depender da API externa no CI. A aplicação não importa fixtures. Consultas reais e inspeção do navegador são evidências separadas no handoff T03. Não cobre ainda os cenários obrigatórios de formulário/autorização de R09.
 
 `.github/workflows/ci.yml` executa a instalação limpa e `npm run check` em pushes e PRs. A configuração precisa ser executada no GitHub após criação do remoto público. Preview Vite não executa Functions; deploy e rewrites de produção pertencem a T07.
 
 ## Stack e padrões
 
-Instalados: React, TypeScript, Vite, React Router declarativo, CSS Modules, ESLint, Prettier e Playwright. As decisões comparadas e os serviços escolhidos para futuras integrações estão em ARCHITECTURE.md; versões exatas estão em package.json/lockfile.
+Instalados: React, TypeScript, Vite, React Router declarativo, TanStack Query, CSS Modules, ESLint, Prettier e Playwright. As decisões comparadas e os serviços escolhidos para futuras integrações estão em ARCHITECTURE.md; versões exatas estão em package.json/lockfile.
 
 - `src/app`: composição e rotas; `src/styles`: tokens globais; `shared`: contratos cliente/servidor; `tests/e2e`: comportamento no build.
 - Criar `src/components`, `src/features`, `src/services`, `src/hooks`, `shared/schemas`, `api` e migrations somente quando forem usados. Apresentação não contém acesso direto a serviços; regras e validação ficam separadas e testáveis.
@@ -76,7 +76,9 @@ Branch principal local adotada: `main`. Fundação T01 e UI/tema T02 revisadas p
 
 ## Conteúdo e tema
 
-Conteúdo editorial em `src/content/portfolio.ts`, com fontes em [T02_DESIGN.md](docs/T02_DESIGN.md). Os resumos iniciais não substituem a integração API prevista na T03. Não atribuir autoria exclusiva ou tecnologias dominadas a partir de um README de equipe.
+Conteúdo editorial em `src/content/portfolio.ts`, com fontes em [T02_DESIGN.md](docs/T02_DESIGN.md). A T03 mantém os resumos separados de descrição, linguagem e datas obtidas pela API. Não atribuir autoria exclusiva ou tecnologias dominadas a partir de um README de equipe.
+
+Projetos: `src/services/github.ts` acessa a API pública sem token e valida a fronteira HTTP; `src/features/projects` reúne consultas e apresentação. Lista `GET /users/bllacerenza-a11y/repos` inclui todos os públicos, forks e arquivados; referências de outros donos usam `GET /repos/:owner/:repo`. Detalhes em `/projetos/:owner/:repo`. SmartCameraStudy tem tratamento explícito de 404 sem inferir a causa. Cache somente em memória: válido por 5 minutos, descarte após 30 minutos inativo, sem atualização por foco, reaproveitando lista nos detalhes. Reload faz nova consulta. Falhas oferecem repetição; atualização falha conserva os dados anteriores com aviso. [Contratos e consumo pela T05](docs/CONTRACTS.md), [revisão da skill Vercel e decisões T03](docs/T03_GITHUB.md). Nenhuma variável de ambiente é necessária para esta integração pública. Fallback de URLs em produção ainda depende da T07.
 
 Preferência em `cp3.theme`: `light` ou `dark`. Sem preferência válida, acompanhar o sistema; “Usar sistema” remove a escolha. Tokens CSS e componentes compartilhados estão documentados em [CONTRACTS.md](docs/CONTRACTS.md). Sem armazenamento disponível, alternar funciona na sessão, mas não persiste após recarregar. Testes cobrem também esse limite.
 

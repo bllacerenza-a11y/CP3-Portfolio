@@ -16,7 +16,6 @@ export const selectedRepositories = [
       'Um projeto de inteligência climática que conecta monitoramento em campo e processamento na nuvem. A proposta explora a continuidade da coleta de dados em situações de falha de comunicação.',
     context: 'Inteligência climática',
     note: 'Projeto em equipe. Participação registrada no README.',
-    available: true,
   },
   {
     owner: 'bllacerenza-a11y',
@@ -26,7 +25,6 @@ export const selectedRepositories = [
       'Uma landing page responsiva para um aplicativo fictício de música. O projeto apresenta a proposta do produto e explora navegação e conteúdo em diferentes tamanhos de tela.',
     context: 'Interface para a web',
     note: 'Projeto em equipe. Participação registrada no README.',
-    available: true,
   },
   {
     owner: 'PedroOliDev',
@@ -36,6 +34,7 @@ export const selectedRepositories = [
       'Uma das referências escolhidas para este portfólio. A apresentação e a participação no projeto ainda serão detalhadas.',
     context: 'Apresentação em preparação',
     note: 'O endereço informado não está disponível na consulta pública.',
-    available: false,
   },
 ] as const;
+
+export const githubOwner = 'bllacerenza-a11y';

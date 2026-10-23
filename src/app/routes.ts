@@ -5,3 +5,7 @@ export const routes = {
   login: '/login',
   dashboard: '/dashboard',
 } as const;
+
+export function projectPath(owner: string, repo: string) {
+  return `/projetos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`;
+}

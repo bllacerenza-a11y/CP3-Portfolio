@@ -1,10 +1,12 @@
 import { BrowserRouter, Link, Route, Routes } from 'react-router';
 import { AsyncState } from '../components/AsyncState';
-import { ProjectCard } from '../components/ProjectCard';
+import { ProjectsSection } from '../features/projects/ProjectsSection';
+import { ProjectDetails } from '../features/projects/ProjectDetails';
 import { ThemeToggle } from '../components/ThemeToggle';
-import { portfolio, selectedRepositories } from '../content/portfolio';
+import { portfolio } from '../content/portfolio';
 import { routes } from './routes';
 import styles from './App.module.css';
+import { NavigationEffects } from './NavigationEffects';
 
 function Home() {
   return (
@@ -30,25 +32,7 @@ function Home() {
           <a href={portfolio.github}>Acompanhe no GitHub</a>
         </div>
       </section>
-      <section
-        id="projetos"
-        className={styles.section}
-        aria-labelledby="projects-title"
-      >
-        <div className={styles.sectionHeading}>
-          <h2 id="projects-title">Projetos selecionados</h2>
-          <p>Uma seleção inicial, aberta a novos caminhos.</p>
-        </div>
-        <div className={styles.projects}>
-          {selectedRepositories.map((reference) => (
-            <ProjectCard
-              key={`${reference.owner}/${reference.name}`}
-              project={reference}
-              {...reference}
-            />
-          ))}
-        </div>
-      </section>
+      <ProjectsSection />
       <div className={styles.aboutContact}>
         <section
           id="sobre"
@@ -97,6 +81,7 @@ function Home() {
 export function App() {
   return (
     <BrowserRouter>
+      <NavigationEffects />
       <a className={styles.skipLink} href="#conteudo">
         Pular para o conteúdo
       </a>
@@ -116,15 +101,16 @@ export function App() {
             </span>
           </Link>
           <nav aria-label="Navegação principal">
-            <a href="/#projetos">Projetos</a>
-            <a href="/#sobre">Sobre</a>
-            <a href="/#contato">Contato</a>
+            <Link to="/#projetos">Projetos</Link>
+            <Link to="/#sobre">Sobre</Link>
+            <Link to="/#contato">Contato</Link>
           </nav>
           <ThemeToggle />
         </header>
         <main id="conteudo" tabIndex={-1}>
           <Routes>
             <Route path={routes.home} element={<Home />} />
+            <Route path={routes.project} element={<ProjectDetails />} />
             <Route
               path="*"
               element={

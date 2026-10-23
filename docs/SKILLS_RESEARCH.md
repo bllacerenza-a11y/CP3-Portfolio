@@ -6,6 +6,8 @@ Este documento registra uma avaliação documental para um projeto acadêmico in
 
 **Atualização T02: frontend-design avaliada e aplicada como orientação textual, sem instalação.** Revisão, licença, inventário, adaptações e aplicação delimitada em [T02_DESIGN.md](T02_DESIGN.md). As demais candidatas continuam somente pesquisadas/recomendadas. Ler um `SKILL.md` para avaliar seu conteúdo não significa adotá-lo. Nenhum pacote externo foi instalado pela T02.
 
+**Atualização T03:** Vercel React Best Practices avaliada e aplicada textualmente, sem instalação de skill, na revisão `063bee94c3f4df8453406c830b0a7df0f2860278`. Inventário, licença, regras lidas e adaptações ao Vite em [T03_GITHUB.md](T03_GITHUB.md). Deduplicação usa TanStack Query conforme arquitetura, sem adicionar SWR ou Next. Não há comparação que prove ganho causal pela skill.
+
 ## O que significa cada estado
 
 | Estado | Significado |
@@ -23,7 +25,7 @@ A pesquisa não representa uma auditoria integral de todos os scripts e referên
 | Skill | Estado e momento de uso | Contribuição esperada |
 | --- | --- | --- |
 | `frontend-design` — Anthropic | Avaliada e aplicada textualmente na T02, sem instalação; revisão fixa em T02_DESIGN.md. | Plano visual, tokens, hierarquia e crítica por screenshots. |
-| `vercel-react-best-practices` — Vercel | Recomendada durante a implementação e revisão de React, filtrando o que se aplica ao Vite. | Reduzir requisições em cascata, bundle desnecessário, renderizações e estado derivado mal implementado. |
+| `vercel-react-best-practices` — Vercel | Avaliada e aplicada textualmente na T03, filtrada para Vite; revisão fixa em T03_GITHUB.md. | Consultas independentes, cache/deduplicação e estado derivado durante renderização. |
 | `web-design-guidelines` — Vercel | Recomendada para revisar telas já funcionais. | Conferir semântica, teclado, foco, formulários, estados de erro, imagens e interação mobile. |
 | `supabase-postgres-best-practices` — Supabase | Recomendada condicionalmente às tarefas que realmente utilizem Postgres/Supabase. | Orientar schema, queries, índices, migrations e políticas de acesso por linha. |
 

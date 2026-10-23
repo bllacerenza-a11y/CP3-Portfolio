@@ -1,4 +1,9 @@
 import { expect, test } from '@playwright/test';
+import { mockGitHub } from '../fixtures/github';
+
+test.beforeEach(async ({ page }) => {
+  await mockGitHub(page);
+});
 
 test('conteúdo confirmado, seleção de repositórios e pendência acessível', async ({
   page,
@@ -12,7 +17,7 @@ test('conteúdo confirmado, seleção de repositórios e pendência acessível',
       'Estudante de Engenharia de Software na FIAP, no primeiro ano.',
     ),
   ).toBeVisible();
-  await expect(page.getByRole('article')).toHaveCount(3);
+  await expect(page.getByRole('article')).toHaveCount(4);
   await expect(
     page.getByRole('link', { name: 'Ver repositório Aether no GitHub' }),
   ).toHaveAttribute(
@@ -26,13 +31,15 @@ test('conteúdo confirmado, seleção de repositórios e pendência acessível',
     'https://github.com/bllacerenza-a11y/Melodia-Site-CP5-FRONTEND',
   );
   const unavailable = page
-    .getByRole('article')
-    .filter({ has: page.getByRole('heading', { name: 'SmartCameraStudy' }) });
-  await expect(unavailable.getByText('Link a confirmar')).toBeVisible();
-  await expect(unavailable.getByRole('link')).toHaveCount(0);
-  await expect(page.getByRole('status')).toContainText(
-    'Contato direto em preparação',
-  );
+    .getByRole('heading', { name: 'SmartCameraStudy' })
+    .locator('..');
+  await expect(
+    unavailable.getByText('Repositório não encontrado'),
+  ).toBeVisible();
+  await expect(
+    unavailable.locator('a[href^="https://github.com/"]'),
+  ).toHaveCount(0);
+  await expect(page.getByText('Contato direto em preparação')).toBeVisible();
 });
 
 test('atalho de teclado leva ao conteúdo e controle de tema tem foco visível', async ({
@@ -62,6 +69,7 @@ test('layout mantém conteúdo e controles dentro da tela nos dois temas', async
   page,
 }, testInfo) => {
   await page.goto('/');
+  await expect(page.getByRole('article')).toHaveCount(4);
   for (const width of [320, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     for (const colorScheme of ['light', 'dark'] as const) {

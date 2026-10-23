@@ -1,4 +1,9 @@
 import { expect, test } from '@playwright/test';
+import { mockGitHub } from '../fixtures/github';
+
+test.beforeEach(async ({ page }) => {
+  await mockGitHub(page);
+});
 
 test('URL inexistente oferece recuperação para a home, inclusive após refresh', async ({
   page,

@@ -1,4 +1,9 @@
 import { expect, test } from '@playwright/test';
+import { mockGitHub } from '../fixtures/github';
+
+test.beforeEach(async ({ page }) => {
+  await mockGitHub(page);
+});
 
 test('preferência explícita sobrevive a navegação, refresh e nova visita', async ({
   page,
@@ -25,6 +30,7 @@ test('preferência explícita sobrevive a navegação, refresh e nova visita', a
     colorScheme: 'light',
   });
   const revisit = await returning.newPage();
+  await mockGitHub(revisit);
   await revisit.goto('http://127.0.0.1:4173/');
   await expect(
     revisit.getByRole('button', { name: 'Ativar tema claro' }),
@@ -92,6 +98,7 @@ test('preferência inválida usa sistema e mudanças são sincronizadas entre ab
     page.getByRole('button', { name: 'Usar sistema' }),
   ).toHaveAttribute('aria-pressed', 'true');
   const second = await context.newPage();
+  await mockGitHub(second);
   await second.goto('/');
   await page.getByRole('button', { name: 'Ativar tema escuro' }).click();
   await expect(second.locator('html')).toHaveAttribute('data-theme', 'dark');
