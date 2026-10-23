@@ -18,11 +18,12 @@ Pasta canônica: C:\Users\bruno\Documents\Codex\CP3-Portfolio.
 - Fundação local T01 entregue, revisada pela T00 e integrada à main: 38484a4 (implementação), f31726a (handoff). Contratos em docs/CONTRACTS.md e decisões adotadas em docs/ARCHITECTURE.md.
 - T00 executou npm run check: lint, formato, tipos, build e 1 cenário de navegação em 2 configurações Chromium passaram. Formulário/autorização e demais funcionalidades ainda não existem.
 - T02 entregue em 9d7c883/e129e35: conteúdo, identidade editorial, UI responsiva e tema persistido. T00 revisou código/contratos, conferiu respostas do usuário e inspecionou capturas; npm run check passou com 16 execuções. Ver STATE e docs/handoffs/T00-revisao-T02.md.
+- T03 entregue em d961852/4d66cc4: API GitHub real, lista paginada, detalhes por URL, estados e cache. T00 inspecionou implementação/testes/capturas e repetiu npm run check: 48 execuções aprovadas, runner 9,6 s. Ver STATE e docs/handoffs/T00-revisao-T03.md.
 - Serviços externos, remoto, execução do CI remoto e deploy pendentes. Nenhuma skill externa instalada; nenhuma nota Lighthouse obtida.
-- frontend-design aplicada textualmente na T02, com revisão/licença/inventário registrados em T02_DESIGN.md. Nenhuma instalação. Demais candidatas continuam somente pesquisadas.
+- frontend-design aplicada textualmente na T02 e Vercel React Best Practices na T03, com revisões/inventários em T02_DESIGN e T03_GITHUB. Nenhum pacote de skill instalado; demais candidatas continuam somente pesquisadas.
 - A presença de documentos e de conversas não representa conclusão das funcionalidades.
 - Projeto CP3-Portfolio cadastrado no aplicativo; esta conversa é T00. Nove chats de execução criados e vinculados em docs/THREADS.md.
-- As primeiras rodadas foram interrompidas pelo limite de uso; depois o usuário retomou T01 e T02. T03–T09 aguardam início; não reiniciá-las em lote.
+- As primeiras rodadas foram interrompidas pelo limite de uso; depois o usuário retomou T01, T02 e T03. T04–T09 aguardam início; não reiniciá-las em lote.
 - Em 23/10/2026, o usuário pediu concluir as bases e avisar antes de implementar para trocar de modelo; autorizou modelos mais econômicos quando adequados. Ver docs/MODEL_POLICY.md.
 
 ## Fontes de verdade
@@ -61,4 +62,4 @@ Inspeções podem ocorrer em paralelo; escrever simultaneamente no mesmo checkou
 
 ## Próximo marco
 
-T03: API GitHub real, URLs de detalhes, estados e cache preservando UI/tema da T02. Ver STATE, CONTRACTS, T02_DESIGN e docs/handoffs/T00-revisao-T02.md. CI remoto pendente não bloqueia o trabalho local. Uma edição textual preexistente no handoff T02 foi preservada fora do commit; conferir Git. Executar uma tarefa por vez.
+T04: banco, autenticação/autorização, RLS e API de contato, com contratos para T05. Ver STATE, CONTRACTS, ARCHITECTURE e docs/handoffs/T00-revisao-T03.md. CI remoto/serviços/deploy pendentes; confirmar acessos nos momentos necessários. Uma edição textual preexistente no handoff T02 continua preservada fora dos commits; conferir Git. Executar uma tarefa por vez.

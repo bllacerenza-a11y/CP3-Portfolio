@@ -1,6 +1,6 @@
 # Plano de tarefas — CP3 Portfolio
 
-Este documento define escopo e dependências. T00 revisou a fundação local T01 e a UI/tema T02; o aceite do CI remoto permanece pendente. T03–T09 permanecem **PLANEJADAS**. O estado corrente é mantido exclusivamente por T00 em `docs/STATE.md`; os chats responsáveis são registrados em `docs/THREADS.md`.
+Este documento define escopo e dependências. T00 revisou fundação T01, UI/tema T02 e GitHub/rotas/cache T03; o aceite do CI remoto permanece pendente. T04–T09 permanecem **PLANEJADAS**. O estado corrente é mantido exclusivamente por T00 em `docs/STATE.md`; os chats responsáveis são registrados em `docs/THREADS.md`.
 
 `docs/REQUIREMENTS.md` e o enunciado prevalecem sobre este plano. Cada chat deve identificar os requisitos que atende, preservar as restrições acadêmicas e registrar divergências antes de ampliar o escopo. Sugestões de melhoria não viram requisitos automaticamente. `docs/ARCHITECTURE.md` distingue a fundação adotada e validada das integrações ainda pendentes.
 
@@ -17,8 +17,8 @@ Somente T00 atualiza o estado em `docs/STATE.md`, dependências neste plano e v�
 | T00 | Coordenação e memória do projeto | EM ANDAMENTO; bases concluídas | Nenhuma; acompanha todas as tarefas |
 | T01 | Fundação, arquitetura, harness, build e CI | EM REVISÃO; base local integrada, CI remoto pendente | Remoto GitHub para verificar execução CI |
 | T02 | Design, tema, componentes e conteúdo | CONCLUÍDA no escopo local; revisada pela T00 | Integrações T03–T05 separadas |
-| T03 | GitHub, rotas e cache | PLANEJADA; liberada para início | T01/T02 revisadas; CONTRACTS e T02_DESIGN |
-| T04 | Banco, autenticação, RLS, API de contato e email | PLANEJADA | Pesquisa pode começar; implementação após T01 e contrato de dados |
+| T03 | GitHub, rotas e cache | CONCLUÍDA no escopo local; revisada pela T00 | Produção T07 e curadoria persistida T04/T05 separadas |
+| T04 | Banco, autenticação, RLS, API de contato e email | PLANEJADA; liberada para início | CONTRACTS e base integrados; acessos reais a confirmar |
 | T05 | Contato, dashboard e destaques integrados no frontend | PLANEJADA | T02, T03 e T04 integráveis |
 | T06 | Testes, responsividade, acessibilidade e QA | PLANEJADA | Incremental desde T01; ciclo final após T05 |
 | T07 | Performance e deploy de produção | PLANEJADA | Preview desde T01; produção após testes de T06 |
