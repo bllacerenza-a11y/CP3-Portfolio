@@ -28,4 +28,4 @@ Execução iniciada em 23/10/2026 a partir da main integrada `1e7d79e`, branch `
 - [API GitHub de repositórios](https://docs.github.com/en/rest/repos/repos), contratos públicos de lista/detalhe e paginação.
 - [TanStack Query useQuery](https://tanstack.com/query/v5/docs/framework/react/reference/useQuery), initialDataUpdatedAt, staleTime, gcTime e políticas de retry/refetch.
 
-Resultados e limites de verificação serão registrados em `docs/handoffs/T03-github-rotas-cache.md`.
+Resultados e limites de verificação registrados em `docs/handoffs/T03-github-rotas-cache.md`.
