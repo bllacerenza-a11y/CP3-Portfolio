@@ -5,8 +5,34 @@ import {
   resolveOwnerSession,
   signInOwner,
   signOutOwner,
+  clearPrivateQueries,
 } from '../../src/features/auth/ownerAuth';
 import { ownerId, outsiderId } from './database';
+
+test('limpeza privada remove resultados de mutação além de consultas, preservando cache público', async () => {
+  const cache = new QueryClient();
+  cache.setQueryData(
+    ['messages', ownerId],
+    [{ message: 'synthetic-private-message' }],
+  );
+  cache.setQueryData(['highlights'], []);
+  const mutations = cache.getMutationCache();
+  await mutations
+    .build(cache, {
+      mutationKey: ['messages', ownerId],
+      mutationFn: async () => ({ message: 'synthetic-private-message' }),
+    })
+    .execute(undefined);
+  await mutations
+    .build(cache, { mutationKey: ['highlights'], mutationFn: async () => [] })
+    .execute(undefined);
+  await clearPrivateQueries(cache);
+  expect(cache.getQueryData(['messages', ownerId])).toBeUndefined();
+  expect(mutations.findAll({ mutationKey: ['messages'] })).toHaveLength(0);
+  expect(mutations.findAll({ mutationKey: ['highlights'] })).toHaveLength(1);
+  expect(cache.getQueryData(['highlights'])).toEqual([]);
+  cache.clear();
+});
 
 function authFixture(
   options: {

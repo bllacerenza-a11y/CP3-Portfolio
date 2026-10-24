@@ -40,7 +40,7 @@ test('conteúdo confirmado, seleção de repositórios e pendência acessível',
     unavailable.locator('a[href^="https://github.com/"]'),
   ).toHaveCount(0);
   await expect(
-    page.getByRole('link', { name: 'Visitar o perfil no GitHub' }),
+    page.getByRole('button', { name: 'Enviar mensagem' }),
   ).toBeVisible();
 });
 

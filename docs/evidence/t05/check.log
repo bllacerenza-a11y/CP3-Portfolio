@@ -1,0 +1,226 @@
+
+> cp3-portfolio@0.1.0 check
+> npm run lint && npm run format:check && npm run test
+
+
+> cp3-portfolio@0.1.0 lint
+> eslint . --max-warnings 0
+
+
+> cp3-portfolio@0.1.0 format:check
+> prettier --check "{src,shared,server,api,tests}/**/*.{ts,tsx,css}" "scripts/*.mjs" "*.{js,ts,json,html}" ".github/**/*.yml" .prettierrc.json
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> cp3-portfolio@0.1.0 test
+> npm run test:server && npm run build:test && playwright test
+
+
+> cp3-portfolio@0.1.0 test:server
+> playwright test --config playwright.server.config.ts
+
+
+Running 25 tests using 1 worker
+
+(node:11936) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 tests\server\auth.spec.ts:12:1 › limpeza privada remove resultados de mutação além de consultas, preservando cache público (7ms)
+  ok  2 tests\server\auth.spec.ts:102:1 › sem sessão não consulta mensagens nem presume identidade (4ms)
+  ok  3 tests\server\auth.spec.ts:108:1 › login verifica usuário remotamente e consulta autorização; outro autenticado é negado (6ms)
+  ok  4 tests\server\auth.spec.ts:122:1 › credenciais recusadas e erro de autorização não concedem acesso (3ms)
+  ok  5 tests\server\auth.spec.ts:137:1 › logout encerra sessão e remove somente dados privados do QueryClient (2ms)
+  ok  6 tests\server\auth.spec.ts:154:1 › falha no logout limpa cache mas retorna erro para manter painel bloqueado (1ms)
+  ok  7 tests\server\authorization.spec.ts:18:1 › visitante lê destaques, sem acesso direto a mensagens ou RPCs privadas (61ms)
+  ok  8 tests\server\authorization.spec.ts:45:1 › outro autenticado não ganha acesso a mensagens, alterações ou identidade de proprietário (15ms)
+  ok  9 tests\server\authorization.spec.ts:88:1 › dono lê mensagens e só pode alterar responded_at; não insere nem apaga mensagens (14ms)
+  ok 10 tests\server\authorization.spec.ts:135:1 › destaques substituem/ordenam atomicamente, preservando seleção anterior em falha (12ms)
+  ok 11 tests\server\authorization.spec.ts:172:1 › banco mantém restrições de campos, IDs, positions e proprietário único (8ms)
+  ok 12 tests\server\authorizationRollback.spec.ts:5:1 › probe SQL reproduzível passa e desfaz fixtures sem remover o proprietário (904ms)
+  ok 13 tests\server\contact.spec.ts:74:1 › validação específica e normalização compartilhadas; dados inválidos não persistem (9ms)
+  ok 14 tests\server\contact.spec.ts:114:1 › persiste antes da notificação; repetição não duplica registro nem e-mail (14ms)
+  ok 15 tests\server\contact.spec.ts:144:1 › falha do provedor conserva mensagem e não afirma entrega nem reenvia automaticamente (8ms)
+  ok 16 tests\server\contact.spec.ts:159:1 › confirmação de status indisponível resulta em pendência e repetição não reenvia (7ms)
+  ok 17 tests\server\contact.spec.ts:173:1 › falha de persistência não chama notificador (3ms)
+  ok 18 tests\server\contact.spec.ts:184:1 › quota persistida limita IP e não depende da memória da Function (25ms)
+  ok 19 tests\server\contact.spec.ts:198:1 › quota global limita novas origens e janela expirada volta a aceitar (12ms)
+  ok 20 tests\server\contact.spec.ts:213:1 › método, origem, formato e ausência de IP são recusados antes de persistir (6ms)
+  ok 21 tests\server\contact.spec.ts:227:1 › adaptador HTTP executa a Function localmente, limita body e não armazena resposta em cache (70ms)
+  ok 22 tests\server\contact.spec.ts:254:1 › ramo Vercel aceita body pré-processado e usa somente IP da plataforma (39ms)
+  ok 23 tests\server\provider.spec.ts:20:1 › integração Resend usa texto, destinatário fixo, reply_to e chave de idempotência estável (7ms)
+  ok 24 tests\server\provider.spec.ts:42:1 › recusa, resposta inválida e falta de email configurado não viram notificação aceita (3ms)
+  ok 25 tests\server\provider.spec.ts:62:1 › persistência transmite HMAC do IP e parâmetros normalizados; segredo nunca entra no payload (3ms)
+
+  25 passed (4.6s)
+
+> cp3-portfolio@0.1.0 build:test
+> npm run typecheck && vite build --mode test
+
+
+> cp3-portfolio@0.1.0 typecheck
+> tsc --noEmit
+
+vite v8.3.5 building client environment for test...
+transforming...
+✓ 321 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                  1.39 kB │ gzip:  0.66 kB
+dist/assets/melodia-real-desktop-Bh32jxdr.png  102.98 kB
+dist/assets/AuthArea-BqJtB5fU.css                1.43 kB │ gzip:  0.62 kB
+dist/assets/AsyncState-D0d-0x9h.css              1.47 kB │ gzip:  0.63 kB
+dist/assets/index-DzOM5PVA.css                  15.97 kB │ gzip:  3.78 kB
+dist/assets/PersistedHighlights-uvi564p6.js      1.33 kB │ gzip:  0.63 kB
+dist/assets/dashboardQueries-CsW8qS_3.js         2.52 kB │ gzip:  1.14 kB
+dist/assets/AuthArea-DTWoB7m2.js                 4.93 kB │ gzip:  2.06 kB
+dist/assets/AsyncState-nPgmuhu1.js              10.02 kB │ gzip:  3.87 kB
+dist/assets/Dashboard-BezYzEP-.js               11.70 kB │ gzip:  4.12 kB
+dist/assets/routes-DkFvWFZP.js                  29.91 kB │ gzip: 10.98 kB
+dist/assets/projectQueries-BLTwznbc.js         129.60 kB │ gzip: 38.98 kB
+dist/assets/supabase-DI1Rpky5.js               214.59 kB │ gzip: 55.24 kB
+dist/assets/index-b6ZOUFqK.js                  243.47 kB │ gzip: 76.48 kB
+
+✓ built in 260ms
+[WebServer] (node:14116) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 104 tests using 8 workers
+
+(node:14208) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32832) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:30028) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28284) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24352) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:26484) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:6904) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:26068) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok   1 [chromium-desktop] › tests\e2e\contact.spec.ts:16:1 › validação específica por campo, descrição acessível e foco, sem POST inválido (960ms)
+  ok   2 [chromium-desktop] › tests\e2e\contact.spec.ts:87:3 › saved_notification_failed: conteúdo preservado, sem reenvio automático (1.2s)
+  ok   7 [chromium-desktop] › tests\e2e\contact.spec.ts:148:1 › 409 bloqueia repetição e erro estrutural/por campo do servidor é apresentado (1.1s)
+  ok   6 [chromium-desktop] › tests\e2e\contact.spec.ts:40:1 › envio lento bloqueia repetição, mostra aceitação sem prometer entrega e renova ID após sucesso (1.2s)
+  ok   5 [chromium-desktop] › tests\e2e\contact.spec.ts:87:3 › saved_notification_pending: conteúdo preservado, sem reenvio automático (1.2s)
+  ok   4 [chromium-desktop] › tests\e2e\contact.spec.ts:116:1 › transporte e 429 preservam conteúdo e chave; editar inicia nova tentativa lógica (1.3s)
+  ok   8 [chromium-desktop] › tests\e2e\dashboard.spec.ts:31:1 › outro autenticado é negado e nunca consulta mensagens (1.6s)
+  ok   9 [chromium-desktop] › tests\e2e\dashboard.spec.ts:49:1 › credenciais recusadas mostram feedback e não abrem painel (952ms)
+  ok  11 [chromium-desktop] › tests\e2e\dashboard.spec.ts:81:1 › falha de autorização permanece fechada (949ms)
+  ok   3 [chromium-desktop] › tests\e2e\dashboard.spec.ts:9:1 › visitante vai para login com replace e não consulta mensagens (2.2s)
+  ok  10 [chromium-desktop] › tests\e2e\dashboard.spec.ts:61:1 › espera autorização remota e não exibe dados enquanto pendente (1.1s)
+  ok  14 [chromium-desktop] › tests\e2e\dashboard.spec.ts:183:1 › falhas de leitura e escrita são distintas de seleção/caixa vazias (1.9s)
+  ok  15 [chromium-desktop] › tests\e2e\dashboard.spec.ts:207:1 › logout remove painel/cache e voltar não mostra conteúdo privado (1.7s)
+  ok  18 [chromium-desktop] › tests\e2e\dashboard.spec.ts:280:1 › marcação recusada não afirma sucesso nem altera mensagem localmente (1.2s)
+  ok  16 [chromium-desktop] › tests\e2e\dashboard.spec.ts:227:1 › logout falha: bloqueia painel e consultas inclusive na navegação SPA (2.1s)
+  ok  12 [chromium-desktop] › tests\e2e\dashboard.spec.ts:90:1 › marca respondida, recarrega do serviço e não confunde resposta com notificação (2.9s)
+  ok  24 [chromium-desktop] › tests\e2e\evolution.spec.ts:45:1 › mídia com falha preserva fallback, conteúdo e links do projeto (297ms)
+  ok  23 [chromium-desktop] › tests\e2e\evolution.spec.ts:8:1 › pranchas, narrativa e navegação por teclado usam conteúdo real da consulta (547ms)
+  ok  21 [chromium-desktop] › tests\e2e\dashboard.spec.ts:351:1 › home inicial não solicita Auth/SDK/painel; destaques carregam sob demanda (1.2s)
+  ok  25 [chromium-desktop] › tests\e2e\evolution.spec.ts:65:1 › projeto sem editorial usa fallback sem inventar narrativa ou mídia (278ms)
+  ok  20 [chromium-desktop] › tests\e2e\dashboard.spec.ts:326:1 › logout e novo login não reapresentam caixa antiga em falha de leitura (1.6s)
+  ok  17 [chromium-desktop] › tests\e2e\dashboard.spec.ts:252:1 › mensagens paginadas não somem após a primeira página; vazio é explícito (2.7s)
+  ok  29 [chromium-desktop] › tests\e2e\presentation.spec.ts:8:1 › conteúdo confirmado, seleção de repositórios e pendência acessível (456ms)
+  ok  19 [chromium-desktop] › tests\e2e\dashboard.spec.ts:301:1 › destaques indisponíveis não viram seleção vazia, na home ou painel (3.2s)
+  ok  28 [chromium-desktop] › tests\e2e\foundation.spec.ts:8:1 › URL inexistente oferece recuperação para a home, inclusive após refresh (684ms)
+  ok  30 [chromium-desktop] › tests\e2e\presentation.spec.ts:47:1 › atalho de teclado leva ao conteúdo e controle de tema tem foco visível (793ms)
+  ok  32 [chromium-desktop] › tests\e2e\projects.spec.ts:11:1 › mostra loading sem transformar curadoria ou colaboração privada em dados da API (582ms)
+  ok  13 [chromium-desktop] › tests\e2e\dashboard.spec.ts:119:1 › destaques salvos e ordem refletem home, refresh e remoção total (5.0s)
+  ok  22 [chromium-desktop] › tests\e2e\dashboard.spec.ts:376:1 › painel, login e contato cabem nas telas e temas, com capturas sintéticas (2.8s)
+  ok  34 [chromium-desktop] › tests\e2e\projects.spec.ts:71:1 › acesso direto e refresh usam API; nulos e URL insegura têm fallback (732ms)
+  ok  33 [chromium-desktop] › tests\e2e\projects.spec.ts:34:1 › lista, detalhes e navegação SPA compartilham cache e preservam tema (934ms)
+  ok  36 [chromium-desktop] › tests\e2e\projects.spec.ts:155:1 › 404 público tem recuperação e mantém distinção de falha de API (702ms)
+  ok  37 [chromium-desktop] › tests\e2e\projects.spec.ts:170:1 › lista vazia não apresenta referências editoriais como dados reais (620ms)
+  ok  38 [chromium-desktop] › tests\e2e\projects.spec.ts:184:1 › detalhe mostra loading, erro e recuperação com site HTTP seguro (591ms)
+  ok  39 [chromium-desktop] › tests\e2e\projects.spec.ts:218:3 › HTTP 403 tem erro recuperável e repetição explícita (653ms)
+  ok  35 [chromium-desktop] › tests\e2e\projects.spec.ts:107:1 › colaboração privada preserva URL e contexto sem consultas ou metadados fabricados (1.1s)
+  ok  31 [chromium-desktop] › tests\e2e\presentation.spec.ts:70:1 › layout mantém conteúdo e controles dentro da tela nos dois temas (2.1s)
+  ok  42 [chromium-desktop] › tests\e2e\projects.spec.ts:244:3 › falha de rede preserva interface e oferece recuperação (482ms)
+  ok  40 [chromium-desktop] › tests\e2e\projects.spec.ts:218:3 › HTTP 429 tem erro recuperável e repetição explícita (655ms)
+  ok  43 [chromium-desktop] › tests\e2e\projects.spec.ts:244:3 › falha de resposta inválida preserva interface e oferece recuperação (476ms)
+  ok  41 [chromium-desktop] › tests\e2e\projects.spec.ts:218:3 › HTTP 503 tem erro recuperável e repetição explícita (647ms)
+  ok  44 [chromium-desktop] › tests\e2e\projects.spec.ts:244:3 › falha de JSON inválido preserva interface e oferece recuperação (430ms)
+  ok  45 [chromium-desktop] › tests\e2e\projects.spec.ts:267:1 › pagina lista completa, deduplica IDs e inclui forks e arquivados (543ms)
+  ok  46 [chromium-desktop] › tests\e2e\projects.spec.ts:306:1 › detalhe público de outro dono usa API e mantém cache na navegação SPA (577ms)
+  ok  48 [chromium-desktop] › tests\e2e\projects.spec.ts:347:1 › detalhe público externo preserva dados anteriores após falha de atualização (757ms)
+  ok  47 [chromium-desktop] › tests\e2e\projects.spec.ts:325:1 › cache vence em cinco minutos; falha na atualização mantém dados anteriores (786ms)
+  ok  51 [chromium-desktop] › tests\e2e\theme.spec.ts:68:1 › storage indisponível não impede leitura nem alternância na sessão (640ms)
+  ok  50 [chromium-desktop] › tests\e2e\theme.spec.ts:45:1 › acompanha o sistema somente quando não há escolha explícita (1.0s)
+  ok  52 [chromium-desktop] › tests\e2e\theme.spec.ts:89:1 › preferência inválida usa sistema e mudanças são sincronizadas entre abas (949ms)
+  ok  49 [chromium-desktop] › tests\e2e\theme.spec.ts:8:1 › preferência explícita sobrevive a navegação, refresh e nova visita (1.8s)
+(node:18696) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39036) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23032) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:17496) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1864) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  27 [chromium-desktop] › tests\e2e\evolution.spec.ts:136:1 › estados reais mantêm saída, layout e redução de movimento (5.4s)
+  ok  55 [chromium-mobile] › tests\e2e\contact.spec.ts:116:1 › transporte e 429 preservam conteúdo e chave; editar inicia nova tentativa lógica (858ms)
+  ok  53 [chromium-mobile] › tests\e2e\contact.spec.ts:16:1 › validação específica por campo, descrição acessível e foco, sem POST inválido (924ms)
+  ok  54 [chromium-mobile] › tests\e2e\contact.spec.ts:87:3 › saved_notification_pending: conteúdo preservado, sem reenvio automático (939ms)
+  ok  57 [chromium-mobile] › tests\e2e\contact.spec.ts:87:3 › saved_notification_failed: conteúdo preservado, sem reenvio automático (811ms)
+  ok  56 [chromium-mobile] › tests\e2e\contact.spec.ts:40:1 › envio lento bloqueia repetição, mostra aceitação sem prometer entrega e renova ID após sucesso (858ms)
+(node:7688) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:40692) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  59 [chromium-mobile] › tests\e2e\dashboard.spec.ts:49:1 › credenciais recusadas mostram feedback e não abrem painel (723ms)
+  ok  61 [chromium-mobile] › tests\e2e\dashboard.spec.ts:81:1 › falha de autorização permanece fechada (738ms)
+  ok  60 [chromium-mobile] › tests\e2e\dashboard.spec.ts:61:1 › espera autorização remota e não exibe dados enquanto pendente (1.1s)
+  ok  58 [chromium-mobile] › tests\e2e\dashboard.spec.ts:31:1 › outro autenticado é negado e nunca consulta mensagens (1.3s)
+  ok  63 [chromium-mobile] › tests\e2e\contact.spec.ts:148:1 › 409 bloqueia repetição e erro estrutural/por campo do servidor é apresentado (900ms)
+  ok  66 [chromium-mobile] › tests\e2e\dashboard.spec.ts:183:1 › falhas de leitura e escrita são distintas de seleção/caixa vazias (1.4s)
+  ok  62 [chromium-mobile] › tests\e2e\dashboard.spec.ts:90:1 › marca respondida, recarrega do serviço e não confunde resposta com notificação (2.2s)
+  ok  67 [chromium-mobile] › tests\e2e\dashboard.spec.ts:207:1 › logout remove painel/cache e voltar não mostra conteúdo privado (1.7s)
+  ok  64 [chromium-mobile] › tests\e2e\dashboard.spec.ts:9:1 › visitante vai para login com replace e não consulta mensagens (2.2s)
+  ok  68 [chromium-mobile] › tests\e2e\dashboard.spec.ts:227:1 › logout falha: bloqueia painel e consultas inclusive na navegação SPA (1.8s)
+  ok  26 [chromium-desktop] › tests\e2e\evolution.spec.ts:87:1 › home e detalhes mantêm hierarquia e mídia em desktop/mobile e ambos os temas (9.7s)
+  ok  70 [chromium-mobile] › tests\e2e\dashboard.spec.ts:280:1 › marcação recusada não afirma sucesso nem altera mensagem localmente (1.1s)
+  ok  69 [chromium-mobile] › tests\e2e\dashboard.spec.ts:252:1 › mensagens paginadas não somem após a primeira página; vazio é explícito (2.1s)
+  ok  75 [chromium-mobile] › tests\e2e\evolution.spec.ts:45:1 › mídia com falha preserva fallback, conteúdo e links do projeto (289ms)
+  ok  76 [chromium-mobile] › tests\e2e\evolution.spec.ts:65:1 › projeto sem editorial usa fallback sem inventar narrativa ou mídia (275ms)
+  ok  72 [chromium-mobile] › tests\e2e\dashboard.spec.ts:326:1 › logout e novo login não reapresentam caixa antiga em falha de leitura (1.2s)
+  ok  73 [chromium-mobile] › tests\e2e\dashboard.spec.ts:351:1 › home inicial não solicita Auth/SDK/painel; destaques carregam sob demanda (1.3s)
+(node:26392) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  79 [chromium-mobile] › tests\e2e\foundation.spec.ts:8:1 › URL inexistente oferece recuperação para a home, inclusive após refresh (584ms)
+  ok  80 [chromium-mobile] › tests\e2e\presentation.spec.ts:8:1 › conteúdo confirmado, seleção de repositórios e pendência acessível (471ms)
+  ok  71 [chromium-mobile] › tests\e2e\dashboard.spec.ts:301:1 › destaques indisponíveis não viram seleção vazia, na home ou painel (2.7s)
+  ok  65 [chromium-mobile] › tests\e2e\dashboard.spec.ts:119:1 › destaques salvos e ordem refletem home, refresh e remoção total (4.6s)
+  ok  82 [chromium-mobile] › tests\e2e\presentation.spec.ts:47:1 › atalho de teclado leva ao conteúdo e controle de tema tem foco visível (670ms)
+  ok  81 [chromium-mobile] › tests\e2e\evolution.spec.ts:8:1 › pranchas, narrativa e navegação por teclado usam conteúdo real da consulta (729ms)
+  ok  84 [chromium-mobile] › tests\e2e\projects.spec.ts:11:1 › mostra loading sem transformar curadoria ou colaboração privada em dados da API (497ms)
+  ok  74 [chromium-mobile] › tests\e2e\dashboard.spec.ts:376:1 › painel, login e contato cabem nas telas e temas, com capturas sintéticas (2.4s)
+  ok  85 [chromium-mobile] › tests\e2e\projects.spec.ts:71:1 › acesso direto e refresh usam API; nulos e URL insegura têm fallback (521ms)
+  ok  88 [chromium-mobile] › tests\e2e\projects.spec.ts:155:1 › 404 público tem recuperação e mantém distinção de falha de API (530ms)
+  ok  89 [chromium-mobile] › tests\e2e\projects.spec.ts:170:1 › lista vazia não apresenta referências editoriais como dados reais (459ms)
+  ok  86 [chromium-mobile] › tests\e2e\projects.spec.ts:34:1 › lista, detalhes e navegação SPA compartilham cache e preservam tema (812ms)
+  ok  87 [chromium-mobile] › tests\e2e\projects.spec.ts:107:1 › colaboração privada preserva URL e contexto sem consultas ou metadados fabricados (868ms)
+  ok  90 [chromium-mobile] › tests\e2e\projects.spec.ts:184:1 › detalhe mostra loading, erro e recuperação com site HTTP seguro (503ms)
+  ok  92 [chromium-mobile] › tests\e2e\projects.spec.ts:218:3 › HTTP 429 tem erro recuperável e repetição explícita (574ms)
+  ok  91 [chromium-mobile] › tests\e2e\projects.spec.ts:218:3 › HTTP 403 tem erro recuperável e repetição explícita (630ms)
+  ok  94 [chromium-mobile] › tests\e2e\projects.spec.ts:244:3 › falha de rede preserva interface e oferece recuperação (400ms)
+  ok  93 [chromium-mobile] › tests\e2e\projects.spec.ts:218:3 › HTTP 503 tem erro recuperável e repetição explícita (639ms)
+  ok  95 [chromium-mobile] › tests\e2e\projects.spec.ts:244:3 › falha de resposta inválida preserva interface e oferece recuperação (489ms)
+  ok  96 [chromium-mobile] › tests\e2e\projects.spec.ts:244:3 › falha de JSON inválido preserva interface e oferece recuperação (507ms)
+  ok  97 [chromium-mobile] › tests\e2e\projects.spec.ts:267:1 › pagina lista completa, deduplica IDs e inclui forks e arquivados (531ms)
+  ok  98 [chromium-mobile] › tests\e2e\projects.spec.ts:306:1 › detalhe público de outro dono usa API e mantém cache na navegação SPA (495ms)
+  ok 100 [chromium-mobile] › tests\e2e\projects.spec.ts:347:1 › detalhe público externo preserva dados anteriores após falha de atualização (539ms)
+  ok  99 [chromium-mobile] › tests\e2e\projects.spec.ts:325:1 › cache vence em cinco minutos; falha na atualização mantém dados anteriores (609ms)
+  ok 103 [chromium-mobile] › tests\e2e\theme.spec.ts:68:1 › storage indisponível não impede leitura nem alternância na sessão (645ms)
+  ok 102 [chromium-mobile] › tests\e2e\theme.spec.ts:45:1 › acompanha o sistema somente quando não há escolha explícita (877ms)
+  ok 104 [chromium-mobile] › tests\e2e\theme.spec.ts:89:1 › preferência inválida usa sistema e mudanças são sincronizadas entre abas (860ms)
+  ok 101 [chromium-mobile] › tests\e2e\theme.spec.ts:8:1 › preferência explícita sobrevive a navegação, refresh e nova visita (1.6s)
+  ok  83 [chromium-mobile] › tests\e2e\presentation.spec.ts:70:1 › layout mantém conteúdo e controles dentro da tela nos dois temas (5.3s)
+  ok  78 [chromium-mobile] › tests\e2e\evolution.spec.ts:136:1 › estados reais mantêm saída, layout e redução de movimento (10.6s)
+  ok  77 [chromium-mobile] › tests\e2e\evolution.spec.ts:87:1 › home e detalhes mantêm hierarquia e mídia em desktop/mobile e ambos os temas (14.1s)
+
+  104 passed (31.5s)

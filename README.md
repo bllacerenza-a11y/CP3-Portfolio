@@ -1,10 +1,10 @@
 # CP3 — Portfólio, Stack e Harness Engineering
 
-Projeto individual de portfólio React, iniciado do zero. Fundação T01, identidade/tema T02 e API GitHub T03 integrados. T04 acrescenta migrations/RLS, serviços de sessão/dados e API de contato com persistência e notificação Resend; testes locais e evidências de Supabase/Resend reais registrados, runtime Vercel pendente. Consulte [T04_BACKEND](docs/T04_BACKEND.md), [contratos T05](docs/CONTRACTS.md) e [STATE](docs/STATE.md) para estado de integração. Telas de formulário/login/painel pertencem à T05.
+Projeto individual de portfólio React, iniciado do zero. Fundação T01, identidade/tema T02, API GitHub T03, backend T04 e evolução visual T02.1 integrados. T05 implementa contato, login/guard, dashboard lazy, mensagens/respondida e destaques persistidos na home; candidato para revisão T00, com [handoff e limites](docs/handoffs/T05-contact-dashboard.md). Evidências anteriores dos serviços reais em [T04_BACKEND](docs/T04_BACKEND.md) e handoffs T04/T00; runtime Vercel pendente. Consulte [contratos](docs/CONTRACTS.md) e [STATE](docs/STATE.md) para integração canônica.
 
 ## Começar por aqui
 
-Evolução visual T02.1 revisada e integrada localmente pela T00, conforme [revisão](docs/handoffs/T00-revisao-T021-react.md) e [direção e mídias](docs/T021_VISUAL.md). Home com pranchas editoriais, catálogo compacto e narrativa nos detalhes públicos, mantendo dados/cache reais da T03. A colaboração SmartCameraStudy é apresentada como privada, sem metadados inventados. [Handoff do executor](docs/handoffs/T021-evolucao-visual.md) registra testes e limites. Formulário/login/dashboard continuam na T05.
+Evolução visual T02.1 revisada e integrada localmente pela T00, conforme [revisão](docs/handoffs/T00-revisao-T021-react.md) e [direção e mídias](docs/T021_VISUAL.md). Home com pranchas editoriais, catálogo compacto e narrativa nos detalhes públicos, mantendo dados/cache reais da T03. A colaboração SmartCameraStudy é apresentada como privada, sem metadados inventados. T05 preserva essa vitrine e acrescenta a seleção do banco em “Em destaque agora”, com estado vazio/erro próprios, além do formulário real em Contato e acesso ao painel no rodapé.
 
 1. Leia [HANDOFF_CP3_CODEX.md](HANDOFF_CP3_CODEX.md).
 2. Consulte os [requisitos](docs/REQUIREMENTS.md) e o [estado real](docs/STATE.md).
@@ -47,18 +47,19 @@ Vite informa a URL local (porta padrão 5173). Home/GitHub não precisam de vari
 | `npm run dev`                             | Servidor de desenvolvimento em 127.0.0.1           |
 | `npm run dev:auth-check`                  | Diagnóstico local opt-in de login/logout real na porta 4176, caminho /work/t04AuthProbe.html |
 | `npm run build`                           | Typecheck e build de produção em dist              |
+| `npm run build:test`                      | Typecheck e build com configuração pública sintética para E2E; não publicar |
 | `npm run preview`                         | Serve dist em http://127.0.0.1:4173, porta estrita |
 | `npm run lint`                            | ESLint, sem warnings                               |
 | `npm run format:check` / `npm run format` | Confere / aplica Prettier                          |
 | `npm run typecheck`                       | TypeScript estrito sem emitir arquivos             |
-| `npm test`                                | Testes de servidor, build e E2E desktop/mobile Chromium |
+| `npm test`                                | Testes de servidor, build:test e E2E desktop/mobile Chromium |
 | `npm run test:server`                     | SQL/RLS em Postgres WASM e lógica HTTP/Auth/email com fixtures |
 | `npm run test:supabase`                   | Opt-in no Supabase configurado: cria/remove um usuário Auth descartável, testa JWT de não proprietário, sem enviar email |
 | `npm run test:contact-live`               | Opt-in: persiste dois contatos sintéticos e envia uma notificação real ao destinatário configurado; não executa no CI |
-| `npm run test:e2e`                        | E2E sobre dist já atualizado                       |
+| `npm run test:e2e`                        | E2E sobre dist atualizado por build:test            |
 | `npm run check`                           | Lint, formatação, typecheck/build e E2E            |
 
-Playwright sobe o preview automaticamente e recusa servidor preexistente na porta 4173 para não testar uma aplicação errada. Em Linux/CI use `npx playwright install --with-deps chromium`. O relatório HTML fica em playwright-report (ignorado no Git); traces são mantidos apenas em falhas. A suíte E2E verifica navegação, tema e GitHub com fixtures sintéticas, sem API externa no CI. `tests/server` executa a migration em PGlite, com roles/Auth sintéticos, e testa validação, autorização de banco, idempotência, quotas e HTTP/notificação. Não reproduz GoTrue/PostgREST/Vercel/Resend reais; R09 na UI de formulário e redirecionamento sem login depende da T05. A aplicação não importa fixtures. Evidências reais são separadas nos handoffs.
+Playwright sobe o preview automaticamente e recusa servidor preexistente na porta 4173. Em Linux/CI use `npx playwright install --with-deps chromium`. Relatório HTML em playwright-report e traces de falhas ficam ignorados. E2E cobre navegação/tema/GitHub, formulário, login/guard, autorização negativa, painel e destaques, interceptando HTTP com fixtures sintéticas. O SDK/serviços T04 reais executam contra essas respostas, sem acessar contas nem enviar e-mail. `tests/server` executa migration/RLS em PGlite e lógica HTTP/Auth/email controlada. Isso não comprova GoTrue/PostgREST/Vercel/Resend hospedados. Evidências reais e pendências são separadas nos handoffs. Após check/test, execute `npm run build` antes de prévia com serviços reais ou publicação: o dist dos testes usa configuração sintética.
 
 `.github/workflows/ci.yml` executa a instalação limpa e `npm run check` em pushes e PRs. A configuração precisa ser executada no GitHub após criação do remoto público. Preview Vite não executa Functions; deploy e rewrites de produção pertencem a T07.
 
@@ -78,7 +79,7 @@ Responsáveis por arquivos compartilhados e contratos estão em CONTRACTS.md. Um
 
 Convenção inicial: GitHub Flow, branch por funcionalidade, commits com prefixos feat, fix, test, docs, refactor, chore e ci. O histórico deve refletir trabalho real. O repositório remoto público e a integração com Vercel ainda precisam ser configurados.
 
-Branch principal local adotada: `main`. T01–T04 e React T02.1 revisadas pela T00. Próxima passagem: usuário iniciar T05 sobre a base integrada, preservando contratos e direção visual. Consulte STATE e handoffs para evidências/limites; uma frente de implementação por vez.
+Branch principal local adotada: `main`. T01–T04 e React T02.1 revisadas pela T00. T05 parte do fechamento edbd683 em codex/t05-contact-dashboard e entrega candidato/handoff para revisão T00. Consulte STATE e handoffs para evidências/limites; uma frente de implementação por vez.
 
 ## Conteúdo e tema
 

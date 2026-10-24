@@ -1,4 +1,8 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router';
+import { AsyncState } from '../components/AsyncState';
+import { ContactForm } from '../features/contact/ContactForm';
+import { HighlightsSection } from '../features/projects/HighlightsSection';
 import { ProjectsSection } from '../features/projects/ProjectsSection';
 import { ProjectDetails } from '../features/projects/ProjectDetails';
 import { ThemeToggle } from '../components/ThemeToggle';
@@ -6,6 +10,8 @@ import { portfolio, selectedRepositories } from '../content/portfolio';
 import { projectPath, routes } from './routes';
 import styles from './App.module.css';
 import { NavigationEffects } from './NavigationEffects';
+
+const AuthArea = lazy(() => import('../features/auth/AuthArea'));
 
 function Home() {
   const first = selectedRepositories[0];
@@ -50,6 +56,7 @@ function Home() {
         </div>
       </section>
       <ProjectsSection />
+      <HighlightsSection />
       <div className={styles.aboutContact}>
         <section
           id="sobre"
@@ -70,10 +77,7 @@ function Home() {
           aria-labelledby="contact-title"
         >
           <h2 id="contact-title">Vamos conversar</h2>
-          <p>Você pode acompanhar os projetos pelo meu perfil público.</p>
-          <a className={styles.cta} href={portfolio.github}>
-            Visitar o perfil no GitHub <span aria-hidden="true">↗</span>
-          </a>
+          <ContactForm />
         </section>
       </div>
     </>
@@ -112,6 +116,24 @@ export function App() {
           <Routes>
             <Route path={routes.home} element={<Home />} />
             <Route path={routes.project} element={<ProjectDetails />} />
+            {[routes.login, routes.dashboard].map((path) => (
+              <Route
+                key={path}
+                path={path}
+                element={
+                  <Suspense
+                    fallback={
+                      <AsyncState
+                        status="loading"
+                        title="Carregando área do proprietário"
+                      />
+                    }
+                  >
+                    <AuthArea />
+                  </Suspense>
+                }
+              />
+            ))}
             <Route
               path="*"
               element={
@@ -139,6 +161,7 @@ export function App() {
             <span>Primeiro ano, trajetória em construção.</span>
           </p>
           <a href={portfolio.github}>GitHub</a>
+          <Link to={routes.dashboard}>Área do proprietário</Link>
         </footer>
       </div>
     </BrowserRouter>

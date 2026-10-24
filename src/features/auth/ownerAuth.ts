@@ -40,6 +40,10 @@ export async function signInOwner(
 export async function clearPrivateQueries(cache: QueryClient): Promise<void> {
   await cache.cancelQueries({ queryKey: ['messages'] });
   cache.removeQueries({ queryKey: ['messages'] });
+  const mutations = cache.getMutationCache();
+  mutations
+    .findAll({ mutationKey: ['messages'] })
+    .forEach((mutation) => mutations.remove(mutation));
 }
 
 export async function signOutOwner(

@@ -21,6 +21,10 @@ export const repositories = [
 ];
 
 export async function mockGitHub(page: Page) {
+  // Default public selection for old visual/API scenarios; never contact Supabase.
+  await page.route('**/rest/v1/highlights*', (route) =>
+    route.fulfill({ json: [] }),
+  );
   await page.route('https://api.github.com/**', async (route) => {
     const url = new URL(route.request().url());
     if (url.pathname.startsWith('/users/')) {

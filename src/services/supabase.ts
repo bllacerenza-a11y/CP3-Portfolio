@@ -10,6 +10,8 @@ export function getSupabase(): SupabaseClient {
     string | undefined;
   if (!url || !key) throw new Error('Serviço de autenticação não configurado.');
   client = createClient(url, key, {
+    // TanStack/UI owns explicit retries; the SDK otherwise retries 503 reads.
+    db: { retry: false, timeout: 8000 },
     auth: {
       persistSession: true,
       autoRefreshToken: true,
