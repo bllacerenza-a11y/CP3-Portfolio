@@ -20,6 +20,7 @@
     "format:check": "prettier --check \"{src,shared,server,api,tests}/**/*.{ts,tsx,css}\" \"scripts/*.mjs\" \"*.{js,ts,json,html}\" \".github/**/*.yml\" .prettierrc.json",
     "test": "npm run test:server && npm run test:runtime && npm run build:test && playwright test",
     "test:runtime": "node scripts/checkFunctionRuntime.mjs",
+    "test:hosting": "node scripts/checkHostedRoutes.mjs",
     "test:server": "playwright test --config playwright.server.config.ts",
     "test:supabase": "node --env-file=.env scripts/verifySupabase.mjs",
     "test:contact-live": "playwright test --config playwright.services.config.ts",

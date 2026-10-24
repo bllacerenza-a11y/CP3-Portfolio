@@ -9,6 +9,10 @@
   },
   "rewrites": [
     {
+      "source": "/projetos/:owner/:repo",
+      "destination": "/index.html"
+    },
+    {
       "source": "/((?!api(?:/|$)|assets(?:/|$)|.*\\.[^/]+$).*)",
       "destination": "/index.html"
     }

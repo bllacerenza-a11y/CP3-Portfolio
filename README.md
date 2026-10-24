@@ -55,6 +55,7 @@ Vite informa a URL local (porta padrão 5173). Home/GitHub não precisam de vari
 | `npm test`                                | Testes de servidor, build:test e E2E desktop/mobile Chromium |
 | `npm run test:server`                     | SQL/RLS em Postgres WASM e lógica HTTP/Auth/email com fixtures |
 | `npm run test:runtime`                    | Compila a Function como ESM e executa GET/POST inválido em Node, sem serviços externos |
+| `npm run test:hosting -- <URL> <SHA> [relatório.json]` | Opt-in no deployment real: apenas GET, verifica rotas, exclusões e revisão; sem submissões |
 | `npm run test:supabase`                   | Opt-in no Supabase configurado: cria/remove um usuário Auth descartável, testa JWT de não proprietário, sem enviar email |
 | `npm run test:contact-live`               | Opt-in: persiste dois contatos sintéticos e envia uma notificação real ao destinatário configurado; não executa no CI |
 | `npm run test:e2e`                        | E2E sobre dist atualizado por build:test            |

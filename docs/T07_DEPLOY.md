@@ -10,6 +10,10 @@ Vercel importa o repositório Git, usa `main` para produção e branches para pr
 
 Não publicar `work`, diagnósticos, `.env`, sessões ou `dist` local. `.vercelignore` exclui esses itens de upload pela CLI; deploy Git compila o código, e somente `dist` mais a Function são servidos.
 
+Correção após revisão T00: o detalhe `/projetos/:owner/:repo` tem regra explícita antes do fallback genérico, permitindo repositórios com ponto, como `vercel/next.js`. A exclusão de arquivos com extensão continua nas demais rotas. Um caminho adicional como `/projetos/vercel/next.js/package.json` não corresponde ao detalhe e continua 404 do host, assim como API/assets/arquivos ausentes.
+
+Probe opt-in reproduzível no host real: `npm run test:hosting -- https://cp3-portfolio-peach.vercel.app <SHA-completo> work/hosted-routes.json`. Faz apenas GET, confere 19 casos (incluindo recurso real e ausente), shell React/tipos HTTP e SHA do deployment. Não roda em `npm run check`, pois depende de deployment externo já pronto; é executado após publicar. Navegador verifica separadamente o conteúdo obtido pela API e o refresh. Preview do Vite não substitui esse probe.
+
 O deployment inicial expôs `ERR_MODULE_NOT_FOUND` em `/api/contact`: o Node ESM exige extensões nos imports relativos emitidos. A T07 usa `.js` nos imports do grafo servidor, resolvidos para TypeScript em desenvolvimento e JavaScript no host. `npm run test:runtime`, incorporado a `npm test`/CI, compila o grafo com NodeNext e executa o JavaScript emitido sem loader TS; verifica GET 405 e POST inválido 400 com configuração sintética e sem escrita externa.
 
 ## Ambientes e segredos
