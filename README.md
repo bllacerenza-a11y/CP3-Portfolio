@@ -32,7 +32,7 @@ Fonte: [enunciado do CP3](https://cherry-client-b8f.notion.site/CP3-Portfolio-St
 
 ## Execução
 
-Referência: Node **24.20.0**, npm **11.19.0**, Windows/PowerShell no desenvolvimento; CI configurado para Ubuntu (execução remota pendente). Instale essas versões usando seu gerenciador de runtime. `.nvmrc`, `engines` e `.npmrc` registram o contrato; nenhuma instalação global de runtime foi feita pela T01.
+Referência: Node **24.20.0**, npm **11.19.0**, Windows/PowerShell no desenvolvimento; CI executado em Ubuntu no GitHub Actions (evidências T07). Instale essas versões usando seu gerenciador de runtime. `.nvmrc`, `engines` e `.npmrc` registram o contrato; nenhuma instalação global de runtime foi feita pela T01.
 
 ```powershell
 npm ci
@@ -62,7 +62,7 @@ Vite informa a URL local (porta padrão 5173). Home/GitHub não precisam de vari
 
 Playwright sobe o preview automaticamente e recusa servidor preexistente na porta 4173. Em Linux/CI use `npx playwright install --with-deps chromium`. Relatório HTML em playwright-report e traces de falhas ficam ignorados. E2E cobre navegação/tema/GitHub, formulário, login/guard, autorização negativa, painel e destaques, interceptando HTTP com fixtures sintéticas. O SDK/serviços T04 reais executam contra essas respostas, sem acessar contas nem enviar e-mail. `tests/server` executa migration/RLS em PGlite e lógica HTTP/Auth/email controlada. Isso não comprova GoTrue/PostgREST/Vercel/Resend hospedados. Evidências reais e pendências são separadas nos handoffs. Após check/test, execute `npm run build` antes de prévia com serviços reais ou publicação: o dist dos testes usa configuração sintética.
 
-`.github/workflows/ci.yml` executa a instalação limpa e `npm run check` em pushes e PRs. A configuração precisa ser executada no GitHub após criação do remoto público. Preview Vite não executa Functions; deploy e rewrites de produção pertencem a T07.
+`.github/workflows/ci.yml` executa a instalação limpa e `npm run check` em pushes e PRs. A execução remota está comprovada no pacote T07. Preview Vite não executa Functions; a hospedagem Vercel e os rewrites estão configurados no candidato T07.
 
 ### QA integrado local (opt-in)
 
@@ -95,13 +95,13 @@ Responsáveis por arquivos compartilhados e contratos estão em CONTRACTS.md. Um
 
 Convenção inicial: GitHub Flow, branch por funcionalidade, commits com prefixos feat, fix, test, docs, refactor, chore e ci. O histórico deve refletir trabalho real. O repositório remoto público e a integração com Vercel ainda precisam ser configurados.
 
-Branch principal local adotada: `main`. T01–T05 e React T02.1 revisadas pela T00 no escopo local. Próxima passagem: usuário iniciar T06 para QA e aceite integrado real pendente. Consulte STATE e handoffs para evidências/limites; uma frente de implementação por vez.
+Branch principal adotada: `main`. T01–T06 e React T02.1 revisadas pela T00; T07 entrega candidato hospedado para revisão, seguido pela auditoria T08 e fechamento T09. Consulte STATE e handoffs para evidências/limites; uma frente de implementação por vez.
 
 ## Conteúdo e tema
 
 Conteúdo editorial em `src/content/portfolio.ts`, com fontes em [T02_DESIGN.md](docs/T02_DESIGN.md). A T03 mantém os resumos separados de descrição, linguagem e datas obtidas pela API. Não atribuir autoria exclusiva ou tecnologias dominadas a partir de um README de equipe.
 
-Projetos: `src/services/github.ts` acessa a API pública sem token e valida a fronteira HTTP; `src/features/projects` reúne consultas e apresentação. Lista `GET /users/bllacerenza-a11y/repos` inclui todos os públicos, forks e arquivados; referências de outros donos usam `GET /repos/:owner/:repo`. Detalhes em `/projetos/:owner/:repo`. SmartCameraStudy tem tratamento explícito de 404 sem inferir a causa. Cache somente em memória: válido por 5 minutos, descarte após 30 minutos inativo, sem atualização por foco, reaproveitando lista nos detalhes. Reload faz nova consulta. Falhas oferecem repetição; atualização falha conserva os dados anteriores com aviso. [Contratos e consumo pela T05](docs/CONTRACTS.md), [revisão da skill Vercel e decisões T03](docs/T03_GITHUB.md). Nenhuma variável de ambiente é necessária para esta integração pública. Fallback de URLs em produção ainda depende da T07.
+Projetos: `src/services/github.ts` acessa a API pública sem token e valida a fronteira HTTP; `src/features/projects` reúne consultas e apresentação. Lista `GET /users/bllacerenza-a11y/repos` inclui todos os públicos, forks e arquivados; referências de outros donos usam `GET /repos/:owner/:repo`. Detalhes em `/projetos/:owner/:repo`. SmartCameraStudy tem tratamento explícito de 404 sem inferir a causa. Cache somente em memória: válido por 5 minutos, descarte após 30 minutos inativo, sem atualização por foco, reaproveitando lista nos detalhes. Reload faz nova consulta. Falhas oferecem repetição; atualização falha conserva os dados anteriores com aviso. [Contratos e consumo pela T05](docs/CONTRACTS.md), [revisão da skill Vercel e decisões T03](docs/T03_GITHUB.md). Nenhuma variável de ambiente é necessária para esta integração pública. Fallback de URLs em produção configurado e verificado no candidato T07, preservando /api e assets.
 
 Preferência em `cp3.theme`: `light` ou `dark`. Sem preferência válida, acompanhar o sistema; “Usar sistema” remove a escolha. Tokens CSS e componentes compartilhados estão documentados em [CONTRACTS.md](docs/CONTRACTS.md). Sem armazenamento disponível, alternar funciona na sessão, mas não persiste após recarregar. Testes cobrem também esse limite.
 
