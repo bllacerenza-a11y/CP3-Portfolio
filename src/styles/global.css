@@ -11,6 +11,7 @@
   --color-accent: #28594b;
   --color-on-accent: #ffffff;
   --color-border: #c4cdc1;
+  --color-control-border: #778575;
   --color-error: #a52b25;
   --color-soft: #e5e9dd;
   color-scheme: light;
@@ -25,6 +26,7 @@
   --color-accent: #c7d7b2;
   --color-on-accent: #10251f;
   --color-border: #51685c;
+  --color-control-border: #819789;
   --color-error: #ffb4a6;
   --color-soft: #203c33;
   color-scheme: dark;

@@ -68,6 +68,8 @@ Sugestões de feedback T05: notified → “Mensagem salva; notificação aceita
 
 ## UI e responsabilidades de edição
 
+QA T06: `--color-control-border` diferencia bordas de campos das divisórias decorativas (`--color-border`) e mantém contraste mínimo 3:1 nos temas testados. Navegação por fragmento também foca o destino fora da ordem de Tab, inclusive ao repetir a mesma âncora. A migração incremental `202610240001_highlights_safe_delete.sql` acrescenta `WHERE project_id > 0` à substituição de destaques para compatibilidade com a proteção do banco hospedado; assinaturas, RLS, security invoker e grants permanecem iguais. Aplicar a sequência de migrations em ambientes novos; o projeto existente recebeu somente a correção incremental via SQL Editor na T06.
+
 T02 implementa tokens semânticos `--color-background`, `--color-text`, `--color-muted`, `--color-link`, `--color-surface`, `--color-border`, `--color-accent`, `--color-on-accent` e `--color-error`. Direção editorial confirmada pelo usuário em docs/T02_DESIGN.md. Tema usa `data-theme="light|dark"` na raiz e localStorage `cp3.theme` (`light` ou `dark`); ausência/valor inválido segue sistema. Retorno ao sistema remove a chave. Storage bloqueado mantém a alternância apenas durante a sessão; não prometer persistência nesse caso. Script inicial em index.html aplica antes do React; themeStore/useTheme mantêm mudanças de sistema e outras abas.
 
 Contratos concretos da T02:

@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { PGlite } from '@electric-sql/pglite';
 
 export const ownerId = '11111111-1111-4111-8111-111111111111';
@@ -21,9 +21,10 @@ export async function createDatabase() {
     grant usage on schema auth to authenticated;
     insert into auth.users values ('${ownerId}'), ('${outsiderId}');
   `);
-  await db.exec(
-    await readFile('supabase/migrations/202610230001_portfolio.sql', 'utf8'),
-  );
+  for (const migration of (await readdir('supabase/migrations')).sort()) {
+    if (migration.endsWith('.sql'))
+      await db.exec(await readFile(`supabase/migrations/${migration}`, 'utf8'));
+  }
   await db.query('insert into private.portfolio_owner (user_id) values ($1)', [
     ownerId,
   ]);

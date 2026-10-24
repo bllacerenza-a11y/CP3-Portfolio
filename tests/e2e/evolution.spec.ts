@@ -21,6 +21,8 @@ test('pranchas, narrativa e navegação por teclado usam conteúdo real da consu
   await aether
     .getByRole('link', { name: 'Ver detalhes de Aether', exact: true })
     .click();
+  // Wait for the route focus effect before the next keyboard interaction.
+  await expect(page.getByRole('main')).toBeFocused();
   const summary = page.getByText('Explorar o caminho dos dados', {
     exact: true,
   });

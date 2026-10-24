@@ -55,7 +55,8 @@ test('atalho de teclado leva ao conteúdo e controle de tema tem foco visível',
   ).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.getByRole('main')).toBeFocused();
-  await page.reload();
+  // Start a fresh document without #conteudo: fragment loads now focus their target.
+  await page.goto('/');
   // Pular, marca, três links de navegação, tema.
   for (let i = 0; i < 6; i++) await page.keyboard.press('Tab');
   const toggle = page.getByRole('button', { name: 'Ativar tema escuro' });

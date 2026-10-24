@@ -63,6 +63,21 @@ Playwright sobe o preview automaticamente e recusa servidor preexistente na port
 
 `.github/workflows/ci.yml` executa a instalação limpa e `npm run check` em pushes e PRs. A configuração precisa ser executada no GitHub após criação do remoto público. Preview Vite não executa Functions; deploy e rewrites de produção pertencem a T07.
 
+### QA integrado local (opt-in)
+
+Para inspecionar a UI com a configuração real, sem substituir o `dist` sintético durante a suíte:
+
+```powershell
+npm run build -- --outDir work/t06-production
+node scripts/qaRuntime.mjs
+```
+
+Abra http://127.0.0.1:4186. O runtime serve esse build e carrega o mesmo adaptador Node de `/api/contact` e suas dependências; não simula Functions com o preview sozinho. Carrega o ambiente local, permite apenas essa origem durante a execução e não modifica `.env`. Por padrão bloqueia contatos. Acrescentar `--allow-contact` habilita persistência e e-mail **reais**, somente para uma submissão deliberada; não repetir por rotina. O recibo `work/t06ContactRuntime.json` conta requisições/status e chamadas ao provedor, sem conteúdo, chaves ou sessões; a contagem reinicia por processo. Pare com Ctrl+C. Não publicar `work` nem esse runtime; ele não comprova rede/IP/origens/duração do ambiente Vercel.
+
+Aplicar as migrations de `supabase/migrations` em ordem. A correção `202610240001_highlights_safe_delete.sql` mantém a substituição transacional e as permissões da função, acrescentando o predicado exigido pelo Supabase hospedado. No projeto já configurado foi aplicada via SQL Editor; reconciliar o histórico antes de usar CLI, sem reaplicar o CREATE inicial. Evidências e limites da T06 em `docs/handoffs/T06-qa.md`.
+
+O runner E2E limita a concorrência a quatro workers. `work` é saída local ignorada também pelo lint. Testes de qualidade cobrem contraste de campos/textos/erros/foco e operação por teclado; a amostra não certifica acessibilidade integral.
+
 ## Stack e padrões
 
 Instalados: React, TypeScript, Vite, React Router declarativo, TanStack Query, Supabase JS, Zod, CSS Modules, ESLint, Prettier e Playwright; PGlite apenas em desenvolvimento/testes. Decisões e limites em ARCHITECTURE.md/T04_BACKEND.md; versões exatas em package.json/lockfile.
