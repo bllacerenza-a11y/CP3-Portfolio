@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-24T16:07:17.611Z",
+  "verification": "server read-only + public read, separate from real UI acceptance",
+  "totalMessages": 3,
+  "t06Rows": 1,
+  "t06Status": "accepted",
+  "t06RespondedAt": null,
+  "highlights": [],
+  "runtime": {
+    "requests": 1,
+    "providerCalls": 1,
+    "results": [
+      {
+        "at": "2026-10-24T15:55:20.138Z",
+        "status": 201
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+
+> cp3-portfolio@0.1.0 test:server
+> playwright test --config playwright.server.config.ts
+
+
+Running 25 tests using 1 worker
+
+(node:34840) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 tests\server\auth.spec.ts:12:1 › limpeza privada remove resultados de mutação além de consultas, preservando cache público (7ms)
+  ok  2 tests\server\auth.spec.ts:102:1 › sem sessão não consulta mensagens nem presume identidade (5ms)
+  ok  3 tests\server\auth.spec.ts:108:1 › login verifica usuário remotamente e consulta autorização; outro autenticado é negado (8ms)
+  ok  4 tests\server\auth.spec.ts:122:1 › credenciais recusadas e erro de autorização não concedem acesso (4ms)
+  ok  5 tests\server\auth.spec.ts:137:1 › logout encerra sessão e remove somente dados privados do QueryClient (3ms)
+  ok  6 tests\server\auth.spec.ts:154:1 › falha no logout limpa cache mas retorna erro para manter painel bloqueado (2ms)
+  ok  7 tests\server\authorization.spec.ts:18:1 › visitante lê destaques, sem acesso direto a mensagens ou RPCs privadas (67ms)
+  ok  8 tests\server\authorization.spec.ts:45:1 › outro autenticado não ganha acesso a mensagens, alterações ou identidade de proprietário (27ms)
+  ok  9 tests\server\authorization.spec.ts:88:1 › dono lê mensagens e só pode alterar responded_at; não insere nem apaga mensagens (20ms)
+  ok 10 tests\server\authorization.spec.ts:135:1 › destaques substituem/ordenam atomicamente, preservando seleção anterior em falha (17ms)
+  ok 11 tests\server\authorization.spec.ts:172:1 › banco mantém restrições de campos, IDs, positions e proprietário único (12ms)
+  ok 12 tests\server\authorizationRollback.spec.ts:5:1 › probe SQL reproduzível passa e desfaz fixtures sem remover o proprietário (976ms)
+  ok 13 tests\server\contact.spec.ts:74:1 › validação específica e normalização compartilhadas; dados inválidos não persistem (8ms)
+  ok 14 tests\server\contact.spec.ts:114:1 › persiste antes da notificação; repetição não duplica registro nem e-mail (13ms)
+  ok 15 tests\server\contact.spec.ts:144:1 › falha do provedor conserva mensagem e não afirma entrega nem reenvia automaticamente (7ms)
+  ok 16 tests\server\contact.spec.ts:159:1 › confirmação de status indisponível resulta em pendência e repetição não reenvia (6ms)
+  ok 17 tests\server\contact.spec.ts:173:1 › falha de persistência não chama notificador (3ms)
+  ok 18 tests\server\contact.spec.ts:184:1 › quota persistida limita IP e não depende da memória da Function (14ms)
+  ok 19 tests\server\contact.spec.ts:198:1 › quota global limita novas origens e janela expirada volta a aceitar (6ms)
+  ok 20 tests\server\contact.spec.ts:213:1 › método, origem, formato e ausência de IP são recusados antes de persistir (3ms)
+  ok 21 tests\server\contact.spec.ts:227:1 › adaptador HTTP executa a Function localmente, limita body e não armazena resposta em cache (57ms)
+  ok 22 tests\server\contact.spec.ts:254:1 › ramo Vercel aceita body pré-processado e usa somente IP da plataforma (39ms)
+  ok 23 tests\server\provider.spec.ts:20:1 › integração Resend usa texto, destinatário fixo, reply_to e chave de idempotência estável (7ms)
+  ok 24 tests\server\provider.spec.ts:42:1 › recusa, resposta inválida e falta de email configurado não viram notificação aceita (3ms)
+  ok 25 tests\server\provider.spec.ts:62:1 › persistência transmite HMAC do IP e parâmetros normalizados; segredo nunca entra no payload (2ms)
+
+  25 passed (4.9s)
