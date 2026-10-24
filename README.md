@@ -1,6 +1,6 @@
 # CP3 — Portfólio, Stack e Harness Engineering
 
-Projeto individual de portfólio React, iniciado do zero. Fundação T01, identidade/tema T02, API GitHub T03, backend T04 e evolução visual T02.1 integrados. T05 implementa contato, login/guard, dashboard lazy, mensagens/respondida e destaques persistidos na home; revisada e integrada localmente pela T00, com [revisão e limites](docs/handoffs/T00-revisao-T05.md). Aceite UI/JWT do dono e contato integrado real pendentes para T06; evidências anteriores dos serviços reais em [T04_BACKEND](docs/T04_BACKEND.md) e handoffs T04/T00. Runtime Vercel pendente. Consulte [contratos](docs/CONTRACTS.md) e [STATE](docs/STATE.md) para integração canônica.
+Projeto individual de portfólio React, iniciado do zero. Fundação, identidade/tema, API GitHub, backend, evolução visual e frontend administrativo integrados localmente. T06 corrigiu contraste/foco e substituição SQL de destaques, com aceite UI/JWT e contato integrado em serviços reais; [revisão T00 e limites](docs/handoffs/T00-revisao-T06.md). CI remoto, Vercel e Lighthouse permanecem T07. Consulte [contratos](docs/CONTRACTS.md) e [STATE](docs/STATE.md) para estado canônico.
 
 ## Começar por aqui
 

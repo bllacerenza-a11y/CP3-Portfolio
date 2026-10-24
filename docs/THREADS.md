@@ -27,4 +27,6 @@ Os prompts iniciais limitam a primeira rodada à preparação em leitura. O usu�
 
 Uma conversa mantém seu próprio histórico. A continuidade vem dos arquivos canônicos, dos handoffs por tarefa e do estado real do Git. Estar no mesmo projeto não equivale a compartilhar automaticamente todos os turnos.
 
-Sequência atual: T06 (QA e aceite integrado real pendente) → T00 revisar → T07 → T08 → fechamento T09. Testes/documentação acompanham as entregas; ver TASKS e STATE. Um escritor de código por checkout.
+T06 84e4556/25ef39c revisada/aprovada pela T00 em 24/10, com aceite UI/JWT e contato integrado real conferidos; ver docs/handoffs/T00-revisao-T06.md. Isso resolve as pendências locais T05 descritas acima. Próxima conversa: CP3 · 07 — Performance e deploy; T06 não aguarda novo início. Nenhum outro chat acionado pela T00.
+
+Sequência atual: T07 → T00 revisar → T08 → fechamento T09. Testes/documentação acompanham as entregas; ver TASKS e STATE. Um escritor de código por checkout.
