@@ -113,6 +113,12 @@ export function App() {
           <ThemeToggle />
         </header>
         <main id="conteudo" tabIndex={-1}>
+          {import.meta.env.VITE_DEPLOY_ENV === 'preview' && (
+            <p role="status">
+              Ambiente de prévia · revisão{' '}
+              {import.meta.env.VITE_DEPLOY_REVISION}
+            </p>
+          )}
           <Routes>
             <Route path={routes.home} element={<Home />} />
             <Route path={routes.project} element={<ProjectDetails />} />

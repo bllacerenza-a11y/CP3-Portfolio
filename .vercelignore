@@ -1,0 +1,12 @@
+.env*
+!.env.example
+work/
+docs/
+tests/
+test-results/
+playwright-report/
+playwright/.auth/
+supabase/
+scripts/qaRuntime.mjs
+scripts/createAuthProbe.mjs
+scripts/verifySupabase.mjs
