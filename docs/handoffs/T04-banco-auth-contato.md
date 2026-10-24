@@ -1,5 +1,15 @@
 # Handoff — T04 — Banco, autenticação e contato
 
+## Fechamento — contato e email reais, 24/10/2026
+
+**Estado atual: pronta para revisão T00 no escopo backend T04.** Esta seção substitui as pendências históricas de Resend/recebimento abaixo. Branch `codex/t04-auth-contact`, base desta rodada `e6cdc95`; testes opt-in/configuração/README e evidências acrescentados, sem alteração do código de produto. Main, STATE/THREADS e edição preexistente T02 preservados. Nenhum novo chat ou subagente acionado.
+
+Com autorização explícita, criada chave Resend `CP3-Portfolio-T04`, Sending access. Usuário inseriu o segredo pessoalmente no `.env` ignorado. Teste com remetente `onboarding@resend.dev` e destinatário da própria conta. `npm run test:contact-live`: **exit 0, 1 teste aprovado em 3,0 s** contra Supabase/Resend reais pelo adaptador HTTP Node local. Verificou 400 inválido, 201/notified e linha accepted, replay sem novo envio, conflito 409 e falha controlada 202 com persistência. Usuário confirmou **recebimento do email**. Duas mensagens sintéticas retidas, recibo/IDs locais ignorados. Detalhes e limites em `docs/evidence/T04/contact-live.md`; log `contact-live.log`.
+
+Contrato T05 permanece o de CONTRACTS: notified indica aceitação pelo provedor; o recebimento deste teste não transforma esse status em garantia de entrega futura. Não reprocessar automaticamente failed/pending. Próximo passo: T00 revisar diff desde main `847e710` e evidências; só depois integrar e liberar T05. UI T05 e runtime/deploy Vercel T07 continuam pendentes; remetente de teste Resend restrito à própria conta, produção exige remetente/domínio autorizado. A aplicação completa de R04/R05 ainda depende dessas tarefas.
+
+`npm run check` final em 24/10 passou (exit 0): lint, formato, tipos/build, **24 testes backend em 6,5 s e 48 execuções Chromium desktop/mobile em 13,5 s**. Log `docs/evidence/T04/check-contact-live.log`. Teste de serviços reais separado da suíte local; nenhuma notificação adicional na checagem padrão. `git diff --check` passou; `.env`/recibo confirmados ignorados; comparação em memória dos três segredos de servidor contra o JS compilado confirmou ausência, sem imprimir valores.
+
 ## Retomada — login/logout/JWT reais verificados
 
 23/10/2026 ~21:47–21:53 BRT. Usuário fez login no diagnóstico usando a própria senha. Captura fornecida confirmou login/owner; agente verificou restauração após reload, leitura privada permitida (caixa vazia), logout, remoção do cache e sessão ausente após novo reload. Provas sem credenciais em `docs/evidence/T04/auth-owner-restored.jpg` e `auth-owner-logout.jpg`.

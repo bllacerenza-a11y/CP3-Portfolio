@@ -8,6 +8,8 @@ Atualização posterior: login real do dono, restauração de sessão, logout/ca
 
 ## Skill avaliada e aplicada
 
+Atualização de 24/10/2026: Resend configurado no `.env` ignorado, com chave Sending access autorizada pelo usuário. `npm run test:contact-live` passou contra Supabase e Resend reais usando o adaptador Node local: persistência, uma notificação aceita, replay sem novo envio, conflito e falha parcial controlada. O destinatário confirmou recebimento no chat. Evidência em `evidence/T04/contact-live.md`; Vercel e UI T05 continuam pendentes. O remetente de teste `onboarding@resend.dev` só permite envio ao email da própria conta Resend; produção requer remetente/domínio autorizado e configuração por ambiente.
+
 - Origem primária: [supabase/agent-skills](https://github.com/supabase/agent-skills), revisão **c9be0e931b7930f7d02126d04774d904c381e7d7**, obtida pela API GitHub em 23/10/2026.
 - [SKILL.md fixado](https://github.com/supabase/agent-skills/blob/c9be0e931b7930f7d02126d04774d904c381e7d7/skills/supabase-postgres-best-practices/SKILL.md) lido integralmente; versão declarada **1.1.1**, autor/organização Supabase. [LICENSE](https://github.com/supabase/agent-skills/blob/c9be0e931b7930f7d02126d04774d904c381e7d7/LICENSE) MIT, copyright Supabase 2026, conferido integralmente; frontmatter também declara MIT.
 - Inventário recursivo da pasta na mesma revisão: SKILL.md, CHANGELOG.md e referências Markdown. Nenhum script, executável, hook ou manifesto de dependências dentro dessa pasta. A skill é orientação textual; não foi instalada, copiada ou executada como pacote.
