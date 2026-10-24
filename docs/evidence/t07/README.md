@@ -1,5 +1,7 @@
 # Evidências T07
 
+**Histórico da primeira entrega (1263d47).** A correção do fallback para repositórios com ponto está em `../t07-route-fix`, com novo SHA e testes reais. Os resultados desta pasta não comprovam essa correção posterior.
+
 24/10/2026, America/Sao_Paulo. Windows, Node 24.20.0, npm 11.19.0. Candidato de produto: `1263d47`; handoff e revisão em `../../handoffs/T07-performance-deploy.md`.
 
 Resultado final: **Lighthouse mobile 98**, LCP 2,3s, TBT 30ms, CLS 0; **16/16 HTTP** e **CI 1263d47 success**. Dados resumidos em `final-summary.json`. Execução final Lighthouse às 13:52 BRT; valores sujeitos a variação.

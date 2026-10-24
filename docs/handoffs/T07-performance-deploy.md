@@ -1,5 +1,25 @@
 # T07 — Performance e deploy — candidato para T00
 
+## Retomada após T00-revisao-T07 — correção de R01
+
+24/10/2026, America/Sao_Paulo. **Novo produto candidato: 5cd7834c7a8a91e6cceb6b87d5423c7658988cb3**, publicado e pronto para nova revisão T00. PR #1 continua rascunho. Documentação/evidências posteriores ao produto não alteram o bundle.
+
+- Branch retomada: `codex/t07-performance-deploy`; documentos da main local **ec372a9** incorporados pelo merge **6b029e1**. Não houve alteração própria de STATE/THREADS, integração do produto na main nem push da main. Remota continua **59702f8**.
+- Causa confirmada pelo novo probe: a exclusão genérica de extensões devolvia 404 do host para `/projetos/vercel/next.js` e `/projetos/vercel/cp3-t07-missing.repo` (17/19 verificações aprovadas sobre 1263d47).
+- Correção: regra explícita `/projetos/:owner/:repo` antes do fallback genérico. Aceita ponto no nome do repositório; mantém as exclusões fora desse formato. Caminho adicional `/projetos/vercel/next.js/package.json` continua sendo arquivo ausente/404.
+- Novo comando opt-in **`npm run test:hosting -- <URL> <SHA-completo> [relatório.json]`**, sem novas dependências: verifica a configuração no host real com GET somente. Comprova status, shell React, tipos, exclusões, asset real e SHA; não substitui o navegador para conteúdo de API.
+- **Depois: 19/19** na URL canônica, metadata production/5cd7834. Next.js real por acesso direto/refresh; ausente com ponto chega ao erro da aplicação com “Consultar novamente” nas duas entradas; Aether sem ponto também aprovado no navegador.
+- Exclusões `/api`, API inexistente/com extensão, `/assets`, assets ausentes, `/.env`, `/work`, arquivos ausentes e caminho extra após detalhe: preservadas. GET `/api/contact` permanece 405 JSON/Allow POST/no-store. Nenhum POST.
+- `npm run check`: exit 0, lint/formato/tipos, 25 backend (4,7s), ESM emitido e 110 E2E (43,1s). `npm run build` posterior exit 0. Logs e relatórios novos em **docs/evidence/t07-route-fix/**, separados dos antigos.
+- CI de produto: [push 40138514973](https://github.com/bllacerenza-a11y/CP3-Portfolio/actions/runs/40138514973) e [PR 40138517675](https://github.com/bllacerenza-a11y/CP3-Portfolio/actions/runs/40138517675), ambos completed/success no SHA 5cd7834.
+- Produção canônica: https://cp3-portfolio-peach.vercel.app. Imutável: https://cp3-portfolio-peem2adix-neox5.vercel.app. Preview do produto: https://cp3-portfolio-by1vnlkuo-neox5.vercel.app. Deploy via CLI da branch, Vercel Ready; nenhuma alteração de configuração/env/Function/serviços nesta retomada.
+- Edição T02 permanece fora dos commits, hash **F7513381BEA8E9E64372EF79FA97154FAF8A32899B8C255DA31FEAFC82C03159**. Nenhum envio real, login do dono, migration/repair ou escrita no banco. Limites de contato hospedado e histórico CLI mantidos.
+- Lighthouse 98 abaixo é **histórico de 1263d47**, não reexecutado nesta correção restrita ao rewrite. As evidências antigas foram preservadas e não são usadas como prova da correção.
+
+Próximo passo T00: revisar o novo diff e pacote, conferir SHA/CI e rotas reais, decidir integração antes de qualquer push da main. Não avançar T08 como aprovada automaticamente. Fonte do achado preservada em docs/handoffs/T00-revisao-T07.md.
+
+## Registro histórico da primeira entrega — 1263d47
+
 Atualizado em 24/10/2026, America/Sao_Paulo. Chat CP3 · 07 — Performance e deploy (`01a1677e-a6c4-7ba0-b647-15f4cbb51410`). Estado: **pronto para revisão T00, com limites de produção explicitados abaixo**. Não equivale à aprovação/integração da T00 nem à auditoria T08.
 
 ## Escopo e código

@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-10-24T22:27:50.799Z",
+  "origin": "https://cp3-portfolio-peach.vercel.app",
+  "deploymentConfirmedSeparatelyIn": "after.json",
+  "nextDirectHref": "https://github.com/vercel/next.js",
+  "nextRefreshHref": "https://github.com/vercel/next.js",
+  "missingDirect": true,
+  "missingRefresh": true,
+  "aetherDirect": true,
+  "aetherRefresh": true,
+  "viewport": {
+    "height": 720,
+    "width": 1265
+  },
+  "requests": "Navegação pública e refresh; sem formulário, login ou escritas"
+}
