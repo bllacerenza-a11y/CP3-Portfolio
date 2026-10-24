@@ -76,7 +76,7 @@ Responsáveis por arquivos compartilhados e contratos estão em CONTRACTS.md. Um
 
 Convenção inicial: GitHub Flow, branch por funcionalidade, commits com prefixos feat, fix, test, docs, refactor, chore e ci. O histórico deve refletir trabalho real. O repositório remoto público e a integração com Vercel ainda precisam ser configurados.
 
-Branch principal local adotada: `main`. T01–T04 revisadas pela T00. Próxima passagem: receber/revisar T02.1 (evolução visual), implementar sobre a base com T04 e integrar antes da T05. Consulte STATE e handoffs para evidências/limites; uma frente de implementação por vez.
+Branch principal local adotada: `main`. T01–T04 revisadas pela T00. Proposta T02.1 aprovada para implementação React; próxima passagem: executar a evolução visual sobre a base com T04 e submetê-la à revisão T00 antes da T05. Consulte STATE e handoffs para evidências/limites; uma frente de implementação por vez.
 
 ## Conteúdo e tema
 

@@ -17,7 +17,7 @@ Somente T00 atualiza o estado em `docs/STATE.md`, dependências neste plano e v�
 | T00 | Coordenação e memória do projeto | EM ANDAMENTO; bases concluídas | Nenhuma; acompanha todas as tarefas |
 | T01 | Fundação, arquitetura, harness, build e CI | EM REVISÃO; base local integrada, CI remoto pendente | Remoto GitHub para verificar execução CI |
 | T02 | Design, tema, componentes e conteúdo | CONCLUÍDA no escopo local; revisada pela T00 | Integrações T03–T05 separadas |
-| T02.1 | Evolução visual com referências | Aguardando entrega atualizada do usuário para revisão | Proposta isolada; implementação após integrar T04 |
+| T02.1 | Evolução visual com referências | EM ANDAMENTO; proposta aprovada para implementação | Main com T04, INTEGRACAO e revisão T00 |
 | T03 | GitHub, rotas e cache | CONCLUÍDA no escopo local; revisada pela T00 | Produção T07 e curadoria persistida T04/T05 separadas |
 | T04 | Banco, autenticação, RLS, API de contato e email | CONCLUÍDA no escopo backend revisado | UI T05 e runtime/produção T07 separados |
 | T05 | Contato, dashboard e destaques integrados no frontend | PLANEJADA | T02.1 revisada/integrada e contratos T03/T04 |
@@ -127,7 +127,7 @@ Estados permitidos: `PLANEJADA`, `EM ANDAMENTO`, `BLOQUEADA`, `EM REVISÃO`, `CO
 
 **Origem:** usuário identificou distância visual entre a entrega e suas referências e autorizou prosseguir. É meta adicional de qualidade, sem inventar obrigação acadêmica de 3D.
 
-**Chat:** reutilizar T02. Proposta foi autorizada em diretório isolado nos outputs da coordenação enquanto T04 era executada. Agora o usuário enviará sua entrega atualizada; T00 deve revisar antes de coordenar a implementação na aplicação.
+**Chat:** reutilizar T02. Proposta isolada entregue e aprovada pela T00 em 24/10; implementação liberada sobre a main com T04. Plano INTEGRACAO na pasta outputs/T02.1 da coordenação e ajustes em docs/handoffs/T00-revisao-T02-1-proposta.md. A proposta não é uma entrega React já integrada.
 
 **Referências:** [templates React](https://reactjsexample.com/24-best-free-open-source-react-portfolio-page-templates/), [Bruno Simon](https://bruno-simon.com/) e [Awwwards](https://www.awwwards.com/websites/portfolio/). Selecionar exemplos concretos e registrar aplicação, sem importar stacks/dependências só por constarem em templates.
 

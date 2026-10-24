@@ -21,10 +21,10 @@ Projeto ID: af83f24f-ec4d-4a09-a003-802517dbbf8f. Host: local. Conferido no apli
 | T08 | CP3 · 08 — Auditoria independente | 01a1677e-aa5f-7003-9b53-933c27c74645 |
 | T09 | CP3 · 09 — Documentação e vídeo | 01a1677e-ae73-7713-90e2-f0dadbc67078 |
 
-T01–T04 retomadas e revisadas pela T00; erros iniciais de limite são históricos. Fundação f31726a; UI/tema 9d7c883/e129e35; GitHub d961852/4d66cc4; backend e2338e1 com evolução até 212749d. Revisões em docs/handoffs/T00-revisao-T01.md a T00-revisao-T04.md. CI remoto/deploy pendentes. T02.1 reutiliza CP3 · 02 — Design, conteúdo e tema: proposta isolada autorizada, aguardando o usuário enviar atualização para revisar. T05 aguarda essa evolução visual integrada. Nenhum novo chat criado.
+T01–T04 retomadas e revisadas pela T00; erros iniciais de limite são históricos. Fundação f31726a; UI/tema 9d7c883/e129e35; GitHub d961852/4d66cc4; backend e2338e1 com evolução até 212749d. Revisões em docs/handoffs/T00-revisao-T01.md a T00-revisao-T04.md. CI remoto/deploy pendentes. T02.1 reutiliza CP3 · 02 — Design, conteúdo e tema: proposta isolada revisada e aprovada para implementação React em 24/10/2026, conforme docs/handoffs/T00-revisao-T02-1-proposta.md. Próxima passagem: usuário retomar esse chat para executar o plano de integração sobre a main com T04 integrada. T05 aguarda essa evolução visual integrada. Nenhum novo chat criado.
 
 Os prompts iniciais limitam a primeira rodada à preparação em leitura. O usuário pode iniciar o trabalho no chat correspondente. Todas apontam para o mesmo checkout; não disparar edições simultâneas sem isolamento e integração combinados.
 
 Uma conversa mantém seu próprio histórico. A continuidade vem dos arquivos canônicos, dos handoffs por tarefa e do estado real do Git. Estar no mesmo projeto não equivale a compartilhar automaticamente todos os turnos.
 
-Sequência atual: revisar entrega T02.1 → implementar/integrar evolução visual sobre T04 → T05 → ciclo final T06 → T07 → T08 → fechamento T09. Testes/documentação acompanham as entregas; ver TASKS e STATE. Um escritor de código por checkout.
+Sequência atual: implementar T02.1 em React sobre T04 → T00 revisar/integrar → T05 → ciclo final T06 → T07 → T08 → fechamento T09. Testes/documentação acompanham as entregas; ver TASKS e STATE. Um escritor de código por checkout.

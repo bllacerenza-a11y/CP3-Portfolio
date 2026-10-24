@@ -20,6 +20,7 @@ Pasta canônica: C:\Users\bruno\Documents\Codex\CP3-Portfolio.
 - T02 entregue em 9d7c883/e129e35: conteúdo, identidade editorial, UI responsiva e tema persistido. T00 revisou código/contratos, conferiu respostas do usuário e inspecionou capturas; npm run check passou com 16 execuções. Ver STATE e docs/handoffs/T00-revisao-T02.md.
 - T03 entregue em d961852/4d66cc4: API GitHub real, lista paginada, detalhes por URL, estados e cache. T00 inspecionou implementação/testes/capturas e repetiu npm run check: 48 execuções aprovadas, runner 9,6 s. Ver STATE e docs/handoffs/T00-revisao-T03.md.
 - T04 revisada até 212749d (código inicial e2338e1): backend/auth/RLS/contato implementados, Supabase e Resend reais configurados/testados pelo executor; usuário confirmou recebimento do email. T00 repetiu somente checks locais: 24 backend +48 execuções E2E aprovados. Ver STATE e docs/handoffs/T00-revisao-T04.md para limites.
+- Proposta T02.1 entregue fora do checkout e revisada pela T00: documentos, capturas, interação no navegador, hashes e sintaxe conferidos. Aprovada para conversão React sobre a base com T04; não integrada como código. Ver docs/handoffs/T00-revisao-T02-1-proposta.md.
 - Remoto/CI remoto e deploy Vercel pendentes. UI/formulário/guard/dashboard pertencem à T05. Remetente Resend atual é de teste, limitado à conta; configuração de produção pendente. Nenhuma nota Lighthouse obtida.
 - frontend-design/T02, Vercel React Best Practices/T03 e Supabase Postgres Best Practices/T04 aplicadas textualmente; revisões em T02_DESIGN, T03_GITHUB e T04_BACKEND. Nenhum pacote de skill instalado.
 - A presença de documentos e de conversas não representa conclusão das funcionalidades.
@@ -51,7 +52,7 @@ Fundação adotada e verificada: React, TypeScript, Vite, React Router, CSS Modu
 
 - Ano e horário do prazo 03/11.
 - Nome Bruno Bastos, apresentação FIAP/primeiro ano e identidade editorial definidos na T02. Habilidades, foto, contato direto e função individual nos projetos ainda pendentes.
-- GitHub bllacerenza-a11y confirmado como origem; SmartCameraStudy de PedroOliDev retornou 404 na consulta T02. Contas/destinos dos serviços seguem pendentes.
+- GitHub bllacerenza-a11y confirmado como origem; usuário informou que SmartCameraStudy/PedroOliDev é privado e que contribuiu nele. Acesso autenticado e materiais publicáveis ainda não conferidos. Supabase/Resend configurados no contexto da T04; publicação/Vercel/remetente de produção pendentes.
 - Revisão das decisões técnicas pelo aluno e familiaridade para explicar a implementação.
 - O professor usará Claude, segundo o usuário; desconhecemos produto, modelo, prompt, skills e ambiente de correção. Revisar contra requisitos verificáveis.
 
@@ -63,4 +64,4 @@ Inspeções podem ocorrer em paralelo; escrever simultaneamente no mesmo checkou
 
 ## Próximo marco
 
-Receber a proposta/handoff T02.1 atualizada que o usuário enviará. Revisar e coordenar implementação visual a partir da main com T04 integrada, preservando contratos de auth/contato/API. Depois integrar a evolução visual e seguir à T05. Referências e sequência em TASKS/T02.1 e STATE. Respeitar a edição textual preexistente no handoff T02, preservada fora dos commits. Uma tarefa de implementação por vez.
+Usuário retoma T02 para implementar a proposta T02.1 aprovada, seguindo INTEGRACAO e a revisão T00, em branch própria da main com T04. Preservar contratos reais/API/tema; não transportar roteador hash, mocks, laboratório ou avisos internos para o produto. Depois revisar/integrar a evolução e seguir T05. A câmera privada não bloqueia essa etapa; respeitar acesso/publicação autorizados. Conferir STATE e preservar a edição preexistente no handoff T02. Uma tarefa de implementação por vez.
