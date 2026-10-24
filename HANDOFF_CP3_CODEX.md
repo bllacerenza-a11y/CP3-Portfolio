@@ -67,4 +67,6 @@ Inspeções podem ocorrer em paralelo; escrever simultaneamente no mesmo checkou
 
 ## Próximo marco
 
-Usuário retoma T07 em codex/t07-performance-deploy: ler revisão T00-revisao-T07 na main local, corrigir fallback para nomes de repo com ponto preservando API/assets/arquivos, testar/publicar e retornar novo candidato/CI/evidências. Não fazer push da main sem produto T07 integrado. Preservar T02; migrations aplicadas manualmente ainda requerem repair condicionado antes de futura CLI Supabase, não reaplicar CREATE. Estado real de referência: três mensagens e highlights []; sem envios/seed por rotina. T08 aguarda correção/revisão. Nenhum outro chat acionado pela T00.
+T07 corrigida em 5cd7834/f6bec99, revisada/aprovada para integração local: probe próprio 19/19, lint e CI success conferidos, next.js direto/refresh no navegador. Ver docs/handoffs/T00-revisao-T07-correcao.md. A devolução anterior está resolvida; Lighthouse 98 é histórico de 1263d47 sem mudança no frontend. Produção CLI atual tem a correção; merge PR #1/push da main remota não realizados nesta revisão.
+
+Usuário inicia CP3 · 08 — Auditoria independente com base local integrada e produção 5cd7834. Auditar requisitos/evidências e limites de contato válido/UI do dono no host, PR/main remota e documentação/vídeo. Preservar T02; migrations aplicadas manualmente ainda requerem repair condicionado antes de futura CLI Supabase, não reaplicar CREATE. Estado de referência: três mensagens/highlights []; sem envios/seed por rotina. Nenhum outro chat acionado pela T00.

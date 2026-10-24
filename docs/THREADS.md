@@ -31,4 +31,6 @@ T06 84e4556/25ef39c revisada/aprovada pela T00 em 24/10, com aceite UI/JWT e con
 
 T07 publicada em 1263d47, revisão T00 devolveu correção de fallback para repo com ponto; ver docs/handoffs/T00-revisao-T07.md. Reutilizar CP3 · 07 — Performance e deploy e sua branch existente. Produto não integrado; nenhum push da main documental nesta revisão.
 
-Sequência atual: T07 corrigir/retornar → T00 revisar/integrar → T08 → fechamento T09. Testes/documentação acompanham as entregas; ver TASKS e STATE. Um escritor de código por checkout.
+Reavaliação posterior: T07 corrigida em 5cd7834/f6bec99 e aprovada localmente; ver docs/handoffs/T00-revisao-T07-correcao.md. Reutilizar CP3 · 08 — Auditoria independente para o próximo marco. Nenhum chat acionado automaticamente; integração remota do produto/PR ainda separada.
+
+Sequência atual: T08 → T00 tratar achados/integração remota pendente → fechamento T09. Testes/documentação acompanham as entregas; ver TASKS e STATE. Um escritor por checkout.

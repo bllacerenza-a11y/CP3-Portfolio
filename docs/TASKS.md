@@ -22,8 +22,8 @@ Somente T00 atualiza o estado em `docs/STATE.md`, dependências neste plano e v�
 | T04 | Banco, autenticação, RLS, API de contato e email | CONCLUÍDA no escopo backend revisado | UI T05 e runtime/produção T07 separados |
 | T05 | Contato, dashboard e destaques integrados no frontend | INTEGRADA; aceite UI/JWT/contato real realizado na T06 | Produção T07 separada |
 | T06 | Testes, responsividade, acessibilidade e QA | CONCLUÍDA no escopo local/integrado real; revisada T00 | Código 84e4556/handoff 25ef39c; limites na revisão T00 |
-| T07 | Performance e deploy de produção | CORREÇÕES PENDENTES após revisão T00; candidato publicado não integrado | Corrigir rewrite para repositórios com ponto; ver T00-revisao-T07 |
-| T08 | Auditoria independente dos requisitos | PLANEJADA | T06 e T07, em revisão identificada |
+| T07 | Performance e deploy de produção | INTEGRADA localmente após correção 5cd7834; publicação CLI e limites explícitos | Merge/push remoto do produto separado; ver reavaliação T00 |
+| T08 | Auditoria independente dos requisitos | LIBERADA para início pelo usuário | Main local integrada e produção 5cd7834; requisitos/evidências |
 | T09 | README, evidências, roteiro de vídeo e entrega | PLANEJADA | Registro contínuo; consolidação após T08 |
 
 Estados permitidos: `PLANEJADA`, `EM ANDAMENTO`, `BLOQUEADA`, `EM REVISÃO`, `CONCLUÍDA`. Um bloqueio precisa indicar a dependência ou ação concreta que falta. Uma tarefa só fica concluída quando os critérios aplicáveis estiverem evidenciados e o resultado estiver integrado no estado registrado por T00.
