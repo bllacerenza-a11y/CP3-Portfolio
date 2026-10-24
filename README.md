@@ -1,6 +1,6 @@
 # CP3 — Portfólio, Stack e Harness Engineering
 
-Projeto individual de portfólio React, iniciado do zero. Fundação, identidade/tema, API GitHub, backend, evolução visual e frontend administrativo integrados localmente. T06 corrigiu contraste/foco e substituição SQL de destaques, com aceite UI/JWT e contato integrado em serviços reais; [revisão T00 e limites](docs/handoffs/T00-revisao-T06.md). CI remoto, Vercel e Lighthouse permanecem T07. Consulte [contratos](docs/CONTRACTS.md) e [STATE](docs/STATE.md) para estado canônico.
+Projeto individual de portfólio React, iniciado do zero. Fundação, identidade/tema, API GitHub, backend, evolução visual e frontend administrativo integrados localmente. T06 corrigiu contraste/foco e substituição SQL de destaques, com aceite UI/JWT e contato integrado em serviços reais; [revisão T00 e limites](docs/handoffs/T00-revisao-T06.md). Publicação e operação: [T07_DEPLOY](docs/T07_DEPLOY.md), [mídias e atribuições](docs/MEDIA_LICENSES.md). Consulte [contratos](docs/CONTRACTS.md) e [STATE](docs/STATE.md) para estado canônico.
 
 ## Começar por aqui
 
@@ -54,6 +54,7 @@ Vite informa a URL local (porta padrão 5173). Home/GitHub não precisam de vari
 | `npm run typecheck`                       | TypeScript estrito sem emitir arquivos             |
 | `npm test`                                | Testes de servidor, build:test e E2E desktop/mobile Chromium |
 | `npm run test:server`                     | SQL/RLS em Postgres WASM e lógica HTTP/Auth/email com fixtures |
+| `npm run test:runtime`                    | Compila a Function como ESM e executa GET/POST inválido em Node, sem serviços externos |
 | `npm run test:supabase`                   | Opt-in no Supabase configurado: cria/remove um usuário Auth descartável, testa JWT de não proprietário, sem enviar email |
 | `npm run test:contact-live`               | Opt-in: persiste dois contatos sintéticos e envia uma notificação real ao destinatário configurado; não executa no CI |
 | `npm run test:e2e`                        | E2E sobre dist atualizado por build:test            |

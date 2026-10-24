@@ -1,8 +1,8 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import { isIP } from 'node:net';
-import { handleContact } from '../server/contact';
-import type { ContactDependencies } from '../server/contact';
-import { createContactDependencies } from '../server/contactDependencies';
+import { handleContact } from '../server/contact.js';
+import type { ContactDependencies } from '../server/contact.js';
+import { createContactDependencies } from '../server/contactDependencies.js';
 
 const maxBodyBytes = 32 * 1024;
 type NodeRequest = IncomingMessage & { body?: unknown };

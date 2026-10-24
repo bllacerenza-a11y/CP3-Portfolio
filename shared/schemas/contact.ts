@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { ContactField } from '../contracts';
+import type { ContactField } from '../contracts.js';
 
 export const contactSchema = z.strictObject({
   submissionId: z.uuid('Identificador de envio inválido.'),

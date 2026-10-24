@@ -1,6 +1,9 @@
 .env*
 !.env.example
 work/
+dist/
+node_modules/
+.git/
 docs/
 tests/
 test-results/

@@ -1,7 +1,7 @@
 import { createHmac } from 'node:crypto';
 import { createClient } from '@supabase/supabase-js';
 import { z } from 'zod';
-import type { ContactDependencies } from './contact';
+import type { ContactDependencies } from './contact.js';
 
 const saveResultSchema = z.discriminatedUnion('outcome', [
   z.object({ outcome: z.literal('limited') }),

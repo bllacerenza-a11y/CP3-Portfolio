@@ -1,5 +1,8 @@
-import type { ContactResult, ContactSubmission } from '../shared/contracts';
-import { contactFieldErrors, contactSchema } from '../shared/schemas/contact';
+import type { ContactResult, ContactSubmission } from '../shared/contracts.js';
+import {
+  contactFieldErrors,
+  contactSchema,
+} from '../shared/schemas/contact.js';
 
 export type SaveResult =
   | { outcome: 'limited' | 'conflict' }

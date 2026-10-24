@@ -10,6 +10,8 @@ Vercel importa o repositório Git, usa `main` para produção e branches para pr
 
 Não publicar `work`, diagnósticos, `.env`, sessões ou `dist` local. `.vercelignore` exclui esses itens de upload pela CLI; deploy Git compila o código, e somente `dist` mais a Function são servidos.
 
+O deployment inicial expôs `ERR_MODULE_NOT_FOUND` em `/api/contact`: o Node ESM exige extensões nos imports relativos emitidos. A T07 usa `.js` nos imports do grafo servidor, resolvidos para TypeScript em desenvolvimento e JavaScript no host. `npm run test:runtime`, incorporado a `npm test`/CI, compila o grafo com NodeNext e executa o JavaScript emitido sem loader TS; verifica GET 405 e POST inválido 400 com configuração sintética e sem escrita externa.
+
 ## Ambientes e segredos
 
 | Variável | Desenvolvimento | Preview | Produção |

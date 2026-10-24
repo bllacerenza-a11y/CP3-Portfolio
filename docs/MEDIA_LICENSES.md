@@ -12,4 +12,4 @@ Conferência em 24/10/2026 antes da publicação do código. Não aplicar uma li
 
 A [licença Pexels](https://www.pexels.com/license/) permite uso em websites e modificações; não se oferece a fotografia como produto, wallpaper ou banco de imagens, nem se presume endosso. A captura mostra a página do projeto em que o usuário confirmou participação, para apresentação acadêmica; isso não atribui autoria individual integral nem concede licença geral de redistribuição ao código Melodia. Nenhuma licença geral foi escolhida para o portfólio sem decisão do titular. Dependências mantêm suas próprias licenças conforme pacotes fixados no lockfile.
 
-SmartCameraStudy permanece somente referência textual à colaboração privada confirmada; código, foto, repositório autenticado e materiais privados não foram acessados/copied para a publicação. Não incorporar futuros materiais privados sem autorização específica.
+SmartCameraStudy permanece somente referência textual à colaboração privada confirmada; código, foto, repositório autenticado e materiais privados não foram acessados nem copiados para a publicação. Não incorporar futuros materiais privados sem autorização específica.
