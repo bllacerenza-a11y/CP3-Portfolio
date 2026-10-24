@@ -1,56 +1,53 @@
 # Estado do projeto
 
-Atualização: 23/10/2026, America/Sao_Paulo. Responsável: coordenação T00.
+Atualização: 24/10/2026, America/Sao_Paulo. Responsável: coordenação T00.
 
 ## Estado verificado
 
-- Projeto CP3-Portfolio cadastrado; coordenação e nove chats vinculados. Pasta canônica: C:\Users\bruno\Documents\Codex\CP3-Portfolio.
-- Requisitos, tarefas, decisões, pesquisa de skills, plano de testes e rubrica versionados.
-- T01: fundação React/TypeScript/Vite/Router/CSS Modules, Playwright, lint/formatação e workflow CI entregues em 38484a4/f31726a e integrados pela T00. Revisão em docs/handoffs/T00-revisao-T01.md.
-- T02: identidade editorial, conteúdo, componentes, UI responsiva e tema persistido entregues em 9d7c883/e129e35. T00 revisou código/contratos, conferiu as respostas do usuário no chat e inspecionou capturas desktop claro/mobile escuro. Fechamento da integração no commit que contém docs/handoffs/T00-revisao-T02.md.
-- T00 executou npm run check sobre e129e35: exit 0, lint/formatação/tipos/build e 16 execuções E2E aprovadas (8 cenários em Chromium desktop/mobile); runner 8,0 s.
-- frontend-design aplicada textualmente na T02; Vercel React Best Practices aplicada textualmente na T03. Revisões/inventários em T02_DESIGN.md e T03_GITHUB.md. Nenhum pacote de skill instalado; demais candidatas somente pesquisadas/recomendadas.
-- T03: implementação d961852 e handoff 4d66cc4 revisados pela T00; API pública sem token, lista paginada, detalhes por URL e cache TanStack Query. npm run check sobre 4d66cc4 passou: 48 execuções (24 cenários em 2 perfis Chromium), runner 9,6 s; lint, formato, tipos e build aprovados. Revisão/integração no commit que contém docs/handoffs/T00-revisao-T03.md.
-- Nome Bruno Bastos, FIAP/Engenharia de Software/primeiro ano e direção editorial autorizados pelo usuário na T02. GitHub público bllacerenza-a11y; três referências em T02_DESIGN.
+- Pasta canônica C:\Users\bruno\Documents\Codex\CP3-Portfolio; projeto cadastrado, coordenação e nove chats vinculados.
+- T01 fundação (38484a4/f31726a), T02 UI/tema (9d7c883/e129e35) e T03 GitHub/rotas/cache (d961852/4d66cc4) revisadas e integradas pela T00. Evidências nos respectivos handoffs T00.
+- T04: código inicial e2338e1 e evolução de testes/serviços até 212749d revisados pela T00. Migration/RLS, Auth do proprietário, serviços administrativos, API de contato, validação, idempotência, quotas e Resend implementados.
+- T00 executou npm run check sobre 212749d: exit 0, lint/formato/tipos/build, 24 testes backend e 48 execuções E2E (24 cenários em dois perfis Chromium); runner E2E 23,4 s. Suíte padrão usa Postgres WASM e mocks Auth/email, sem envio real.
+- Evidências adicionais T04: migration/proprietário provisionados no Supabase hospedado, login/restauração/logout reais, testes de outro usuário Auth real e probe SQL transacional. Roles reais com claims simulados não equivalem a todas as ações via JWT/UI.
+- Contato real verificado pelo executor via adaptador Node local + Supabase/Resend: persistência, aceitação, repetição/conflito e falha parcial controlada. T00 conferiu registro e confirmação humana de recebimento no chat T04; não repetiu testes externos nem envios.
+- Chaves/recibos ficam em .env/work ignorados. Busca limitada de padrões de segredos em arquivos versionados não encontrou correspondências; capturas Resend inspecionadas têm token mascarado, sem chave completa.
+- Skills aplicadas textualmente: frontend-design/T02, Vercel React Best Practices/T03 e Supabase Postgres Best Practices/T04. Revisões/inventários registrados em T02_DESIGN, T03_GITHUB e T04_BACKEND. Nenhum pacote de skill instalado.
+- Conteúdo confirmado: Bruno Bastos, estudante FIAP/Engenharia de Software/primeiro ano, conta pública bllacerenza-a11y; curadoria de três referências em T02_DESIGN.
 
 ## Situação das tarefas
 
 | Tarefa | Situação real |
 | --- | --- |
-| T00 | Coordenação ativa; revisão T03 registrada |
-| T01 | Base local aprovada e integrada; EM REVISÃO para execução do CI remoto |
-| T02 | CONCLUÍDA no escopo local UI/tema; integrações T03–T05 separadas |
-| T03 | CONCLUÍDA no escopo local API/rotas/cache; produção e destaques persistidos seguem em suas tarefas |
-| T04 | PLANEJADA; próxima frente liberada para início pelo usuário |
-| T05–T09 | PLANEJADAS, conforme dependências de TASKS.md |
+| T00 | Coordenação ativa; fechamento da revisão T04 |
+| T01 | Base local integrada; EM REVISÃO para CI remoto |
+| T02 | Escopo original UI/tema concluído; evolução visual solicitada como T02.1 |
+| T03 | CONCLUÍDA no escopo local API/rotas/cache |
+| T04 | CONCLUÍDA no escopo backend revisado; UI e runtime Vercel nas tarefas responsáveis |
+| T02.1 | Aguardando o usuário trazer a proposta/handoff atualizado para revisão; implementação visual após integração T04 |
+| T05 | PLANEJADA após T02.1 e contratos T04 integrados |
+| T06–T09 | PLANEJADAS conforme dependências; checks/documentação incrementais já existem |
 
-Os erros iniciais de limite de uso são históricos. T01/T02/T03 foram retomadas pelo usuário e estavam idle antes das revisões. T04–T09 não foram reiniciadas em lote.
-
-## Pendências e limites
-
-- API GitHub/lista/detalhes/cache implementados e verificados localmente. Rewrites e acesso direto em produção dependem da T07; curadoria persistida de destaques depende T04/T05.
-- Formulário, autenticação/dashboard, banco/RLS, e-mail, serviços e deploy pendentes.
-- Remoto GitHub não configurado; workflow CI existe, mas nunca foi executado remotamente.
-- Testes obrigatórios de formulário e bloqueio sem login, Lighthouse e vídeo não realizados.
-- Responsividade e tema verificados nos perfis registrados; sem conclusão de acessibilidade integral ou dispositivo físico.
-- SmartCameraStudy de PedroOliDev retornou 404 nas consultas T02/T03. Causa não comprovada; UI trata ausência e oferece recuperação sem metadados inventados. Confirmar URL/acesso permanece pendente.
-- Habilidades específicas, contato direto, foto e função individual nos projetos pendentes. Ano/horário do prazo 03/11 não confirmados.
-
-## Preservação do checkout
-
-Há edição local preexistente na última frase de docs/handoffs/T02-design-tema.md (troca textual com erro de digitação). T00 a preservou literalmente e não a incluiu no commit da revisão. Próximo executor deve conferir Git e respeitá-la. Código/configuração/testes correspondem ao candidato revisado.
-
-Um escritor por checkout. Próximo escritor previsto é T04 quando iniciado pelo usuário; abrir branch própria a partir da main integrada e conferir status antes de editar.
+Não iniciar T05 enquanto a evolução visual combinada estiver em avaliação. T02.1 reutiliza o chat T02; nenhuma conversa foi acionada pela T00 nesta revisão.
 
 ## Próxima ação
 
-Iniciar CP3 · 04 — Banco, autenticação e contato. Ler sua tarefa, CONTRACTS, ARCHITECTURE e handoff T03. Preparar migrations, autenticação do proprietário, RLS/autorização, API de contato com validação/persistência/notificação e contratos reais para T05. Avaliar Supabase Postgres Best Practices antes da adoção. Identificar contas e acessos realmente necessários, continuar implementação independente e distinguir testes locais de validação nos serviços reais. Preview Vite não executa Functions. Não expor segredos nem declarar envio entregue sem evidência.
+Receber do usuário a tarefa T02 atualizada (T02.1), revisar a proposta e então coordenar sua implementação em branch própria a partir da main com T04. Preservar contratos reais de auth/contato/dados e regressões T03. Depois revisar/integrar T02.1 antes da T05.
 
-## Evidências e revisão
+Briefing da proposta: CP3-T02.1-Briefing-Visual.md nos outputs da conversa coordenadora; protótipo isolado previsto em outputs/T02.1. Regras e referências essenciais também constam em TASKS, seção T02.1. O usuário autorizou elevar o nível visual usando templates React, Bruno Simon e Awwwards como referências; isso é meta adicional do projeto, sem criar exigência acadêmica de 3D.
 
-- T00: npm run check no candidato e129e35 aprovado; implementação 9d7c883.
-- Capturas abertas pela T00: docs/evidence/T02/home-1440-light.png e home-390-dark.png, sem impedimento visual observado.
-- git diff --check main...HEAD e git merge-base --is-ancestor main HEAD aprovados antes da integração.
-- Chat T02 idle e respostas do usuário conferidas via ferramentas do aplicativo.
-- Revisão detalhada: docs/handoffs/T00-revisao-T02.md. A inspeção interativa do navegador foi realizada pelo executor; T00 repetiu a suíte e inspecionou as capturas.
-- T03: diff/serviço/normalização/consultas/componentes/testes inspecionados; npm run check passou. Capturas aether-real-mobile-dark e smart-camera-real-404 abertas pela T00. Inspeção interativa/API real registrada pelo executor; suíte T00 usa fixtures. Revisão detalhada: docs/handoffs/T00-revisao-T03.md.
+## Pendências e limites
+
+- UI de formulário/login/guard/dashboard e gestão de destaques persistidos ainda pertencem à T05. Não declarar R04/R05 ou R09 integralmente concluídos.
+- Remoto GitHub/CI remoto, Vercel/deploy/rewrites, origens/segredos públicos por ambiente e IP/quotas no runtime hospedado pendentes. Vite preview não executa Functions.
+- Resend usa remetente de teste onboarding@resend.dev e destinatário da própria conta. Produção/outros destinatários exigem configuração de remetente/domínio autorizada; não presumir que o teste comprova esse ambiente.
+- Migration foi aplicada via SQL Editor; reconciliar histórico antes de usar fluxo CLI. Não reaplicar CREATE em banco já migrado.
+- Recebimento deste teste não garante entrega futura. notified significa aceitação pelo provedor; failed/pending não são reenviados automaticamente. Duas mensagens sintéticas foram retidas, conforme evidência T04.
+- Lighthouse, dispositivo físico, acessibilidade integral, testes finais de produção e vídeo pendentes.
+- SmartCameraStudy/PedroOliDev continua com 404 nas consultas registradas, causa não comprovada. UI trata ausência sem inventar dados.
+- Foto, contato público, habilidades e função individual nos projetos ainda têm pendências; ano/horário de 03/11 não confirmados.
+
+## Checkout e evidências
+
+- Única alteração preexistente: última frase de docs/handoffs/T02-design-tema.md com erro de digitação, preservada sem staging. Não declarar checkout limpo nem sobrescrever essa edição.
+- T04 estava idle antes da integração; um escritor por checkout. T00 alterou somente documentação da revisão.
+- Revisão atual: docs/handoffs/T00-revisao-T04.md; código testado 212749d, implementação e2338e1. Commit de fechamento contém o estado acima e mantém histórico original.

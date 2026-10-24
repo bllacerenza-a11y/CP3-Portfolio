@@ -1,6 +1,6 @@
 # Plano de tarefas — CP3 Portfolio
 
-Este documento define escopo e dependências. T00 revisou fundação T01, UI/tema T02 e GitHub/rotas/cache T03; o aceite do CI remoto permanece pendente. T04–T09 permanecem **PLANEJADAS**. O estado corrente é mantido exclusivamente por T00 em `docs/STATE.md`; os chats responsáveis são registrados em `docs/THREADS.md`.
+Este documento define escopo e dependências. T00 revisou T01–T04; CI remoto e deploy pendentes. A evolução visual T02.1 foi solicitada pelo usuário e deve preceder T05. O estado corrente é mantido por T00 em STATE; chats em THREADS.
 
 `docs/REQUIREMENTS.md` e o enunciado prevalecem sobre este plano. Cada chat deve identificar os requisitos que atende, preservar as restrições acadêmicas e registrar divergências antes de ampliar o escopo. Sugestões de melhoria não viram requisitos automaticamente. `docs/ARCHITECTURE.md` distingue a fundação adotada e validada das integrações ainda pendentes.
 
@@ -17,9 +17,10 @@ Somente T00 atualiza o estado em `docs/STATE.md`, dependências neste plano e v�
 | T00 | Coordenação e memória do projeto | EM ANDAMENTO; bases concluídas | Nenhuma; acompanha todas as tarefas |
 | T01 | Fundação, arquitetura, harness, build e CI | EM REVISÃO; base local integrada, CI remoto pendente | Remoto GitHub para verificar execução CI |
 | T02 | Design, tema, componentes e conteúdo | CONCLUÍDA no escopo local; revisada pela T00 | Integrações T03–T05 separadas |
+| T02.1 | Evolução visual com referências | Aguardando entrega atualizada do usuário para revisão | Proposta isolada; implementação após integrar T04 |
 | T03 | GitHub, rotas e cache | CONCLUÍDA no escopo local; revisada pela T00 | Produção T07 e curadoria persistida T04/T05 separadas |
-| T04 | Banco, autenticação, RLS, API de contato e email | PLANEJADA; liberada para início | CONTRACTS e base integrados; acessos reais a confirmar |
-| T05 | Contato, dashboard e destaques integrados no frontend | PLANEJADA | T02, T03 e T04 integráveis |
+| T04 | Banco, autenticação, RLS, API de contato e email | CONCLUÍDA no escopo backend revisado | UI T05 e runtime/produção T07 separados |
+| T05 | Contato, dashboard e destaques integrados no frontend | PLANEJADA | T02.1 revisada/integrada e contratos T03/T04 |
 | T06 | Testes, responsividade, acessibilidade e QA | PLANEJADA | Incremental desde T01; ciclo final após T05 |
 | T07 | Performance e deploy de produção | PLANEJADA | Preview desde T01; produção após testes de T06 |
 | T08 | Auditoria independente dos requisitos | PLANEJADA | T06 e T07, em revisão identificada |
@@ -121,6 +122,20 @@ Estados permitidos: `PLANEJADA`, `EM ANDAMENTO`, `BLOQUEADA`, `EM REVISÃO`, `CO
 **Skills sugeridas:** `frontend-design` e `verification-before-completion`. Usar discussão de design somente para decisões realmente em aberto; `brainstorming` completo não é requisito deste plano.
 
 **Interação humana e integração:** solicitar somente informações pessoais e decisões visuais que não possam ser inferidas dos materiais existentes. Alinhar com T03 o formato dos dados e com T05 os componentes de formulário e dashboard. Documentar a origem e o uso permitido de imagens e outros materiais incorporados.
+
+## T02.1 — Evolução visual com referências
+
+**Origem:** usuário identificou distância visual entre a entrega e suas referências e autorizou prosseguir. É meta adicional de qualidade, sem inventar obrigação acadêmica de 3D.
+
+**Chat:** reutilizar T02. Proposta foi autorizada em diretório isolado nos outputs da coordenação enquanto T04 era executada. Agora o usuário enviará sua entrega atualizada; T00 deve revisar antes de coordenar a implementação na aplicação.
+
+**Referências:** [templates React](https://reactjsexample.com/24-best-free-open-source-react-portfolio-page-templates/), [Bruno Simon](https://bruno-simon.com/) e [Awwwards](https://www.awwwards.com/websites/portfolio/). Selecionar exemplos concretos e registrar aplicação, sem importar stacks/dependências só por constarem em templates.
+
+**Entregáveis:** direção editorial tecnológica mais expressiva; home com abertura autoral, destaques demonstrados visualmente, catálogo secundário compacto e detalhe com narrativa; desktop/mobile e claro/escuro; mídia real ou diagrama identificado, sem métricas/autoria inventadas. Proposta deve indicar assets/licenças/pendências e plano de integração. Skill frontend-design é apoio, não prova de qualidade.
+
+**Dependências:** implementação a partir da main com T04 integrada. Preservar API/rotas/cache T03, tema, schemas, tipos e serviços auth/contato T04; coordenar mudanças em contratos. Formulário/guard/dashboard continuam T05.
+
+**Aceite:** comparar telas com referências escolhidas; demonstrar projetos além de texto; inspecionar hierarquia, mídia, ritmo, estados, teclado e responsividade; preservar regressões pertinentes e executar checks reais na implementação. Não alegar Lighthouse ≥80 sem medição. A T05 começa após integração da evolução visual pela T00.
 
 ## T03 — GitHub, rotas e cache
 

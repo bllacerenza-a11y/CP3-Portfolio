@@ -1,6 +1,6 @@
 # Handoff — Projeto CP3
 
-Atualizado em 23/10/2026, America/Sao_Paulo.
+Atualizado em 24/10/2026, America/Sao_Paulo.
 
 ## Objetivo e origem
 
@@ -19,11 +19,12 @@ Pasta canônica: C:\Users\bruno\Documents\Codex\CP3-Portfolio.
 - T00 executou npm run check: lint, formato, tipos, build e 1 cenário de navegação em 2 configurações Chromium passaram. Formulário/autorização e demais funcionalidades ainda não existem.
 - T02 entregue em 9d7c883/e129e35: conteúdo, identidade editorial, UI responsiva e tema persistido. T00 revisou código/contratos, conferiu respostas do usuário e inspecionou capturas; npm run check passou com 16 execuções. Ver STATE e docs/handoffs/T00-revisao-T02.md.
 - T03 entregue em d961852/4d66cc4: API GitHub real, lista paginada, detalhes por URL, estados e cache. T00 inspecionou implementação/testes/capturas e repetiu npm run check: 48 execuções aprovadas, runner 9,6 s. Ver STATE e docs/handoffs/T00-revisao-T03.md.
-- Serviços externos, remoto, execução do CI remoto e deploy pendentes. Nenhuma skill externa instalada; nenhuma nota Lighthouse obtida.
-- frontend-design aplicada textualmente na T02 e Vercel React Best Practices na T03, com revisões/inventários em T02_DESIGN e T03_GITHUB. Nenhum pacote de skill instalado; demais candidatas continuam somente pesquisadas.
+- T04 revisada até 212749d (código inicial e2338e1): backend/auth/RLS/contato implementados, Supabase e Resend reais configurados/testados pelo executor; usuário confirmou recebimento do email. T00 repetiu somente checks locais: 24 backend +48 execuções E2E aprovados. Ver STATE e docs/handoffs/T00-revisao-T04.md para limites.
+- Remoto/CI remoto e deploy Vercel pendentes. UI/formulário/guard/dashboard pertencem à T05. Remetente Resend atual é de teste, limitado à conta; configuração de produção pendente. Nenhuma nota Lighthouse obtida.
+- frontend-design/T02, Vercel React Best Practices/T03 e Supabase Postgres Best Practices/T04 aplicadas textualmente; revisões em T02_DESIGN, T03_GITHUB e T04_BACKEND. Nenhum pacote de skill instalado.
 - A presença de documentos e de conversas não representa conclusão das funcionalidades.
 - Projeto CP3-Portfolio cadastrado no aplicativo; esta conversa é T00. Nove chats de execução criados e vinculados em docs/THREADS.md.
-- As primeiras rodadas foram interrompidas pelo limite de uso; depois o usuário retomou T01, T02 e T03. T04–T09 aguardam início; não reiniciá-las em lote.
+- As primeiras rodadas tiveram erros de limite históricos; T01–T04 foram retomadas pelo usuário. T05–T09 aguardam início. Evolução visual T02.1 combinada antes da T05; reutiliza o chat T02 e sua proposta começou isolada do checkout.
 - Em 23/10/2026, o usuário pediu concluir as bases e avisar antes de implementar para trocar de modelo; autorizou modelos mais econômicos quando adequados. Ver docs/MODEL_POLICY.md.
 
 ## Fontes de verdade
@@ -62,4 +63,4 @@ Inspeções podem ocorrer em paralelo; escrever simultaneamente no mesmo checkou
 
 ## Próximo marco
 
-T04: banco, autenticação/autorização, RLS e API de contato, com contratos para T05. Ver STATE, CONTRACTS, ARCHITECTURE e docs/handoffs/T00-revisao-T03.md. CI remoto/serviços/deploy pendentes; confirmar acessos nos momentos necessários. Uma edição textual preexistente no handoff T02 continua preservada fora dos commits; conferir Git. Executar uma tarefa por vez.
+Receber a proposta/handoff T02.1 atualizada que o usuário enviará. Revisar e coordenar implementação visual a partir da main com T04 integrada, preservando contratos de auth/contato/API. Depois integrar a evolução visual e seguir à T05. Referências e sequência em TASKS/T02.1 e STATE. Respeitar a edição textual preexistente no handoff T02, preservada fora dos commits. Uma tarefa de implementação por vez.

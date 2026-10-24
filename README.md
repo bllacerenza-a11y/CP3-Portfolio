@@ -76,7 +76,7 @@ Responsáveis por arquivos compartilhados e contratos estão em CONTRACTS.md. Um
 
 Convenção inicial: GitHub Flow, branch por funcionalidade, commits com prefixos feat, fix, test, docs, refactor, chore e ci. O histórico deve refletir trabalho real. O repositório remoto público e a integração com Vercel ainda precisam ser configurados.
 
-Branch principal local adotada: `main`. Fundação T01, UI/tema T02 e GitHub/rotas/cache T03 revisados pela T00. Próxima frente: T04 (banco, autenticação e contato). Consulte STATE e handoffs para evidências e limites; manter uma frente ativa por vez.
+Branch principal local adotada: `main`. T01–T04 revisadas pela T00. Próxima passagem: receber/revisar T02.1 (evolução visual), implementar sobre a base com T04 e integrar antes da T05. Consulte STATE e handoffs para evidências/limites; uma frente de implementação por vez.
 
 ## Conteúdo e tema
 
