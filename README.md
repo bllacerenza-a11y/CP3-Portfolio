@@ -43,6 +43,7 @@ Vite informa a URL local (porta padrão 5173). Home/GitHub não precisam de vari
 | Comando                                   | Resultado esperado                                 |
 | ----------------------------------------- | -------------------------------------------------- |
 | `npm run dev`                             | Servidor de desenvolvimento em 127.0.0.1           |
+| `npm run dev:auth-check`                  | Diagnóstico local opt-in de login/logout real na porta 4176, caminho /work/t04AuthProbe.html |
 | `npm run build`                           | Typecheck e build de produção em dist              |
 | `npm run preview`                         | Serve dist em http://127.0.0.1:4173, porta estrita |
 | `npm run lint`                            | ESLint, sem warnings                               |

@@ -2,6 +2,8 @@
 
 Base: main `847e710`, branch `codex/t04-auth-contact`. Decisões de 23/10/2026. Implementação local; integração Supabase/Resend/Vercel depende de configuração e verificação reais. Formulário, telas de login/dashboard e proteção de rota são da T05.
 
+Atualização de serviço: migration aplicada no Supabase real, signup público desligado e proprietário provisionado com confirmação do usuário. Dez inspeções de catálogo e 11 probes comportamentais de SQL passaram; Data API real de visitante/serviço verificada. Evidências e distinção de claims simulados versus login/JWT em `evidence/T04/supabase-initial-verification.md` e `evidence/T04/supabase-owner-verification.md`. Login real do dono em diagnóstico local ainda pendente; Resend/Vercel seguem sem configuração. As menções de serviço não acessado abaixo descrevem a rodada inicial de implementação, anterior à retomada.
+
 ## Skill avaliada e aplicada
 
 - Origem primária: [supabase/agent-skills](https://github.com/supabase/agent-skills), revisão **c9be0e931b7930f7d02126d04774d904c381e7d7**, obtida pela API GitHub em 23/10/2026.

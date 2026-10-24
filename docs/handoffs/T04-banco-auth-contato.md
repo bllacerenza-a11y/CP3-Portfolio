@@ -1,5 +1,13 @@
 # Handoff — T04 — Banco, autenticação e contato
 
+## Retomada — proprietário provisionado e testes reais
+
+23/10/2026 ~21:34–21:43 BRT. Usuário criou a credencial Auth e confirmou explicitamente associá-la como proprietário único. INSERT administrativo em transação retornou sucesso; nenhum UUID/email pessoal versionado. `supabase/tests/authorizationRollback.sql` passou **11 verificações comportamentais** no PostgreSQL 17.11 hospedado (roles reais/claims simulados), com rollback de todos os dados de teste. Prova e limites: `docs/evidence/T04/supabase-owner-verification.md`, captura `supabase-authorization-rollback.jpg`.
+
+`.env` local ignorado configurado com chaves existentes (segredo não exibido), HMAC e origens locais; nenhuma chave nova de serviço criada. Data API real: destaques públicos acessíveis, mensagens/RPC privadas negadas ao visitante (42501), leitura de serviço funcionando. Login/JWT real do dono ainda pendente: diagnóstico temporário gerado por `npm run dev:auth-check`, aberto em `http://127.0.0.1:4176/work/t04AuthProbe.html`, estado inicial sessão ausente. Usuário deve usar a própria senha nessa página. Processo Vite da T04 na porta 4176 mantido para esse teste; encerrar quando concluir. Ferramenta de diagnóstico fora do produto/build; UI/rotas da T05 preservadas.
+
+Check atualizado aprovado: 24 backend +48 execuções E2E; log `docs/evidence/T04/check-supabase.log`. Alterações versionadas desta rodada: probe SQL e seu teste de rollback, gerador local/comando/package, README e evidências. Sem nova dependência, sem integração à main, STATE/THREADS preservados e edição T02 excluída. Resend/recebimento real, outro login controlado e Vercel continuam pendentes. Esta seção atualiza as pendências históricas abaixo.
+
 ## Retomada com Supabase real — 23/10/2026
 
 Esta seção atualiza os limites históricos da primeira rodada abaixo. O usuário criou o projeto Supabase CP3-Portfolio e fez login no navegador integrado. Projeto `fkaqywmnsknqoqniohfz`, região São Paulo, PostgreSQL 17.11. Migration do candidato e2338e1 aplicada manualmente pelo SQL Editor em transação, retorno Success. No rows returned. Dez inspeções reais de catálogo/RLS/grants passaram; ainda falta a matriz comportamental com contas/JWTs reais. Evidência e consulta exata em `docs/evidence/T04/supabase-initial-verification.md`, captura sem credenciais em `docs/evidence/T04/supabase-rls-grants.jpg`.
