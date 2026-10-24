@@ -51,6 +51,7 @@ Vite informa a URL local (porta padrão 5173). Home/GitHub não precisam de vari
 | `npm run typecheck`                       | TypeScript estrito sem emitir arquivos             |
 | `npm test`                                | Testes de servidor, build e E2E desktop/mobile Chromium |
 | `npm run test:server`                     | SQL/RLS em Postgres WASM e lógica HTTP/Auth/email com fixtures |
+| `npm run test:supabase`                   | Opt-in no Supabase configurado: cria/remove um usuário Auth descartável, testa JWT de não proprietário, sem enviar email |
 | `npm run test:e2e`                        | E2E sobre dist já atualizado                       |
 | `npm run check`                           | Lint, formatação, typecheck/build e E2E            |
 

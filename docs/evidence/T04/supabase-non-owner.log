@@ -1,0 +1,54 @@
+
+> cp3-portfolio@0.1.0 test:supabase
+> node --env-file=.env scripts/verifySupabase.mjs
+
+[
+  {
+    "name": "visitor reads highlights",
+    "passed": true
+  },
+  {
+    "name": "visitor cannot read messages",
+    "passed": true
+  },
+  {
+    "name": "disposable Auth user created",
+    "passed": true
+  },
+  {
+    "name": "non-owner login issued real session",
+    "passed": true
+  },
+  {
+    "name": "non-owner identity verified by Auth",
+    "passed": true
+  },
+  {
+    "name": "non-owner explicitly denied ownership",
+    "passed": true
+  },
+  {
+    "name": "non-owner reads zero messages",
+    "passed": true
+  },
+  {
+    "name": "non-owner denied editing content",
+    "passed": true
+  },
+  {
+    "name": "non-owner denied highlights RPC",
+    "passed": true
+  },
+  {
+    "name": "non-owner denied contact service RPC",
+    "passed": true
+  },
+  {
+    "name": "non-owner logout clears session",
+    "passed": true
+  },
+  {
+    "name": "disposable user removed",
+    "passed": true
+  }
+]

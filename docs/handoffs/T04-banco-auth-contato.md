@@ -1,5 +1,13 @@
 # Handoff — T04 — Banco, autenticação e contato
 
+## Retomada — login/logout/JWT reais verificados
+
+23/10/2026 ~21:47–21:53 BRT. Usuário fez login no diagnóstico usando a própria senha. Captura fornecida confirmou login/owner; agente verificou restauração após reload, leitura privada permitida (caixa vazia), logout, remoção do cache e sessão ausente após novo reload. Provas sem credenciais em `docs/evidence/T04/auth-owner-restored.jpg` e `auth-owner-logout.jpg`.
+
+`npm run test:supabase` acrescentado como opt-in: cria um Auth user descartável com credencial aleatória não impressa, verifica sessão/JWT real de não proprietário, negativas da RLS/RPCs e logout, remove o usuário de teste no finally. **12 checks passaram**, log `supabase-non-owner.log`. Dono não foi removido/alterado; nenhum email enviado. Detalhes/limites em `docs/evidence/T04/auth-live-session.md`. Login/JWT do dono/outro deixam de ser pendência; UI/guard T05 continuam pendentes.
+
+Diagnóstico local terminou em logout e prévia T04 encerrada por Ctrl+C. Conta Resend ainda inexistente segundo usuário; cadastro aberto no navegador para ele concluir credencial/termos. Resend/remetente/destinatário, email recebido e runtime Vercel permanecem pendentes. Lint/formato/tipos e teste real opt-in aprovados no script final; checagem administrativa confirmou zero usuários de teste remanescentes. Nenhuma integração à main ou edição de STATE/THREADS nesta rodada. As seções abaixo são históricas quando contradizem esta atualização.
+
 ## Retomada — proprietário provisionado e testes reais
 
 23/10/2026 ~21:34–21:43 BRT. Usuário criou a credencial Auth e confirmou explicitamente associá-la como proprietário único. INSERT administrativo em transação retornou sucesso; nenhum UUID/email pessoal versionado. `supabase/tests/authorizationRollback.sql` passou **11 verificações comportamentais** no PostgreSQL 17.11 hospedado (roles reais/claims simulados), com rollback de todos os dados de teste. Prova e limites: `docs/evidence/T04/supabase-owner-verification.md`, captura `supabase-authorization-rollback.jpg`.
