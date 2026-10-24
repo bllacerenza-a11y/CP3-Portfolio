@@ -138,3 +138,7 @@ Na adoção, registrar o repositório de origem, caminho da skill, SHA do commit
 9. **Decidir e registrar.** Adotar apenas o trecho ou pacote útil, adaptar quando a licença permitir, manter como referência ou rejeitar. Atualizar o estado neste documento somente depois da ação correspondente e da verificação de descoberta e funcionamento.
 
 O estado inicial acima permanece para as candidatas sem adoção. Exceções registradas: frontend-design aplicada textualmente na T02 e Vercel React Best Practices aplicada textualmente na T03 após conferência de revisão, licença e inventário. Avaliações nos documentos de cada tarefa, resultados e limites nos handoffs. Nenhum pacote de skill foi instalado ou redistribuído.
+
+## Aplicação efetiva T04 — 23/10/2026
+
+Supabase Postgres Best Practices avaliada e aplicada como orientação textual na revisão c9be0e931b7930f7d02126d04774d904c381e7d7, versão declarada 1.1.1, licença MIT. SKILL/LICENSE/inventário e sete referências pertinentes lidos; detalhes e links fixados em T04_BACKEND.md. Nenhuma instalação de skill. SQL/RLS verificados localmente em Postgres WASM; serviços Supabase/Auth/Resend/Vercel reais continuam pendentes. A avaliação textual não substitui a matriz real de autorização.

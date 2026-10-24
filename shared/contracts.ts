@@ -22,6 +22,7 @@ export type ContactField = 'name' | 'email' | 'message';
 export type ContactResult =
   | { status: 'notified'; messageId: string }
   | { status: 'saved_notification_failed'; messageId: string }
+  | { status: 'saved_notification_pending'; messageId: string }
   | { status: 'invalid'; fields: Partial<Record<ContactField, string>> }
   | { status: 'failed'; retryable: boolean };
 
@@ -41,3 +42,12 @@ export interface Highlight {
   repo: string;
   position: number;
 }
+
+export type HighlightInput = Omit<Highlight, 'position'>;
+
+export type OwnerSession =
+  | { status: 'loading' }
+  | { status: 'anonymous' }
+  | { status: 'owner'; userId: string }
+  | { status: 'forbidden'; userId: string }
+  | { status: 'error' };

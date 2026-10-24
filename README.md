@@ -1,6 +1,6 @@
 # CP3 — Portfólio, Stack e Harness Engineering
 
-Projeto individual de portfólio React, iniciado do zero. Fundação T01 e identidade/tema T02 integrados. A entrega local T03 acrescenta API GitHub real, listagem pública paginada, detalhes por URL, estados e cache compartilhado; consulte [handoff T03](docs/handoffs/T03-github-rotas-cache.md) para evidências e [STATE](docs/STATE.md) para o estado de integração. Contato, autenticação e painel continuam nas tarefas responsáveis.
+Projeto individual de portfólio React, iniciado do zero. Fundação T01, identidade/tema T02 e API GitHub T03 integrados. T04 acrescenta migrations/RLS, serviços de sessão/dados e API de contato com persistência e notificação Resend; implementação e testes locais, serviços reais ainda pendentes. Consulte [T04_BACKEND](docs/T04_BACKEND.md), [contratos T05](docs/CONTRACTS.md) e [STATE](docs/STATE.md) para estado de integração. Telas de formulário/login/painel pertencem à T05.
 
 ## Começar por aqui
 
@@ -38,7 +38,7 @@ npx playwright install chromium
 npm run dev
 ```
 
-Vite informa a URL local (porta padrão 5173). A fundação não precisa de variáveis. `.env.example` documenta apenas nomes futuros; copie para `.env` quando implementar integrações, com valores próprios. Nunca inclua segredos em VITE_: seu conteúdo vai ao navegador.
+Vite informa a URL local (porta padrão 5173). Home/GitHub não precisam de variáveis. `.env.example` documenta nomes utilizados pela integração T04; copie para `.env` com valores próprios ao configurar os serviços. Nunca inclua segredos em VITE_: seu conteúdo vai ao navegador. Configuração e ordem das migrations/Auth/Resend em [T04_BACKEND](docs/T04_BACKEND.md). Preview/dev Vite servem a SPA; não executam /api/contact.
 
 | Comando                                   | Resultado esperado                                 |
 | ----------------------------------------- | -------------------------------------------------- |
@@ -48,20 +48,21 @@ Vite informa a URL local (porta padrão 5173). A fundação não precisa de vari
 | `npm run lint`                            | ESLint, sem warnings                               |
 | `npm run format:check` / `npm run format` | Confere / aplica Prettier                          |
 | `npm run typecheck`                       | TypeScript estrito sem emitir arquivos             |
-| `npm test`                                | Gera build e executa E2E desktop/mobile Chromium   |
+| `npm test`                                | Testes de servidor, build e E2E desktop/mobile Chromium |
+| `npm run test:server`                     | SQL/RLS em Postgres WASM e lógica HTTP/Auth/email com fixtures |
 | `npm run test:e2e`                        | E2E sobre dist já atualizado                       |
 | `npm run check`                           | Lint, formatação, typecheck/build e E2E            |
 
-Playwright sobe o preview automaticamente e recusa servidor preexistente na porta 4173 para não testar uma aplicação errada. Em Linux/CI use `npx playwright install --with-deps chromium`. O relatório HTML fica em playwright-report (ignorado no Git); traces são mantidos apenas em falhas. A suíte verifica navegação, tema, estados GitHub, paginação, recuperação e cache usando fixtures sintéticas em tests/fixtures, sem depender da API externa no CI. A aplicação não importa fixtures. Consultas reais e inspeção do navegador são evidências separadas no handoff T03. Não cobre ainda os cenários obrigatórios de formulário/autorização de R09.
+Playwright sobe o preview automaticamente e recusa servidor preexistente na porta 4173 para não testar uma aplicação errada. Em Linux/CI use `npx playwright install --with-deps chromium`. O relatório HTML fica em playwright-report (ignorado no Git); traces são mantidos apenas em falhas. A suíte E2E verifica navegação, tema e GitHub com fixtures sintéticas, sem API externa no CI. `tests/server` executa a migration em PGlite, com roles/Auth sintéticos, e testa validação, autorização de banco, idempotência, quotas e HTTP/notificação. Não reproduz GoTrue/PostgREST/Vercel/Resend reais; R09 na UI de formulário e redirecionamento sem login depende da T05. A aplicação não importa fixtures. Evidências reais são separadas nos handoffs.
 
 `.github/workflows/ci.yml` executa a instalação limpa e `npm run check` em pushes e PRs. A configuração precisa ser executada no GitHub após criação do remoto público. Preview Vite não executa Functions; deploy e rewrites de produção pertencem a T07.
 
 ## Stack e padrões
 
-Instalados: React, TypeScript, Vite, React Router declarativo, TanStack Query, CSS Modules, ESLint, Prettier e Playwright. As decisões comparadas e os serviços escolhidos para futuras integrações estão em ARCHITECTURE.md; versões exatas estão em package.json/lockfile.
+Instalados: React, TypeScript, Vite, React Router declarativo, TanStack Query, Supabase JS, Zod, CSS Modules, ESLint, Prettier e Playwright; PGlite apenas em desenvolvimento/testes. Decisões e limites em ARCHITECTURE.md/T04_BACKEND.md; versões exatas em package.json/lockfile.
 
 - `src/app`: composição e rotas; `src/styles`: tokens globais; `shared`: contratos cliente/servidor; `tests/e2e`: comportamento no build.
-- Criar `src/components`, `src/features`, `src/services`, `src/hooks`, `shared/schemas`, `api` e migrations somente quando forem usados. Apresentação não contém acesso direto a serviços; regras e validação ficam separadas e testáveis.
+- `src/components` apresenta UI; `src/features` reúne funcionalidades/hooks; `src/services` integra APIs do navegador; `shared/schemas` valida fronteiras; `api` adapta HTTP Node; `server` concentra regra/integrações privadas; `supabase/migrations` guarda SQL versionado; `tests/server` verifica backend local. Apresentação não contém acesso direto a serviços.
 - Componentes e arquivos `.tsx`: PascalCase; hooks: `useNome.ts`; outros módulos: camelCase; testes: `*.spec.ts`. Interfaces e tipos: PascalCase.
 - CSS local em `Componente.module.css`; estilos globais restritos a tokens/base. Tokens e props compartilhados devem seguir os contratos antes de consumo por outra tarefa.
 - TypeScript estrito verifica tipos; ESLint verifica código e regras de hooks; Prettier verifica formato; CI aplica os mesmos comandos locais. Convenções de nomes de arquivo são conferidas em revisão.
