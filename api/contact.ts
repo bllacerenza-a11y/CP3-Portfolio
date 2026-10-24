@@ -11,12 +11,25 @@ async function readBody(request: NodeRequest): Promise<unknown> {
   const declaredBytes = Number(request.headers['content-length']);
   if (Number.isFinite(declaredBytes) && declaredBytes > maxBodyBytes)
     throw new RangeError('Payload too large');
-  if (request.body !== undefined) {
-    const text = JSON.stringify(request.body);
+  let parsedBody: unknown;
+  try {
+    parsedBody = request.body;
+  } catch (error) {
+    // Vercel's lazy JSON helper throws ApiError(400), not SyntaxError.
+    if (
+      error instanceof Error &&
+      'statusCode' in error &&
+      error.statusCode === 400
+    )
+      throw new SyntaxError('Invalid JSON');
+    throw error;
+  }
+  if (parsedBody !== undefined) {
+    const text = JSON.stringify(parsedBody);
     if (Buffer.byteLength(text) > maxBodyBytes)
       throw new RangeError('Payload too large');
     // Vercel's body helper already parsed JSON. Do not accept double-encoded JSON.
-    return request.body;
+    return parsedBody;
   }
   const chunks: Buffer[] = [];
   let bytes = 0;

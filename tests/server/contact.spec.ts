@@ -258,6 +258,13 @@ test('ramo Vercel aceita body pré-processado e usa somente IP da plataforma', a
     const requestWithBody = Object.assign(incoming, {
       body: incoming.url?.includes('double') ? JSON.stringify(data) : data,
     });
+    if (incoming.url?.includes('invalid-json')) {
+      Object.defineProperty(requestWithBody, 'body', {
+        get() {
+          throw Object.assign(new Error('Invalid JSON'), { statusCode: 400 });
+        },
+      });
+    }
     void handler(requestWithBody, response);
   });
   await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
@@ -287,6 +294,15 @@ test('ramo Vercel aceita body pré-processado e usa somente IP da plataforma', a
           method: 'POST',
           headers: validHeaders,
           body: '{}',
+        })
+      ).status,
+    ).toBe(400);
+    expect(
+      (
+        await fetch(`${url}?invalid-json`, {
+          method: 'POST',
+          headers: validHeaders,
+          body: '{broken',
         })
       ).status,
     ).toBe(400);
