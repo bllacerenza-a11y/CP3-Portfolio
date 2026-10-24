@@ -1,5 +1,13 @@
 # Handoff — T04 — Banco, autenticação e contato
 
+## Retomada com Supabase real — 23/10/2026
+
+Esta seção atualiza os limites históricos da primeira rodada abaixo. O usuário criou o projeto Supabase CP3-Portfolio e fez login no navegador integrado. Projeto `fkaqywmnsknqoqniohfz`, região São Paulo, PostgreSQL 17.11. Migration do candidato e2338e1 aplicada manualmente pelo SQL Editor em transação, retorno Success. No rows returned. Dez inspeções reais de catálogo/RLS/grants passaram; ainda falta a matriz comportamental com contas/JWTs reais. Evidência e consulta exata em `docs/evidence/T04/supabase-initial-verification.md`, captura sem credenciais em `docs/evidence/T04/supabase-rls-grants.jpg`.
+
+Migration aplicada via editor não atualiza histórico da CLI; reconciliar antes de db push. Dono ainda não provisionado; usuário precisa criar a credencial Auth diretamente no serviço. Variáveis locais, matriz visitante/dono/outro, Resend/email e Vercel continuam pendentes. Código não alterado/retestado nesta rodada, apenas serviço e documentação. Branch T04 preservada, sem integrar main nem editar STATE/THREADS e sem incluir edição T02.
+
+Signup público desabilitado, salvo e confirmado após reload (Email habilitado, confirmação ligada, login anônimo desligado). Formulário Create new user aberto no navegador para o usuário definir email/senha; Auto confirm user marcado. Aguardando ele finalizar essa criação para provisionar o dono e testar sessão/permissões. Não foi enviado convite nem coletada senha.
+
 ## Identificação e estado
 
 - **Tarefa/chat:** T04, CP3 · 04 — Banco, autenticação e contato (`01a1677e-9a7c-7300-aab8-7afb327cbc06`).
