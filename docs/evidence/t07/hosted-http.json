@@ -1,0 +1,151 @@
+{
+  "checkedAt": "2026-10-24T16:52:24.397Z",
+  "base": "https://cp3-portfolio-peach.vercel.app",
+  "metadata": {
+    "environment": "production",
+    "revision": "1263d471c0eaa10855477a8c1254362f72b9c7c8"
+  },
+  "checks": [
+    {
+      "method": "GET",
+      "path": "/",
+      "status": 200,
+      "expected": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "method": "GET",
+      "path": "/login",
+      "status": 200,
+      "expected": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboard",
+      "status": 200,
+      "expected": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "method": "GET",
+      "path": "/projetos/bllacerenza-a11y/GS_AETHER_EDGE",
+      "status": 200,
+      "expected": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "method": "GET",
+      "path": "/rota-inexistente",
+      "status": 200,
+      "expected": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "method": "GET",
+      "path": "/api/contact",
+      "status": 405,
+      "expected": 405,
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "method": "GET",
+      "path": "/api/inexistente",
+      "status": 404,
+      "expected": 404,
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "method": "GET",
+      "path": "/assets/inexistente.js",
+      "status": 404,
+      "expected": 404,
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "method": "GET",
+      "path": "/.env",
+      "status": 404,
+      "expected": 404,
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "method": "GET",
+      "path": "/work/t04AuthProbe.html",
+      "status": 404,
+      "expected": 404,
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "method": "POST",
+      "name": "invalid",
+      "path": "/api/contact",
+      "status": 400,
+      "expected": 400,
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": "no-store",
+      "body": "{\"status\":\"invalid\",\"fields\":{\"name\":\"Invalid input: expected string, received undefined\",\"email\":\"Invalid input: expected string, received undefined\",\"message\":\"Invalid input: expected string, received undefined\"}}"
+    },
+    {
+      "method": "POST",
+      "name": "forbidden-origin",
+      "path": "/api/contact",
+      "status": 403,
+      "expected": 403,
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": "no-store",
+      "body": "{\"status\":\"failed\",\"retryable\":false}"
+    },
+    {
+      "method": "POST",
+      "name": "no-origin",
+      "path": "/api/contact",
+      "status": 403,
+      "expected": 403,
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": "no-store",
+      "body": "{\"status\":\"failed\",\"retryable\":false}"
+    },
+    {
+      "method": "POST",
+      "name": "wrong-content-type",
+      "path": "/api/contact",
+      "status": 415,
+      "expected": 415,
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": "no-store",
+      "body": "{\"status\":\"failed\",\"retryable\":false}"
+    },
+    {
+      "method": "POST",
+      "name": "malformed",
+      "path": "/api/contact",
+      "status": 400,
+      "expected": 400,
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": "no-store",
+      "body": "{\"status\":\"invalid\",\"fields\":{}}"
+    },
+    {
+      "method": "POST",
+      "name": "large-body",
+      "path": "/api/contact",
+      "status": 413,
+      "expected": 413,
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": "no-store",
+      "body": "{\"status\":\"failed\",\"retryable\":false}"
+    }
+  ],
+  "initialResources": [
+    "/assets/index-CxAjl8rQ.js",
+    "/assets/AsyncState-nPgmuhu1.js",
+    "/assets/projectQueries-BLTwznbc.js",
+    "/assets/routes-DkFvWFZP.js",
+    "/assets/AsyncState-D0d-0x9h.css",
+    "/assets/index-C-epKvHS.css"
+  ],
+  "serverSecretsInInitialResources": [],
+  "validSubmissions": 0,
+  "externalWritesRequested": 0
+}

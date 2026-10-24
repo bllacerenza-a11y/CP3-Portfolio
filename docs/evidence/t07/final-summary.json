@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-10-24T16:54:40.648Z",
+  "revision": "1263d471c0eaa10855477a8c1254362f72b9c7c8",
+  "production": "https://cp3-portfolio-peach.vercel.app",
+  "immutable": "https://cp3-portfolio-b3qm91njg-neox5.vercel.app",
+  "preview": "https://cp3-portfolio-kdjf1umpp-neox5.vercel.app",
+  "http": {
+    "passed": 16,
+    "total": 16
+  },
+  "lighthouse": {
+    "version": "13.5.0",
+    "score": 98,
+    "fetchTime": "2026-10-24T16:52:30.529Z",
+    "metrics": {
+      "first-contentful-paint": "1.5 s",
+      "largest-contentful-paint": "2.3 s",
+      "total-blocking-time": "30 ms",
+      "cumulative-layout-shift": "0",
+      "speed-index": "1.5 s"
+    }
+  },
+  "ci": {
+    "url": "https://github.com/bllacerenza-a11y/CP3-Portfolio/actions/runs/40113449290",
+    "status": "completed",
+    "conclusion": "success",
+    "sha": "1263d471c0eaa10855477a8c1254362f72b9c7c8"
+  }
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "target": "production",
+    "key": "VITE_SUPABASE_URL",
+    "status": 0,
+    "secret": false
+  },
+  {
+    "target": "production",
+    "key": "VITE_SUPABASE_PUBLISHABLE_KEY",
+    "status": 0,
+    "secret": false
+  },
+  {
+    "target": "production",
+    "key": "SUPABASE_URL",
+    "status": 0,
+    "secret": true
+  },
+  {
+    "target": "production",
+    "key": "SUPABASE_SECRET_KEY",
+    "status": 0,
+    "secret": true
+  },
+  {
+    "target": "production",
+    "key": "CONTACT_RATE_LIMIT_SECRET",
+    "status": 0,
+    "secret": true
+  },
+  {
+    "target": "production",
+    "key": "CONTACT_ALLOWED_ORIGINS",
+    "status": 0,
+    "secret": true
+  },
+  {
+    "target": "production",
+    "key": "RESEND_API_KEY",
+    "status": 0,
+    "secret": true
+  },
+  {
+    "target": "production",
+    "key": "CONTACT_FROM_EMAIL",
+    "status": 0,
+    "secret": true
+  },
+  {
+    "target": "production",
+    "key": "CONTACT_TO_EMAIL",
+    "status": 0,
+    "secret": true
+  },
+  {
+    "target": "preview",
+    "key": "VITE_SUPABASE_URL",
+    "status": 0,
+    "secret": false
+  },
+  {
+    "target": "preview",
+    "key": "VITE_SUPABASE_PUBLISHABLE_KEY",
+    "status": 0,
+    "secret": false
+  }
+]
