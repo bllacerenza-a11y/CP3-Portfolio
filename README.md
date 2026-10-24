@@ -1,10 +1,10 @@
 # CP3 — Portfólio, Stack e Harness Engineering
 
-Projeto individual de portfólio React, iniciado do zero. Fundação T01, identidade/tema T02 e API GitHub T03 integrados. T04 acrescenta migrations/RLS, serviços de sessão/dados e API de contato com persistência e notificação Resend; implementação e testes locais, serviços reais ainda pendentes. Consulte [T04_BACKEND](docs/T04_BACKEND.md), [contratos T05](docs/CONTRACTS.md) e [STATE](docs/STATE.md) para estado de integração. Telas de formulário/login/painel pertencem à T05.
+Projeto individual de portfólio React, iniciado do zero. Fundação T01, identidade/tema T02 e API GitHub T03 integrados. T04 acrescenta migrations/RLS, serviços de sessão/dados e API de contato com persistência e notificação Resend; testes locais e evidências de Supabase/Resend reais registrados, runtime Vercel pendente. Consulte [T04_BACKEND](docs/T04_BACKEND.md), [contratos T05](docs/CONTRACTS.md) e [STATE](docs/STATE.md) para estado de integração. Telas de formulário/login/painel pertencem à T05.
 
 ## Começar por aqui
 
-Evolução visual T02.1: implementação candidata em branch própria, conforme [direção e mídias](docs/T021_VISUAL.md). Home com pranchas editoriais, catálogo compacto e narrativa nos detalhes públicos, mantendo dados/cache reais da T03. A colaboração SmartCameraStudy é apresentada como privada, sem metadados inventados. [Handoff de integração](docs/handoffs/T021-evolucao-visual.md) registra revisão, testes e limites; a T00 confirma integração. Formulário/login/dashboard continuam na T05.
+Evolução visual T02.1 revisada e integrada localmente pela T00, conforme [revisão](docs/handoffs/T00-revisao-T021-react.md) e [direção e mídias](docs/T021_VISUAL.md). Home com pranchas editoriais, catálogo compacto e narrativa nos detalhes públicos, mantendo dados/cache reais da T03. A colaboração SmartCameraStudy é apresentada como privada, sem metadados inventados. [Handoff do executor](docs/handoffs/T021-evolucao-visual.md) registra testes e limites. Formulário/login/dashboard continuam na T05.
 
 1. Leia [HANDOFF_CP3_CODEX.md](HANDOFF_CP3_CODEX.md).
 2. Consulte os [requisitos](docs/REQUIREMENTS.md) e o [estado real](docs/STATE.md).
@@ -78,7 +78,7 @@ Responsáveis por arquivos compartilhados e contratos estão em CONTRACTS.md. Um
 
 Convenção inicial: GitHub Flow, branch por funcionalidade, commits com prefixos feat, fix, test, docs, refactor, chore e ci. O histórico deve refletir trabalho real. O repositório remoto público e a integração com Vercel ainda precisam ser configurados.
 
-Branch principal local adotada: `main`. T01–T04 revisadas pela T00. Proposta T02.1 aprovada para implementação React; próxima passagem: executar a evolução visual sobre a base com T04 e submetê-la à revisão T00 antes da T05. Consulte STATE e handoffs para evidências/limites; uma frente de implementação por vez.
+Branch principal local adotada: `main`. T01–T04 e React T02.1 revisadas pela T00. Próxima passagem: usuário iniciar T05 sobre a base integrada, preservando contratos e direção visual. Consulte STATE e handoffs para evidências/limites; uma frente de implementação por vez.
 
 ## Conteúdo e tema
 
