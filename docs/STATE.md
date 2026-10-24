@@ -18,26 +18,28 @@ Atualização: 24/10/2026, America/Sao_Paulo. Responsável: coordenação T00.
 
 ## Situação das tarefas
 
+T07 candidato 1263d47 publicado, entrega f3b2d97/65e8247 revisada: CI remoto success e Lighthouse mobile 98 conferidos; check próprio aprovado (25 backend +110 E2E e ESM emitido). **Correção necessária antes da integração:** rewrite exclui nomes de repo com ponto; /projetos/vercel/next.js retorna 404 do host. Ver docs/handoffs/T00-revisao-T07.md. Main tem somente registro documental 59702f8; não fazer push nela até integrar o produto T07, pois pode substituir a produção atual pelo produto anterior. Nenhum push/deploy feito pela T00 nesta revisão.
+
 T06 84e4556/25ef39c revisada pela T00: correções de foco/contraste e migration incremental de destaques sem expansão de grants/RLS. Evidências UI/JWT e recibo de contato reais conferidos, incluindo confirmação humana de recebimento no chat T06. Check próprio: 25 backend +110 E2E, lint/formato/tipos/build aprovados; build produção posterior aprovado. Revisão em docs/handoffs/T00-revisao-T06.md. Nenhum envio/escrita externa repetido pela T00.
 
 | Tarefa | Situação real |
 | --- | --- |
-| T00 | Coordenação ativa; T06 revisada e aprovada para integração local |
-| T01 | Base local integrada; EM REVISÃO para CI remoto |
+| T00 | Coordenação ativa; revisão T07 devolvida com correção de rota |
+| T01 | Base integrada; CI remoto conferido na T07 |
 | T02 | Escopo original UI/tema concluído; evolução visual solicitada como T02.1 |
 | T03 | CONCLUÍDA no escopo local API/rotas/cache |
 | T04 | CONCLUÍDA no escopo backend revisado; UI e runtime Vercel nas tarefas responsáveis |
 | T02.1 | CONCLUÍDA no escopo local; React revisado/aprovado para integração à main |
 | T05 | INTEGRADA localmente; aceite UI/JWT/contato real realizado na T06, produção pendente |
 | T06 | CONCLUÍDA no escopo local/integrado real; produção e auditoria integral separadas |
-| T07 | LIBERADA para início pelo usuário: performance, CI remoto e deploy |
+| T07 | CORREÇÕES PENDENTES; publicada, CI/performance conferidos, produto não integrado |
 | T08–T09 | PLANEJADAS conforme dependências |
 
-A T06 foi revisada para integração local. T07 pode partir da main integrada; nenhuma conversa foi acionada pela T00 nesta revisão. Um escritor por checkout.
+A T07 volta ao executor para corrigir o fallback de projetos com ponto antes da integração/T08. Nenhuma conversa foi acionada pela T00 nesta revisão. Um escritor por checkout.
 
 ## Próxima ação
 
-Usuário inicia T07 no chat CP3 · 07 — Performance e deploy, em branch própria da main integrada com T06. Ler docs/handoffs/T00-revisao-T06.md, handoff T06 e contratos. Preparar remoto público/CI/Vercel, configuração por ambiente, SPA fallback preservando /api, runtime Function/origens/IP/quotas e Lighthouse mobile >=80 com relatório. Comprovar deploy automático por push main e documentar restauração. Conferir mídias/licenças antes de publicar. Preservar edição local T02 e não reaplicar migrations já executadas manualmente; reconciliar histórico antes de CLI. T00 não iniciou T07.
+Usuário retoma T07 na branch codex/t07-performance-deploy e lê docs/handoffs/T00-revisao-T07.md na main local. Corrigir/testar/publicar fallback para detalhes com ponto, preservando exclusões de API/assets/arquivos; comprovar acesso direto/refresh e erros da aplicação. Atualizar SHA/CI/evidências e retornar à T00. Preservar T02 e não fazer push da main anterior à integração do produto. Contato válido/UI do dono no host continuam limites explícitos para aceite final, sem envios repetidos por rotina.
 
 Briefing da proposta: CP3-T02.1-Briefing-Visual.md nos outputs da conversa coordenadora; protótipo isolado previsto em outputs/T02.1. Regras e referências essenciais também constam em TASKS, seção T02.1. O usuário autorizou elevar o nível visual usando templates React, Bruno Simon e Awwwards como referências; isso é meta adicional do projeto, sem criar exigência acadêmica de 3D.
 
@@ -46,11 +48,11 @@ Proposta entregue em outputs/T02.1, fora do checkout, com PROPOSTA, INTEGRACAO, 
 ## Pendências e limites
 
 - R09 coberto por validação/bloqueio sem login. R04/R05 têm aceite UI/JWT do dono e contato UI→Node→Supabase/Resend reais na T06; runtime de produção permanece pendente. Negativas locais usam mocks/PGlite; evidência de outro JWT real pertence à T04. Não confundir esses ambientes.
-- Remoto GitHub/CI remoto, Vercel/deploy/rewrites, origens/segredos públicos por ambiente e IP/quotas no runtime hospedado pendentes. Vite preview não executa Functions.
+- GitHub público/CI/Vercel/produção e Lighthouse 98 possuem evidências T07 conferidas; correção de rewrite para nomes com ponto pendente. Contato válido/UI do dono no host e esgotamento de quota reais não verificados na T07. Vite preview não executa Functions.
 - Resend usa remetente de teste onboarding@resend.dev e destinatário da própria conta. Produção/outros destinatários exigem configuração de remetente/domínio autorizada; não presumir que o teste comprova esse ambiente.
 - Migration inicial e incremental 202610240001_highlights_safe_delete.sql aplicadas via SQL Editor; reconciliar histórico antes de usar fluxo CLI. Não reaplicar CREATE inicial em banco já migrado.
 - Recebimento de teste não garante entrega futura. notified significa aceitação pelo provedor; failed/pending não são reenviados automaticamente. Estado final T06: três mensagens (duas T04 +uma T06 accepted/não respondida), highlights []; não remover/reseed/repetir envios por rotina.
-- Lighthouse, dispositivo físico, acessibilidade integral, testes finais de produção e vídeo pendentes.
+- Lighthouse mobile medido 98 na T07/1263d47; dispositivo físico, acessibilidade integral, aceite final de produção e vídeo pendentes.
 - Usuário informou em 24/10 que SmartCameraStudy/PedroOliDev é privado e que contribuiu nele. Isso é compatível com o 404 anônimo, documentado pelo GitHub; T00 não realizou acesso autenticado ao repo. Contribuição detalhada e mídia pública autorizada continuam pendentes. Ser de outro dono não impede consultas públicas; privacidade requer acesso autorizado. Login web não autentica automaticamente API pública/Git nem torna dados privados publicáveis.
 - T02.1 trata a câmera como referência editorial secundária privada, sem metadados simulados ou consulta anônima; os projetos públicos continuam atendendo à integração GitHub. Não colocar token GitHub no frontend; eventual apresentação pública mais completa depende de materiais autorizados pelo responsável.
 - Foto, contato público, habilidades e função individual nos projetos ainda têm pendências; ano/horário de 03/11 não confirmados.
@@ -64,3 +66,4 @@ Proposta entregue em outputs/T02.1, fora do checkout, com PROPOSTA, INTEGRACAO, 
 - Revisão React atual: docs/handoffs/T00-revisao-T021-react.md; código fbf34da, handoff 0a120d0. T00 alterou somente coordenação nesta rodada; SHA da edição preexistente T02 permaneceu igual. Check de aplicação realizado antes destas mudanças documentais.
 - Revisão frontend atual: docs/handoffs/T00-revisao-T05.md; código 5628e24/handoff f85d22e. T00 alterou somente coordenação; edição preexistente T02 permanece fora dos commits e com mesmo SHA. Nenhuma escrita administrativa/envio real nesta revisão.
 - Revisão QA atual: docs/handoffs/T00-revisao-T06.md; código 84e4556/handoff 25ef39c. T00 alterou somente coordenação, preservando SHA T02; integração local registrada no commit de fechamento.
+- Revisão hospedagem: docs/handoffs/T00-revisao-T07.md. T00 atualizou apenas coordenação na main local, sem integrar produto T07, push ou mudanças externas. Edição T02 permanece preservada.
