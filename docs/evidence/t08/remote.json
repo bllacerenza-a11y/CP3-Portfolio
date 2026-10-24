@@ -1,0 +1,49 @@
+{
+  "checkedAt": "2026-10-24T22:42:32.223Z",
+  "results": [
+    {
+      "path": "",
+      "status": 200,
+      "private": false,
+      "default_branch": "main",
+      "html_url": "https://github.com/bllacerenza-a11y/CP3-Portfolio"
+    },
+    {
+      "path": "/pulls/1",
+      "status": 200,
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "mergeable": true,
+      "head": "f6bec99102d6f379732b66e056632e203a28bf02",
+      "base": "59702f8aa5f5e0ade9a1c53f9a3a2c1f3563513d",
+      "url": "https://github.com/bllacerenza-a11y/CP3-Portfolio/pull/1"
+    },
+    {
+      "path": "/actions/runs?head_sha=5cd7834c7a8a91e6cceb6b87d5423c7658988cb3",
+      "status": 200,
+      "runs": [
+        {
+          "id": 40138517675,
+          "sha": "5cd7834c7a8a91e6cceb6b87d5423c7658988cb3",
+          "conclusion": "success",
+          "status": "completed",
+          "url": "https://github.com/bllacerenza-a11y/CP3-Portfolio/actions/runs/40138517675"
+        },
+        {
+          "id": 40138514973,
+          "sha": "5cd7834c7a8a91e6cceb6b87d5423c7658988cb3",
+          "conclusion": "success",
+          "status": "completed",
+          "url": "https://github.com/bllacerenza-a11y/CP3-Portfolio/actions/runs/40138514973"
+        }
+      ]
+    },
+    {
+      "path": "/commits/main",
+      "status": 200,
+      "sha": "59702f8aa5f5e0ade9a1c53f9a3a2c1f3563513d",
+      "subject": "docs: registra publicacao inicial e verifica gatilho da main"
+    }
+  ]
+}

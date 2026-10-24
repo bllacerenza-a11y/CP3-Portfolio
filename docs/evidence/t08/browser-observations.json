@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-24",
+  "timezone": "America/Sao_Paulo",
+  "recordType": "manual sanitized record of own browser observations, not an automated runner or network capture",
+  "origin": "https://cp3-portfolio-peach.vercel.app",
+  "productRevision": "5cd7834c7a8a91e6cceb6b87d5423c7658988cb3",
+  "localRevision": "65ba9ccfda3e31823ecd38f831cefa3a4845142a",
+  "viewportMeasuredCss": { "width": 516, "height": 480 },
+  "physicalDevice": false,
+  "observations": [
+    { "flow": "empty contact form", "result": "three specific field errors, general alert, focus on name; no valid submission" },
+    { "flow": "anonymous direct dashboard", "result": "redirected to login, no private panel" },
+    { "flow": "next.js direct and reload", "result": "real metadata, JavaScript, The React Framework, GitHub vercel/next.js" },
+    { "flow": "missing dotted repository", "result": "loading then repository-not-found with explicit retry and no assumed cause" },
+    { "flow": "unknown app route", "result": "friendly 404 and return link" },
+    { "flow": "theme", "result": "system/dark to explicit light; reload retained light and second tab reflected it; restored original system preference" },
+    { "flow": "owner sign-in", "actor": "human user entered credentials personally and announced completion", "result": "real production dashboard observed; no secret key substitute" },
+    { "flow": "owner reload", "result": "session and dashboard restored; three existing synthetic messages, all unresponded; two accepted notifications and one failed; zero selected highlights" },
+    { "flow": "owner logout", "result": "login shown; direct dashboard attempt again returned to login without private messages" },
+    { "flow": "public highlights after session", "result": "Nenhum destaque selecionado no momento" }
+  ],
+  "externalWritesPerformed": ["normal authentication flow by user and logout by auditor"],
+  "contactValidPosts": 0,
+  "messageMutations": 0,
+  "highlightMutations": 0,
+  "sqlOrMigrationActions": 0,
+  "unverifiedInProduction": ["valid contact persistence and email receipt through Vercel Function", "responded/highlight mutations", "another real user JWT in this round", "quota exhaustion"],
+  "privacy": "No credential, cookie, token, session export, private message body, or contact email included"
+}

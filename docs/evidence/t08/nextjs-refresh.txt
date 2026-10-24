@@ -1,0 +1,42 @@
+Browser tab: 1, Title: "Bruno Bastos | Portfólio", URL: "https://cp3-portfolio-peach.vercel.app/projetos/vercel/next.js".
+1 AXWebArea Bruno Bastos | Portfólio, URL: cp3-portfolio-peach.vercel.app/projetos/vercel/next.js
+	2 container root
+		3 link Description: Pular para o conteúdo, Value: cp3-portfolio-peach.vercel.app/projetos/vercel/next.js#conteudo
+		4 container
+			5 link Description: Bruno Bastos, início, Value: cp3-portfolio-peach.vercel.app/
+			6 container Navegação principal
+				7 link Description: Projetos, Value: cp3-portfolio-peach.vercel.app/#projetos
+				8 link Description: Sobre, Value: cp3-portfolio-peach.vercel.app/#sobre
+				9 link Description: Contato, Value: cp3-portfolio-peach.vercel.app/#contato
+			10 container Aparência
+				11 button Ativar tema claro
+					12 text Tema
+					13 text escuro
+				14 checkbox Usar sistema, Value: 1
+		15 container next.js
+			16 link Description: Voltar aos projetos, Value: cp3-portfolio-peach.vercel.app/#projetos
+			17 text vercel / next.js
+			18 heading next.js, Value: 1, ID: project-title
+				19 text next.js
+			20 container
+				21 text Repositório público next.js vercel Conheça o código e a documentação no GitHub.
+			22 definition list
+				23 container Linguagem principal
+					24 text Linguagem principal
+				25 text JavaScript
+				26 container Atualizado no GitHub
+					27 text Atualizado no GitHub
+				28 text 24/10/2026
+			29 link Description: Ver repositório no GitHub, Value: github.com/vercel/next.js
+			30 link Description: Visitar site do projeto, Value: nextjs.org/
+			31 container
+				32 heading Do repositório, Value: 2
+					33 text Do repositório
+				34 text The React Framework
+		35 container
+			36 link Description: Bruno Bastos., Value: cp3-portfolio-peach.vercel.app/
+			37 text Engenharia de Software · FIAP Primeiro ano, trajetória em construção.
+			38 link Description: GitHub, Value: github.com/bllacerenza-a11y
+			39 link Description: Área do proprietário, Value: cp3-portfolio-peach.vercel.app/dashboard
+
+The focused UI element is 1 AXWebArea Bruno Bastos | Portfólio, URL: cp3-portfolio-peach.vercel.app/projetos/vercel/next.js

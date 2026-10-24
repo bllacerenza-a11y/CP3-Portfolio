@@ -1,0 +1,164 @@
+{
+  "checkedAt": "2026-10-24T22:41:43.370Z",
+  "base": "https://cp3-portfolio-peach.vercel.app",
+  "expectedRevision": "5cd7834c7a8a91e6cceb6b87d5423c7658988cb3",
+  "metadata": {
+    "environment": "production",
+    "revision": "5cd7834c7a8a91e6cceb6b87d5423c7658988cb3"
+  },
+  "revisionMatches": true,
+  "requests": "GET only",
+  "checks": [
+    {
+      "pathname": "/projetos/vercel/next.js",
+      "expectedStatus": 200,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "spaShell": true,
+      "passed": true
+    },
+    {
+      "pathname": "/projetos/vercel/cp3-t07-missing.repo",
+      "expectedStatus": 200,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "spaShell": true,
+      "passed": true
+    },
+    {
+      "pathname": "/projetos/bllacerenza-a11y/GS_AETHER_EDGE",
+      "expectedStatus": 200,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "spaShell": true,
+      "passed": true
+    },
+    {
+      "pathname": "/",
+      "expectedStatus": 200,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "spaShell": true,
+      "passed": true
+    },
+    {
+      "pathname": "/login",
+      "expectedStatus": 200,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "spaShell": true,
+      "passed": true
+    },
+    {
+      "pathname": "/dashboard",
+      "expectedStatus": 200,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "spaShell": true,
+      "passed": true
+    },
+    {
+      "pathname": "/rota-inexistente",
+      "expectedStatus": 200,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "spaShell": true,
+      "passed": true
+    },
+    {
+      "pathname": "/api/contact",
+      "expectedStatus": 405,
+      "status": 405,
+      "contentType": "application/json; charset=utf-8",
+      "spaShell": false,
+      "passed": true
+    },
+    {
+      "pathname": "/api",
+      "expectedStatus": 404,
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "spaShell": false,
+      "passed": true
+    },
+    {
+      "pathname": "/api/inexistente",
+      "expectedStatus": 404,
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "spaShell": false,
+      "passed": true
+    },
+    {
+      "pathname": "/api/contact.js",
+      "expectedStatus": 404,
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "spaShell": false,
+      "passed": true
+    },
+    {
+      "pathname": "/assets",
+      "expectedStatus": 404,
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "spaShell": false,
+      "passed": true
+    },
+    {
+      "pathname": "/assets/inexistente.js",
+      "expectedStatus": 404,
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "spaShell": false,
+      "passed": true
+    },
+    {
+      "pathname": "/.env",
+      "expectedStatus": 404,
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "spaShell": false,
+      "passed": true
+    },
+    {
+      "pathname": "/work/t04AuthProbe.html",
+      "expectedStatus": 404,
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "spaShell": false,
+      "passed": true
+    },
+    {
+      "pathname": "/arquivo-ausente.txt",
+      "expectedStatus": 404,
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "spaShell": false,
+      "passed": true
+    },
+    {
+      "pathname": "/deployment-inexistente.json",
+      "expectedStatus": 404,
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "spaShell": false,
+      "passed": true
+    },
+    {
+      "pathname": "/projetos/vercel/next.js/package.json",
+      "expectedStatus": 404,
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "spaShell": false,
+      "passed": true
+    },
+    {
+      "pathname": "/assets/index-CxAjl8rQ.js",
+      "expectedStatus": 200,
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "passed": true
+    }
+  ]
+}

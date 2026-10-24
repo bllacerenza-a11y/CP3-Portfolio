@@ -1,0 +1,30 @@
+Browser tab: 1, Title: "Bruno Bastos | Portfólio", URL: "https://cp3-portfolio-peach.vercel.app/projetos/vercel/cp3-t08-missing.repo".
+1 AXWebArea Bruno Bastos | Portfólio, URL: cp3-portfolio-peach.vercel.app/projetos/vercel/cp3-t08-missing.repo
+	2 container root
+		3 link Description: Pular para o conteúdo, Value: cp3-portfolio-peach.vercel.app/projetos/vercel/cp3-t08-missing.repo#conteudo
+		4 container
+			5 link Description: Bruno Bastos, início, Value: cp3-portfolio-peach.vercel.app/
+			6 container Navegação principal
+				7 link Description: Projetos, Value: cp3-portfolio-peach.vercel.app/#projetos
+				8 link Description: Sobre, Value: cp3-portfolio-peach.vercel.app/#sobre
+				9 link Description: Contato, Value: cp3-portfolio-peach.vercel.app/#contato
+			10 container Aparência
+				11 button Ativar tema claro
+					12 text Tema
+					13 text escuro
+				14 checkbox Usar sistema, Value: 1
+		15 container cp3-t08-missing.repo
+			16 link Description: Voltar aos projetos, Value: cp3-portfolio-peach.vercel.app/#projetos
+			17 text vercel / cp3-t08-missing.repo
+			18 heading cp3-t08-missing.repo, Value: 1, ID: project-title
+				19 text cp3-t08-missing.repo
+			26 container
+				27 text Repositório não encontrado O endereço não está disponível na API pública do GitHub. A causa não foi confirmada.
+				28 button Consultar novamente
+		21 container
+			22 link Description: Bruno Bastos., Value: cp3-portfolio-peach.vercel.app/
+			23 text Engenharia de Software · FIAP Primeiro ano, trajetória em construção.
+			24 link Description: GitHub, Value: github.com/bllacerenza-a11y
+			25 link Description: Área do proprietário, Value: cp3-portfolio-peach.vercel.app/dashboard
+
+The focused UI element is 1 AXWebArea Bruno Bastos | Portfólio, URL: cp3-portfolio-peach.vercel.app/projetos/vercel/cp3-t08-missing.repo

@@ -1,0 +1,54 @@
+{
+  "checkedAt": "2026-10-24T22:43:12.635Z",
+  "payloads": "invalid only; never reaches save",
+  "results": [
+    {
+      "name": "invalid-allowed-origin",
+      "status": 400,
+      "expected": 400,
+      "body": {
+        "status": "invalid",
+        "fields": {
+          "name": "Invalid input: expected string, received undefined",
+          "email": "Invalid input: expected string, received undefined",
+          "message": "Invalid input: expected string, received undefined"
+        }
+      },
+      "cache": "no-store",
+      "passed": true
+    },
+    {
+      "name": "invalid-foreign-origin",
+      "status": 403,
+      "expected": 403,
+      "body": {
+        "status": "failed",
+        "retryable": false
+      },
+      "cache": "no-store",
+      "passed": true
+    },
+    {
+      "name": "invalid-no-origin",
+      "status": 403,
+      "expected": 403,
+      "body": {
+        "status": "failed",
+        "retryable": false
+      },
+      "cache": "no-store",
+      "passed": true
+    },
+    {
+      "name": "wrong-content-type",
+      "status": 415,
+      "expected": 415,
+      "body": {
+        "status": "failed",
+        "retryable": false
+      },
+      "cache": "no-store",
+      "passed": true
+    }
+  ]
+}

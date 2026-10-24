@@ -1,0 +1,28 @@
+Browser tab: 1, Title: "Bruno Bastos | Portfólio", URL: "https://cp3-portfolio-peach.vercel.app/rota-inexistente".
+1 AXWebArea Bruno Bastos | Portfólio, URL: cp3-portfolio-peach.vercel.app/rota-inexistente
+	2 container root
+		3 link Description: Pular para o conteúdo, Value: cp3-portfolio-peach.vercel.app/rota-inexistente#conteudo
+		4 container
+			5 link Description: Bruno Bastos, início, Value: cp3-portfolio-peach.vercel.app/
+			6 container Navegação principal
+				7 link Description: Projetos, Value: cp3-portfolio-peach.vercel.app/#projetos
+				8 link Description: Sobre, Value: cp3-portfolio-peach.vercel.app/#sobre
+				9 link Description: Contato, Value: cp3-portfolio-peach.vercel.app/#contato
+			10 container Aparência
+				11 button Ativar tema escuro
+					12 text Tema
+					13 text claro
+				14 checkbox Usar sistema, Value: 0
+		15 container
+			16 text 404
+			17 heading Página não encontrada, Value: 1
+				18 text Página não encontrada
+			19 text Este endereço não está disponível. Os projetos e a apresentação estão na página inicial.
+			20 link Description: Voltar ao início, Value: cp3-portfolio-peach.vercel.app/
+		21 container
+			22 link Description: Bruno Bastos., Value: cp3-portfolio-peach.vercel.app/
+			23 text Engenharia de Software · FIAP Primeiro ano, trajetória em construção.
+			24 link Description: GitHub, Value: github.com/bllacerenza-a11y
+			25 link Description: Área do proprietário, Value: cp3-portfolio-peach.vercel.app/dashboard
+
+The focused UI element is 1 AXWebArea Bruno Bastos | Portfólio, URL: cp3-portfolio-peach.vercel.app/rota-inexistente
