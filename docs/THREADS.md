@@ -21,10 +21,10 @@ Projeto ID: af83f24f-ec4d-4a09-a003-802517dbbf8f. Host: local. Conferido no apli
 | T08 | CP3 · 08 — Auditoria independente | 01a1677e-aa5f-7003-9b53-933c27c74645 |
 | T09 | CP3 · 09 — Documentação e vídeo | 01a1677e-ae73-7713-90e2-f0dadbc67078 |
 
-T01–T04 retomadas e revisadas pela T00; erros iniciais de limite são históricos. Fundação f31726a; UI/tema 9d7c883/e129e35; GitHub d961852/4d66cc4; backend e2338e1 com evolução até 212749d. Revisões em docs/handoffs/T00-revisao-T01.md a T00-revisao-T04.md. CI remoto/deploy pendentes. T02.1 reutilizou CP3 · 02 — Design, conteúdo e tema: proposta e React fbf34da/0a120d0 revisados pela T00 em 24/10/2026, conforme docs/handoffs/T00-revisao-T021-react.md. Próxima passagem: usuário iniciar CP3 · 05 — Formulário e dashboard sobre a main integrada. Nenhum novo chat criado ou acionado pela T00 nesta revisão.
+T01–T05 retomadas e revisadas pela T00 no escopo local; erros iniciais de limite são históricos. Fundação f31726a; UI/tema 9d7c883/e129e35; GitHub d961852/4d66cc4; backend e2338e1 com evolução até 212749d. Revisões em docs/handoffs/T00-revisao-T01.md a T00-revisao-T05.md. T02.1 reutilizou CP3 · 02 — Design, conteúdo e tema: React fbf34da/0a120d0 revisado em docs/handoffs/T00-revisao-T021-react.md. T05 5628e24/f85d22e integrada localmente, com aceite UI/JWT/contato real pendente. Próxima passagem: usuário iniciar CP3 · 06 — Testes e qualidade sobre a main integrada. CI remoto/deploy pendentes. Nenhum novo chat criado ou acionado pela T00 nesta revisão.
 
 Os prompts iniciais limitam a primeira rodada à preparação em leitura. O usuário pode iniciar o trabalho no chat correspondente. Todas apontam para o mesmo checkout; não disparar edições simultâneas sem isolamento e integração combinados.
 
 Uma conversa mantém seu próprio histórico. A continuidade vem dos arquivos canônicos, dos handoffs por tarefa e do estado real do Git. Estar no mesmo projeto não equivale a compartilhar automaticamente todos os turnos.
 
-Sequência atual: T05 → T00 revisar/integrar → ciclo final T06 → T07 → T08 → fechamento T09. Testes/documentação acompanham as entregas; ver TASKS e STATE. Um escritor de código por checkout.
+Sequência atual: T06 (QA e aceite integrado real pendente) → T00 revisar → T07 → T08 → fechamento T09. Testes/documentação acompanham as entregas; ver TASKS e STATE. Um escritor de código por checkout.

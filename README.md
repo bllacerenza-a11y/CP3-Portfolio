@@ -1,6 +1,6 @@
 # CP3 — Portfólio, Stack e Harness Engineering
 
-Projeto individual de portfólio React, iniciado do zero. Fundação T01, identidade/tema T02, API GitHub T03, backend T04 e evolução visual T02.1 integrados. T05 implementa contato, login/guard, dashboard lazy, mensagens/respondida e destaques persistidos na home; candidato para revisão T00, com [handoff e limites](docs/handoffs/T05-contact-dashboard.md). Evidências anteriores dos serviços reais em [T04_BACKEND](docs/T04_BACKEND.md) e handoffs T04/T00; runtime Vercel pendente. Consulte [contratos](docs/CONTRACTS.md) e [STATE](docs/STATE.md) para integração canônica.
+Projeto individual de portfólio React, iniciado do zero. Fundação T01, identidade/tema T02, API GitHub T03, backend T04 e evolução visual T02.1 integrados. T05 implementa contato, login/guard, dashboard lazy, mensagens/respondida e destaques persistidos na home; revisada e integrada localmente pela T00, com [revisão e limites](docs/handoffs/T00-revisao-T05.md). Aceite UI/JWT do dono e contato integrado real pendentes para T06; evidências anteriores dos serviços reais em [T04_BACKEND](docs/T04_BACKEND.md) e handoffs T04/T00. Runtime Vercel pendente. Consulte [contratos](docs/CONTRACTS.md) e [STATE](docs/STATE.md) para integração canônica.
 
 ## Começar por aqui
 
@@ -79,7 +79,7 @@ Responsáveis por arquivos compartilhados e contratos estão em CONTRACTS.md. Um
 
 Convenção inicial: GitHub Flow, branch por funcionalidade, commits com prefixos feat, fix, test, docs, refactor, chore e ci. O histórico deve refletir trabalho real. O repositório remoto público e a integração com Vercel ainda precisam ser configurados.
 
-Branch principal local adotada: `main`. T01–T04 e React T02.1 revisadas pela T00. T05 parte do fechamento edbd683 em codex/t05-contact-dashboard e entrega candidato/handoff para revisão T00. Consulte STATE e handoffs para evidências/limites; uma frente de implementação por vez.
+Branch principal local adotada: `main`. T01–T05 e React T02.1 revisadas pela T00 no escopo local. Próxima passagem: usuário iniciar T06 para QA e aceite integrado real pendente. Consulte STATE e handoffs para evidências/limites; uma frente de implementação por vez.
 
 ## Conteúdo e tema
 

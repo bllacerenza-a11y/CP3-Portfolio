@@ -20,8 +20,8 @@ Somente T00 atualiza o estado em `docs/STATE.md`, dependências neste plano e v�
 | T02.1 | Evolução visual com referências | CONCLUÍDA no escopo local; React revisado pela T00 | Código fbf34da, handoff 0a120d0 e revisão T00 |
 | T03 | GitHub, rotas e cache | CONCLUÍDA no escopo local; revisada pela T00 | Produção T07 e curadoria persistida T04/T05 separadas |
 | T04 | Banco, autenticação, RLS, API de contato e email | CONCLUÍDA no escopo backend revisado | UI T05 e runtime/produção T07 separados |
-| T05 | Contato, dashboard e destaques integrados no frontend | LIBERADA para início pelo usuário | Main com T02.1/T04 integradas e contratos T03/T04 |
-| T06 | Testes, responsividade, acessibilidade e QA | PLANEJADA | Incremental desde T01; ciclo final após T05 |
+| T05 | Contato, dashboard e destaques integrados no frontend | INTEGRADA localmente; aceite UI/JWT/contato real pendente | Código 5628e24/handoff f85d22e e revisão T00 |
+| T06 | Testes, responsividade, acessibilidade e QA | LIBERADA para início pelo usuário | Main com T05; priorizar aceite conjunto com serviços reais |
 | T07 | Performance e deploy de produção | PLANEJADA | Preview desde T01; produção após testes de T06 |
 | T08 | Auditoria independente dos requisitos | PLANEJADA | T06 e T07, em revisão identificada |
 | T09 | README, evidências, roteiro de vídeo e entrega | PLANEJADA | Registro contínuo; consolidação após T08 |

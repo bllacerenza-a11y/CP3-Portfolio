@@ -14,25 +14,27 @@ Atualização: 24/10/2026, America/Sao_Paulo. Responsável: coordenação T00.
 - Skills aplicadas textualmente: frontend-design/T02, Vercel React Best Practices/T03 e Supabase Postgres Best Practices/T04. Revisões/inventários registrados em T02_DESIGN, T03_GITHUB e T04_BACKEND. Nenhum pacote de skill instalado.
 - Conteúdo confirmado: Bruno Bastos, estudante FIAP/Engenharia de Software/primeiro ano, conta pública bllacerenza-a11y; curadoria de três referências em T02_DESIGN.
 - T02.1 React fbf34da, handoff 0a120d0, revisada pela T00: mídia/narrativa/editorial e catálogo compacto, câmera com contexto privado, APIs/cache/rotas/tema/T04 preservados. T00 repetiu npm run check: exit 0, 24 backend +60 E2E (21,8 s), lint/formato/tipos/build aprovados; navegador com dados públicos e interação Aether/tema/contexto privado conferido. Revisão em docs/handoffs/T00-revisao-T021-react.md. Integração local registrada no commit de fechamento desta revisão.
+- T05 código 5628e24/handoff f85d22e revisados pela T00: contato, login/guard, painel lazy, mensagens/respondida e destaques implementados. Check próprio passou lint/formato/tipos/build:test e 25 backend; E2E inicial 103/104 com ERR_NO_BUFFER_SPACE em navegação Chromium. Repetição integral com quatro workers: 104 aprovados (42,5 s), sem mudança de código. Build de produção posterior aprovado e dist sintético substituído. Revisão em docs/handoffs/T00-revisao-T05.md, integração local no commit de fechamento.
 
 ## Situação das tarefas
 
 | Tarefa | Situação real |
 | --- | --- |
-| T00 | Coordenação ativa; implementação T02.1 revisada e aprovada |
+| T00 | Coordenação ativa; T05 revisada e aprovada no escopo local |
 | T01 | Base local integrada; EM REVISÃO para CI remoto |
 | T02 | Escopo original UI/tema concluído; evolução visual solicitada como T02.1 |
 | T03 | CONCLUÍDA no escopo local API/rotas/cache |
 | T04 | CONCLUÍDA no escopo backend revisado; UI e runtime Vercel nas tarefas responsáveis |
 | T02.1 | CONCLUÍDA no escopo local; React revisado/aprovado para integração à main |
-| T05 | LIBERADA para início pelo usuário após integração local T02.1 |
-| T06–T09 | PLANEJADAS conforme dependências; checks/documentação incrementais já existem |
+| T05 | INTEGRADA localmente; aceite UI/JWT/contato real pendente, sem declarar R04/R05 completos |
+| T06 | LIBERADA para QA e priorização do aceite integrado real |
+| T07–T09 | PLANEJADAS conforme dependências; checks/documentação incrementais já existem |
 
-A avaliação da evolução visual foi concluída. T05 pode partir da main integrada; nenhuma conversa foi acionada pela T00 nesta revisão. Um escritor por checkout.
+A implementação frontend T05 foi revisada para integração local. T06 pode partir da main integrada; nenhuma conversa foi acionada pela T00 nesta revisão. Um escritor por checkout.
 
 ## Próxima ação
 
-Usuário inicia T05 no chat CP3 · 05 — Formulário e dashboard, a partir da main com T02.1/T04 integradas e em branch própria. Implementar contato, login/guard, dashboard lazy, mensagens/respondida e destaques persistidos usando os contratos e serviços existentes. Preservar direção visual, API/cache/URLs/tema e edição local do handoff T02. Ler docs/handoffs/T00-revisao-T021-react.md e CONTRACTS antes de editar. T00 não iniciou T05.
+Usuário inicia T06 no chat CP3 · 06 — Testes e qualidade, em branch própria da main integrada com T05. Ler docs/handoffs/T00-revisao-T05.md, handoff T05 e contratos. Priorizar QA funcional/visual/acessibilidade e aceite UI/JWT do proprietário com serviços reais, sem segredos em registros. Contato integrado exige adaptador Node ou Vercel e envio de teste deliberado, não rotina repetitiva. Preservar edição local do handoff T02. T00 não iniciou T06.
 
 Briefing da proposta: CP3-T02.1-Briefing-Visual.md nos outputs da conversa coordenadora; protótipo isolado previsto em outputs/T02.1. Regras e referências essenciais também constam em TASKS, seção T02.1. O usuário autorizou elevar o nível visual usando templates React, Bruno Simon e Awwwards como referências; isso é meta adicional do projeto, sem criar exigência acadêmica de 3D.
 
@@ -40,7 +42,7 @@ Proposta entregue em outputs/T02.1, fora do checkout, com PROPOSTA, INTEGRACAO, 
 
 ## Pendências e limites
 
-- UI de formulário/login/guard/dashboard e gestão de destaques persistidos ainda pertencem à T05. Não declarar R04/R05 ou R09 integralmente concluídos.
+- UI de contato/login/guard/dashboard e destaques implementada e verificada localmente por testes controlados. R09 coberto por validação e bloqueio sem login; R04/R05 ainda sem aceite conjunto da UI autenticada/JWT e contato com serviços reais nesta rodada. Verificar em T06 e runtime T07, sem confundir mocks com integração hospedada.
 - Remoto GitHub/CI remoto, Vercel/deploy/rewrites, origens/segredos públicos por ambiente e IP/quotas no runtime hospedado pendentes. Vite preview não executa Functions.
 - Resend usa remetente de teste onboarding@resend.dev e destinatário da própria conta. Produção/outros destinatários exigem configuração de remetente/domínio autorizada; não presumir que o teste comprova esse ambiente.
 - Migration foi aplicada via SQL Editor; reconciliar histórico antes de usar fluxo CLI. Não reaplicar CREATE em banco já migrado.
@@ -57,3 +59,4 @@ Proposta entregue em outputs/T02.1, fora do checkout, com PROPOSTA, INTEGRACAO, 
 - Revisão atual: docs/handoffs/T00-revisao-T04.md; código testado 212749d, implementação e2338e1. Commit de fechamento contém o estado acima e mantém histórico original.
 - Revisão da proposta visual: docs/handoffs/T00-revisao-T02-1-proposta.md. O commit dessa revisão altera apenas coordenação, sem copiar o protótipo para o código da aplicação.
 - Revisão React atual: docs/handoffs/T00-revisao-T021-react.md; código fbf34da, handoff 0a120d0. T00 alterou somente coordenação nesta rodada; SHA da edição preexistente T02 permaneceu igual. Check de aplicação realizado antes destas mudanças documentais.
+- Revisão frontend atual: docs/handoffs/T00-revisao-T05.md; código 5628e24/handoff f85d22e. T00 alterou somente coordenação; edição preexistente T02 permanece fora dos commits e com mesmo SHA. Nenhuma escrita administrativa/envio real nesta revisão.

@@ -22,11 +22,12 @@ Pasta canônica: C:\Users\bruno\Documents\Codex\CP3-Portfolio.
 - T04 revisada até 212749d (código inicial e2338e1): backend/auth/RLS/contato implementados, Supabase e Resend reais configurados/testados pelo executor; usuário confirmou recebimento do email. T00 repetiu somente checks locais: 24 backend +48 execuções E2E aprovados. Ver STATE e docs/handoffs/T00-revisao-T04.md para limites.
 - Proposta T02.1 entregue fora do checkout e revisada pela T00: documentos, capturas, interação no navegador, hashes e sintaxe conferidos. Aprovada para conversão React sobre a base com T04; não integrada como código. Ver docs/handoffs/T00-revisao-T02-1-proposta.md.
 - Conversão React T02.1 entregue em fbf34da/0a120d0 e revisada/aprovada para integração local pela T00. Check próprio: 24 backend +60 E2E, lint/formato/tipos/build aprovados. API pública, narrativa/tema e contexto privado conferidos no navegador; sem alteração de serviços T04. Revisão em docs/handoffs/T00-revisao-T021-react.md; commit de fechamento integra o histórico à main.
-- Remoto/CI remoto e deploy Vercel pendentes. UI/formulário/guard/dashboard pertencem à T05. Remetente Resend atual é de teste, limitado à conta; configuração de produção pendente. Nenhuma nota Lighthouse obtida.
+- T05 5628e24/f85d22e revisada e aprovada para integração local pela T00: contato/login/guard/painel lazy/mensagens/respondida/destaques. Lint/formato/tipos/build e 25 backend passaram; E2E inicial teve ERR_NO_BUFFER_SPACE, repetição integral com quatro workers aprovou 104 execuções. Build produção posterior aprovado. Aceite UI/JWT do dono e contato integrado real pendentes; ver docs/handoffs/T00-revisao-T05.md.
+- Remoto/CI remoto e deploy Vercel pendentes. Remetente Resend atual é de teste, limitado à conta; configuração de produção pendente. Nenhuma nota Lighthouse obtida.
 - frontend-design/T02, Vercel React Best Practices/T03 e Supabase Postgres Best Practices/T04 aplicadas textualmente; revisões em T02_DESIGN, T03_GITHUB e T04_BACKEND. Nenhum pacote de skill instalado.
 - A presença de documentos e de conversas não representa conclusão das funcionalidades.
 - Projeto CP3-Portfolio cadastrado no aplicativo; esta conversa é T00. Nove chats de execução criados e vinculados em docs/THREADS.md.
-- As primeiras rodadas tiveram erros de limite históricos; T01–T04 foram retomadas pelo usuário. T05–T09 aguardam início. Evolução visual T02.1 combinada antes da T05; reutiliza o chat T02 e sua proposta começou isolada do checkout.
+- As primeiras rodadas tiveram erros de limite históricos; T01–T05 foram retomadas pelo usuário e revisadas no escopo local. T06–T09 aguardam início. Evolução visual T02.1 precedeu T05 e reutilizou o chat T02; sua proposta começou isolada do checkout.
 - Em 23/10/2026, o usuário pediu concluir as bases e avisar antes de implementar para trocar de modelo; autorizou modelos mais econômicos quando adequados. Ver docs/MODEL_POLICY.md.
 
 ## Fontes de verdade
@@ -65,4 +66,4 @@ Inspeções podem ocorrer em paralelo; escrever simultaneamente no mesmo checkou
 
 ## Próximo marco
 
-Usuário inicia T05 no chat existente, a partir da main com T02.1/T04 integradas. Ler STATE, CONTRACTS, tarefa T05 e docs/handoffs/T00-revisao-T021-react.md. Implementar contato, login/guard e dashboard lazy com mensagens/respondida e destaques persistidos, preservando API/cache/URLs/tema e direção visual. Respeitar contexto privado da câmera e pendências de publicação das mídias. Preservar a edição preexistente no handoff T02. Uma tarefa de implementação por vez; T00 ainda não iniciou nem acionou outro chat.
+Usuário inicia T06 no chat CP3 · 06 — Testes e qualidade a partir da main com T05 integrada. Ler STATE, CONTRACTS, tarefa T06 e docs/handoffs/T00-revisao-T05.md. QA funcional/visual/acessibilidade e aceite conjunto UI/JWT/serviços reais são prioridades; não declarar R04/R05 completos com base nos mocks. Contato real exige adaptador/Function e teste deliberado sem envios repetidos por rotina. Preservar direção visual, API/cache/URLs/tema e edição local do handoff T02. Uma tarefa por vez; T00 não iniciou nem acionou outro chat.
