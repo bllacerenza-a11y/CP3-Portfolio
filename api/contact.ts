@@ -21,7 +21,7 @@ async function readBody(request: NodeRequest): Promise<unknown> {
       'statusCode' in error &&
       error.statusCode === 400
     )
-      throw new SyntaxError('Invalid JSON');
+      throw new SyntaxError('Invalid JSON', { cause: error });
     throw error;
   }
   if (parsedBody !== undefined) {
