@@ -1,5 +1,7 @@
 # T02 — Direção visual e conteúdo
 
+Nota de continuidade, 24/10/2026: este documento registra a entrega original. A evolução aprovada T02.1 está em T021_VISUAL.md e no handoff correspondente. O usuário confirmou que SmartCameraStudy é uma colaboração em repositório privado; o antigo diagnóstico de ausência anônima não representa mais uma pendência de link público na UI. Conteúdo técnico publicável e função individual continuam sem confirmação.
+
 Decisão do usuário em 23/10/2026: editorial sóbrio, fundo claro quente, grafite, verde discreto e tipografia marcante. Execução na branch `codex/t02-design-theme`, base `56fefe5`, único escritor autorizado neste checkout.
 
 ## Plano adotado

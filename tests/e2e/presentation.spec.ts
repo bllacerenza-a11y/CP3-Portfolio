@@ -34,12 +34,14 @@ test('conteúdo confirmado, seleção de repositórios e pendência acessível',
     .getByRole('heading', { name: 'SmartCameraStudy' })
     .locator('..');
   await expect(
-    unavailable.getByText('Repositório não encontrado'),
+    unavailable.getByText(/Colaboração em repositório privado/),
   ).toBeVisible();
   await expect(
     unavailable.locator('a[href^="https://github.com/"]'),
   ).toHaveCount(0);
-  await expect(page.getByText('Contato direto em preparação')).toBeVisible();
+  await expect(
+    page.getByRole('link', { name: 'Visitar o perfil no GitHub' }),
+  ).toBeVisible();
 });
 
 test('atalho de teclado leva ao conteúdo e controle de tema tem foco visível', async ({
@@ -83,7 +85,7 @@ test('layout mantém conteúdo e controles dentro da tela nos dois temas', async
       );
       expect(overflow, `overflow em ${width}px/${colorScheme}`).toBe(false);
       await expect(
-        page.getByRole('heading', { name: 'Software se aprende construindo.' }),
+        page.getByRole('heading', { name: /Bruno Bastos/ }),
       ).toBeVisible();
       await expect(
         page.getByRole('button', { name: 'Usar sistema' }),

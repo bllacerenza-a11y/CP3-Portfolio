@@ -1,35 +1,52 @@
 import { BrowserRouter, Link, Route, Routes } from 'react-router';
-import { AsyncState } from '../components/AsyncState';
 import { ProjectsSection } from '../features/projects/ProjectsSection';
 import { ProjectDetails } from '../features/projects/ProjectDetails';
 import { ThemeToggle } from '../components/ThemeToggle';
-import { portfolio } from '../content/portfolio';
-import { routes } from './routes';
+import { portfolio, selectedRepositories } from '../content/portfolio';
+import { projectPath, routes } from './routes';
 import styles from './App.module.css';
 import { NavigationEffects } from './NavigationEffects';
 
 function Home() {
+  const first = selectedRepositories[0];
   return (
     <>
       <section className={styles.hero} aria-labelledby="intro-title">
         <div>
-          <p className={styles.introduction}>{portfolio.introduction}</p>
+          <p className={styles.introduction}>
+            Estudos, projetos e primeiras conexões.
+          </p>
           <h1 id="intro-title">
-            Software se aprende
+            Bruno
             <br />
-            construindo.
+            Bastos<span aria-hidden="true">.</span>
           </h1>
-          <a className={styles.cta} href="#projetos">
-            Conheça os projetos
-          </a>
         </div>
         <div className={styles.heroAside}>
-          <p>Um portfólio em formação.</p>
-          <p>
-            Projetos, estudos e os primeiros passos de uma trajetória em
-            tecnologia.
+          {first?.media && (
+            <Link
+              className={styles.heroMedia}
+              to={projectPath(first.owner, first.name)}
+              aria-label="Explorar o diagrama explicativo do Aether"
+            >
+              <img
+                src={first.media.src}
+                alt=""
+                width={first.media.width}
+                height={first.media.height}
+              />
+              <span>
+                Aether / esquema explicativo <span aria-hidden="true">↗</span>
+              </span>
+            </Link>
+          )}
+          <p>{portfolio.introduction}</p>
+          <p className={styles.muted}>
+            Um registro do que venho construindo e aprendendo em equipe.
           </p>
-          <a href={portfolio.github}>Acompanhe no GitHub</a>
+          <Link className={styles.textLink} to="/#projetos">
+            Explorar os projetos <span aria-hidden="true">↓</span>
+          </Link>
         </div>
       </section>
       <ProjectsSection />
@@ -40,21 +57,12 @@ function Home() {
           aria-labelledby="about-title"
         >
           <h2 id="about-title">Sobre mim</h2>
+          <p className={styles.aboutHeadline}>
+            Primeiro ano.
+            <br />
+            Primeiras conexões.
+          </p>
           <p className={styles.aboutText}>{portfolio.about}</p>
-          <dl className={styles.education}>
-            <div>
-              <dt>Formação</dt>
-              <dd>Engenharia de Software</dd>
-            </div>
-            <div>
-              <dt>Instituição</dt>
-              <dd>FIAP</dd>
-            </div>
-            <div>
-              <dt>Momento</dt>
-              <dd>Primeiro ano</dd>
-            </div>
-          </dl>
         </section>
         <section
           id="contato"
@@ -62,22 +70,15 @@ function Home() {
           aria-labelledby="contact-title"
         >
           <h2 id="contact-title">Vamos conversar</h2>
-          <p>
-            Por enquanto, você pode acompanhar os projetos pelo meu perfil
-            público.
-          </p>
-          <a className={styles.profileLink} href={portfolio.github}>
-            Visitar o perfil no GitHub
+          <p>Você pode acompanhar os projetos pelo meu perfil público.</p>
+          <a className={styles.cta} href={portfolio.github}>
+            Visitar o perfil no GitHub <span aria-hidden="true">↗</span>
           </a>
-          <AsyncState status="empty" title="Contato direto em preparação">
-            O formulário de mensagens estará disponível em uma próxima etapa.
-          </AsyncState>
         </section>
       </div>
     </>
   );
 }
-
 export function App() {
   return (
     <BrowserRouter>
@@ -97,7 +98,7 @@ export function App() {
             </span>
             <span>
               {portfolio.name}
-              <small>Portfólio</small>
+              <small>Portfólio em formação</small>
             </span>
           </Link>
           <nav aria-label="Navegação principal">
@@ -130,9 +131,12 @@ export function App() {
           </Routes>
         </main>
         <footer className={styles.footer}>
+          <Link className={styles.footerName} to={routes.home}>
+            {portfolio.name}.
+          </Link>
           <p>
-            {portfolio.name}
-            <span>Engenharia de Software · FIAP</span>
+            Engenharia de Software · FIAP
+            <span>Primeiro ano, trajetória em construção.</span>
           </p>
           <a href={portfolio.github}>GitHub</a>
         </footer>

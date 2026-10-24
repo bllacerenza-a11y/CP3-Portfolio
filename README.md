@@ -4,6 +4,8 @@ Projeto individual de portfólio React, iniciado do zero. Fundação T01, identi
 
 ## Começar por aqui
 
+Evolução visual T02.1: implementação candidata em branch própria, conforme [direção e mídias](docs/T021_VISUAL.md). Home com pranchas editoriais, catálogo compacto e narrativa nos detalhes públicos, mantendo dados/cache reais da T03. A colaboração SmartCameraStudy é apresentada como privada, sem metadados inventados. [Handoff de integração](docs/handoffs/T021-evolucao-visual.md) registra revisão, testes e limites; a T00 confirma integração. Formulário/login/dashboard continuam na T05.
+
 1. Leia [HANDOFF_CP3_CODEX.md](HANDOFF_CP3_CODEX.md).
 2. Consulte os [requisitos](docs/REQUIREMENTS.md) e o [estado real](docs/STATE.md).
 3. Localize sua tarefa no [plano de tarefas](docs/TASKS.md).

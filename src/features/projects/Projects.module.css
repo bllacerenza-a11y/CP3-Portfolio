@@ -1,104 +1,264 @@
 .section {
-  padding-block: 3rem;
+  padding-top: 2.2rem;
   border-top: 1px solid var(--color-border);
   scroll-margin-top: 1.5rem;
 }
-.section h2 {
-  margin: 0 0 1.4rem;
-  font-size: clamp(1.9rem, 3vw, 2.5rem);
-}
 .sectionHeading {
   display: flex;
+  align-items: end;
   justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0 2rem;
-  margin-bottom: 1rem;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
-.sectionHeading p,
-.owner {
+.sectionHeading h2 {
+  font-size: clamp(2rem, 3.2vw, 3.1rem);
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+.sectionHeading > p {
+  font-size: 0.85rem;
   color: var(--color-muted);
+  max-width: 26rem;
+  margin: 0;
 }
-.projects {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem;
+.featuredProjects {
+  margin-bottom: 3rem;
 }
-.projects > * {
-  min-width: 0;
+.featuredProjects > div:empty {
+  display: none;
 }
-.referenceTitle {
-  margin-top: 0;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(1.65rem, 2.6vw, 2.2rem);
-  line-height: 1.2;
-  overflow-wrap: anywhere;
+.listHeading {
+  font-size: 2rem !important;
+}
+.catalog {
+  border-top: 1px solid var(--color-border);
 }
 .reference {
-  padding: clamp(1.25rem, 2.5vw, 2rem);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 0.6rem;
+  padding: 1.5rem 0;
+}
+.referenceTitle {
+  font: 1.8rem var(--font-display);
 }
 .reference > a {
   display: inline-flex;
   align-items: center;
-  min-height: 2.75rem;
-}
-.section .listHeading {
-  margin-top: 3rem;
+  min-height: 44px;
 }
 .metadata {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem 2rem;
-  font-size: 0.8125rem;
+  gap: 0.75rem 1.5rem;
+  margin: 1.2rem 0;
 }
 .metadata dt {
   color: var(--color-muted);
+  font-size: 0.7rem;
 }
 .metadata dd {
   margin: 0.3rem 0 0;
+  font-size: 0.8rem;
+}
+.privateReference {
+  display: grid;
+  grid-template-columns: 1fr 1.65fr;
+  gap: 3rem;
+  border-bottom: 1px solid var(--color-border);
+  padding: 2rem 0 3rem;
+}
+.privateReference h2 {
+  font: 1.3rem var(--font-display);
+  margin: 0;
+}
+.privateReference h3 {
+  font: 1.2rem var(--font-display);
+  margin: 0;
+}
+.privateReference p {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+.privateReference a {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 44px;
+  font-size: 0.8rem;
+}
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin: 1.6rem 0;
+  font-size: 0.83rem;
 }
 .details {
-  padding-block: 3rem;
-  min-height: 65vh;
-  max-width: 52rem;
-  overflow-wrap: anywhere;
+  padding-bottom: 4rem;
 }
-.details h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  margin-block: 1rem 2rem;
-}
-.details h2 {
-  font-size: 1.8rem;
+.detailIntro {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: end;
+  gap: 4rem;
+  margin: 2rem 0 3rem;
 }
 .owner {
-  margin-top: 3rem;
+  font-size: 0.83rem;
+  color: var(--color-accent);
+  margin: 0 0 1.8rem;
 }
-.editorial {
-  margin-block: 2rem;
-  border-left: 2px solid var(--color-accent);
-  padding-left: 1.5rem;
+.detailIntro h1 {
+  font-size: clamp(4.5rem, 10vw, 9rem);
+  letter-spacing: -0.065em;
+  line-height: 1;
+  overflow-wrap: anywhere;
+  margin: 0;
+}
+.detailIntro h1 span {
+  color: var(--color-accent);
+}
+.detailIntro > p {
+  max-width: 45ch;
+  font-size: 1.1rem;
+  margin: 0;
+}
+.detailMetadata {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-border);
 }
 .links {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: 1rem 2rem;
+  font-size: 0.83rem;
 }
 .links a {
   display: inline-flex;
   align-items: center;
-  min-height: 2.75rem;
+  min-height: 44px;
+}
+.narrative {
+  display: grid;
+  grid-template-columns: 1fr 1.65fr;
+  gap: 4rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.narrative h2 {
+  font-size: 2rem;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+.narrative > div {
+  max-width: 64ch;
+}
+.narrative p {
+  margin: 0;
+}
+.teamNote {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  margin-top: 1.5rem !important;
+}
+.flow {
+  margin-top: 1.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-surface);
+  padding: 0 1.3rem;
+}
+.flow summary {
+  cursor: pointer;
+  min-height: 56px;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
+.flow ol {
+  padding-left: 1.25rem;
+  margin: 0 0 1rem;
+}
+.flow li {
+  padding: 0.75rem 0 0.75rem 0.5rem;
+}
+.flow li > span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-top: 0.2rem;
+}
+.flow > p {
+  margin: 1rem 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+.privateContext {
+  padding: 2rem;
+  background: var(--color-soft);
+  border-radius: 0.5rem;
+  max-width: 65ch;
+}
+.privateIntro {
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+.detailIntro .privateTitle {
+  font-size: clamp(2rem, 5.6vw, 5rem);
+}
+.privateContext h2 {
+  font-size: 2rem;
+  margin: 0;
 }
 @media (max-width: 62rem) {
-  .projects {
-    grid-template-columns: 1fr;
+  .detailIntro {
+    gap: 2rem;
+  }
+  .narrative {
+    gap: 2rem;
+    grid-template-columns: 1fr 1.8fr;
+  }
+  .privateReference {
+    gap: 2rem;
   }
 }
 @media (max-width: 40rem) {
-  .section {
-    padding-block: 2.25rem;
+  .sectionHeading {
+    align-items: start;
+    gap: 1rem;
+    flex-direction: column;
+    margin-bottom: 1.4rem;
+  }
+  .sectionHeading h2 {
+    font-size: 2.1rem;
+  }
+  .sectionHeading > p {
+    font-size: 0.8rem;
+  }
+  .listHeading {
+    font-size: 1.8rem !important;
+  }
+  .detailIntro {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 1rem 0 2rem;
+  }
+  .detailIntro h1 {
+    font-size: clamp(3.5rem, 20vw, 7rem);
+  }
+  .detailIntro > p {
+    font-size: 1rem;
+  }
+  .narrative,
+  .privateReference {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding-block: 2rem;
+  }
+  .narrative h2 {
+    font-size: 1.9rem;
   }
 }

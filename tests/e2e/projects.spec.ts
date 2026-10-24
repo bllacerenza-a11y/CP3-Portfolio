@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
   await mockGitHub(page);
 });
 
-test('mostra loading e consulta referência externa sem esperar pela lista', async ({
+test('mostra loading sem transformar curadoria ou colaboração privada em dados da API', async ({
   page,
 }) => {
   let release!: () => void;
@@ -21,7 +21,9 @@ test('mostra loading e consulta referência externa sem esperar pela lista', asy
   });
   await page.goto('/');
   await expect(page.getByText('Carregando projetos do GitHub')).toBeVisible();
-  await expect(page.getByText('Repositório não encontrado')).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'SmartCameraStudy', exact: true }),
+  ).toBeVisible();
   release();
   await expect(
     page.getByRole('link', { name: 'Ver detalhes de Aether', exact: true }),
@@ -62,8 +64,8 @@ test('lista, detalhes e navegação SPA compartilham cache e preservam tema', as
   await expect(
     page.getByRole('heading', { name: 'Melodia', exact: true }),
   ).toBeVisible();
-  // Lista e referência externa são as únicas chamadas, inclusive no retorno pela navegação principal.
-  expect(requests).toHaveLength(2);
+  // A lista é a única chamada: seleção e detalhes públicos aproveitam o mesmo cache.
+  expect(requests).toHaveLength(1);
 });
 
 test('acesso direto e refresh usam API; nulos e URL insegura têm fallback', async ({
@@ -102,22 +104,63 @@ test('acesso direto e refresh usam API; nulos e URL insegura têm fallback', asy
   expect(calls).toHaveLength(2);
 });
 
-test('SmartCameraStudy 404 tem URL interna e recuperação sem metadados fictícios', async ({
+test('colaboração privada preserva URL e contexto sem consultas ou metadados fabricados', async ({
   page,
 }) => {
+  const requests: string[] = [];
+  page.on('request', (request) => {
+    if (request.url().includes('api.github.com/repos/'))
+      requests.push(request.url());
+  });
   await page.goto('/');
   await page
-    .getByRole('link', { name: 'Consultar detalhes de SmartCameraStudy' })
+    .getByRole('link', { name: 'Sobre a colaboração em SmartCameraStudy' })
     .click();
   await expect(page).toHaveURL('/projetos/PedroOliDev/SmartCameraStudy');
-  await expect(page.getByText('Repositório não encontrado')).toBeVisible();
-  await expect(page.getByText(/A causa não foi confirmada/)).toBeVisible();
+  await expect(
+    page.getByText('Colaboração em repositório privado', { exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByText(/Bruno Bastos participou deste projeto/),
+  ).toBeVisible();
   await expect(page.locator('dl')).toHaveCount(0);
+  await expect(
+    page.getByRole('button', { name: 'Consultar novamente' }),
+  ).toHaveCount(0);
   await expect(
     page.getByRole('link', { name: 'Ver repositório no GitHub', exact: true }),
   ).toHaveCount(0);
   await page.reload();
+  await expect(
+    page.getByText('Colaboração em repositório privado', { exact: true }),
+  ).toBeVisible();
+  await page.getByRole('link', { name: 'Voltar aos projetos' }).click();
+  await expect(
+    page.getByRole('heading', { name: 'Projetos selecionados' }),
+  ).toBeVisible();
+  expect(requests).toEqual([]);
+  await page
+    .getByRole('link', { name: 'Sobre a colaboração em SmartCameraStudy' })
+    .click();
+  for (const width of [320, 390, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth > innerWidth,
+      ),
+    ).toBe(false);
+  }
+});
+
+test('404 público tem recuperação e mantém distinção de falha de API', async ({
+  page,
+}) => {
+  await page.goto('/projetos/outro-dono/ausente');
   await expect(page.getByText('Repositório não encontrado')).toBeVisible();
+  await expect(
+    page.getByRole('button', { name: 'Consultar novamente' }),
+  ).toBeVisible();
+  await expect(page.locator('dl')).toHaveCount(0);
   await page.getByRole('link', { name: 'Voltar aos projetos' }).click();
   await expect(
     page.getByRole('heading', { name: 'Projetos selecionados' }),
@@ -260,29 +303,22 @@ test('pagina lista completa, deduplica IDs e inclui forks e arquivados', async (
   expect(pages).toEqual(['1', '2']);
 });
 
-test('referência de outro dono acessível também usa API e cache de detalhes', async ({
+test('detalhe público de outro dono usa API e mantém cache na navegação SPA', async ({
   page,
 }) => {
   let calls = 0;
-  await page.route('https://api.github.com/repos/PedroOliDev/**', (route) => {
-    calls += 1;
-    return route.fulfill({
-      json: repository('SmartCameraStudy', 3, 'PedroOliDev'),
-    });
+  await page.route('https://api.github.com/repos/outro-dono/**', (route) => {
+    calls++;
+    return route.fulfill({ json: repository('publico', 3, 'outro-dono') });
   });
-  await page.goto('/');
-  await page
-    .getByRole('link', {
-      name: 'Ver detalhes de SmartCameraStudy',
-      exact: true,
-    })
-    .click();
-  await expect(
-    page.getByText('Descrição de teste: SmartCameraStudy'),
-  ).toBeVisible();
+  await page.goto('/projetos/outro-dono/publico');
+  await expect(page.getByText('Descrição de teste: publico')).toBeVisible();
   await expect(
     page.getByRole('link', { name: 'Ver repositório no GitHub', exact: true }),
-  ).toHaveAttribute('href', 'https://github.com/PedroOliDev/SmartCameraStudy');
+  ).toHaveAttribute('href', 'https://github.com/outro-dono/publico');
+  await page.getByRole('link', { name: 'Voltar aos projetos' }).click();
+  await page.goBack();
+  await expect(page.getByText('Descrição de teste: publico')).toBeVisible();
   expect(calls).toBe(1);
 });
 
@@ -308,34 +344,27 @@ test('cache vence em cinco minutos; falha na atualização mantém dados anterio
   expect(calls).toBe(2);
 });
 
-test('referência externa informa falha de atualização sem apagar dados em cache', async ({
+test('detalhe público externo preserva dados anteriores após falha de atualização', async ({
   page,
 }) => {
   await page.clock.install();
   let calls = 0;
-  await page.route('https://api.github.com/repos/PedroOliDev/**', (route) => {
-    calls += 1;
+  await page.route('https://api.github.com/repos/outro-dono/**', (route) => {
+    calls++;
     return route.fulfill(
       calls === 1
-        ? { json: repository('SmartCameraStudy', 3, 'PedroOliDev') }
+        ? { json: repository('publico', 3, 'outro-dono') }
         : { status: 503, json: {} },
     );
   });
-  await page.goto('/');
-  await expect(
-    page.getByRole('link', {
-      name: 'Ver detalhes de SmartCameraStudy',
-      exact: true,
-    }),
-  ).toBeVisible();
-  await page
-    .getByRole('link', { name: 'Ver detalhes de Aether', exact: true })
-    .click();
-  await page.clock.fastForward(5 * 60 * 1000 + 1);
+  await page.goto('/projetos/outro-dono/publico');
+  await expect(page.getByText('Descrição de teste: publico')).toBeVisible();
   await page.getByRole('link', { name: 'Voltar aos projetos' }).click();
+  await page.clock.fastForward(5 * 60 * 1000 + 1);
+  await page.goBack();
+  // Dado vencido é atualizado no mount; falha mantém o resultado anterior.
+  await expect(page.getByText('Descrição de teste: publico')).toBeVisible();
+  await expect.poll(() => calls).toBe(2);
   await expect(page.getByRole('alert')).toContainText('indisponível');
-  await expect(
-    page.getByText('Descrição de teste: SmartCameraStudy'),
-  ).toBeVisible();
-  expect(calls).toBe(2);
+  await expect(page.getByText('Descrição de teste: publico')).toBeVisible();
 });
