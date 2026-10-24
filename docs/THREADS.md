@@ -29,4 +29,6 @@ Uma conversa mantém seu próprio histórico. A continuidade vem dos arquivos ca
 
 T06 84e4556/25ef39c revisada/aprovada pela T00 em 24/10, com aceite UI/JWT e contato integrado real conferidos; ver docs/handoffs/T00-revisao-T06.md. Isso resolve as pendências locais T05 descritas acima. Próxima conversa: CP3 · 07 — Performance e deploy; T06 não aguarda novo início. Nenhum outro chat acionado pela T00.
 
-Sequência atual: T07 → T00 revisar → T08 → fechamento T09. Testes/documentação acompanham as entregas; ver TASKS e STATE. Um escritor de código por checkout.
+T07 publicada em 1263d47, revisão T00 devolveu correção de fallback para repo com ponto; ver docs/handoffs/T00-revisao-T07.md. Reutilizar CP3 · 07 — Performance e deploy e sua branch existente. Produto não integrado; nenhum push da main documental nesta revisão.
+
+Sequência atual: T07 corrigir/retornar → T00 revisar/integrar → T08 → fechamento T09. Testes/documentação acompanham as entregas; ver TASKS e STATE. Um escritor de código por checkout.
